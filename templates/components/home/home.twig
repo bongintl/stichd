@@ -1,0 +1,9 @@
+{% set intro = intro ?? {} %}
+{% set sections = sections ?? [] %}
+
+<div class="s-gap-top-2">
+    {% include 'components/home/home-intro' with intro only %}
+    {% for section in sections %}
+        {% include 'components/home/home-section' with section | merge({ id: loop.index }) only %}
+    {% endfor %}
+</div>

@@ -4,9 +4,8 @@
     "craftcms/redactor": "2.3.3.2",
     "ether/seo": "^3.5",
     "mikestecker/craft-videoembedder": "^1.1",
-    "ostark/craft-async-queue": "^2.0",
-    "verbb/field-manager": "^2.1",
-    "vlucas/phpdotenv": "^2.4.0"
+    "vlucas/phpdotenv": "^2.4.0",
+    "pinfirestudios/craft-twig-lambda": "@dev"
   },
   "autoload": {
     "psr-4": {

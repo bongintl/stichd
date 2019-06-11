@@ -1,0 +1,14 @@
+{% set link = link ?? '' %}
+{% set size = size ?? 'm' %}
+{% set text = text ?? null %}
+{% set images = images ?? [] %}
+
+<a href="{{ link }}" class="db" data-panel-section-id="intro">
+    <div class="grid">
+        <div class="s-col-12 s-gap-bottom-2 text-{{ size }}">
+            {{ text }}
+            {% include 'components/button/button' with { icon: 'arrow' } %}
+        </div>
+    </div>
+    {% include 'components/home/home-images' with { images: images } only %}
+</a>
