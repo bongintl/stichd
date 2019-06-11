@@ -1,0 +1,31 @@
+{% extends 'stichd/layout' %}
+{% block content %}
+     
+    {% set query = craft.entries().section('stichd_news').limit(10).orderBy('postDate desc') %}
+    
+    {% paginate query as pageInfo, pageEntries %}
+
+
+    
+    {% for entry in pageEntries %}
+        
+        {% if loop.first %}
+        
+            {% include 'components/news-item-featured/news-item-featured' with { entry: entry } %}
+            {% include 'components/news-filter/news-filter' %}
+            <div class="rule"></div>
+            
+        {% else %}
+        
+            {#{% include 'components/news-item/news-item' with { entry: entry } %}#}
+            {% include 'components/news-item-complex/news-item-complex' with { entry: entry } %}
+        
+        {% endif %}
+        
+    {% endfor %}
+    
+    {% include 'components/pagination/pagination' with { nextText: 'next', nextHref: pageInfo.nextUrl, prevText: 'prev', prevHref: pageInfo.prevUrl } %}
+
+{% endblock %}
+
+

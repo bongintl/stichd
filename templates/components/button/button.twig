@@ -1,0 +1,24 @@
+{% set label = label ?? null %}
+{% set href = href ?? null %}
+{% set icon = icon ?? null %}
+
+{% set content %}
+    {% if label %}
+        <div class="button__label">
+            {{ label | raw }}
+        </div>
+    {% endif %}
+    {% if icon %}
+        {% include "components/button/#{icon}.svg" ignore missing %}
+    {% endif %}
+{% endset %}
+
+{% if href %}
+    <a class="button text-l" href="{{ href }}">
+        {{ content }}
+    </a>
+{% else %}
+    <div class="button text-l">
+        {{ content }}
+    </div>
+{% endif %}

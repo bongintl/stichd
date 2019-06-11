@@ -1,0 +1,12 @@
+.question-answer__answer {
+    p:first-of-type {
+        display: inline;
+        padding-bottom: 1em;
+        &:after {
+            content: '';
+            display: block;
+            height: 1em;
+            width: 100%;
+        }
+    }
+}

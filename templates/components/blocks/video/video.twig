@@ -1,0 +1,19 @@
+{% set videoUrl = videoUrl ?? null %}
+{% set coverImage = coverImage ?? null %}
+{% set embedUrl = craft.videoEmbedder.getEmbedUrl( videoUrl ) %}
+
+<div class="grid s-pad-bottom-1 m-pad-bottom-4">
+<div class="s-col-12">
+    <div class="video">
+        {% if embedUrl | length %}
+            <iframe class="video__iframe" src="{{ embedUrl }}"></iframe>
+        {% endif %}
+        {% if coverImage %}
+            <div class="video__cover">
+                {% include '/components/image/image' with { asset: coverImage } only %}
+                {% include "/components/blocks/video/play.svg" %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+</div>

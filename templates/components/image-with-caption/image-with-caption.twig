@@ -1,0 +1,9 @@
+{% set image = image ?? null %}
+{% set caption = caption ?? null %}
+{% set ratio = ratio ?? true %}
+{% set attrs = attrs ?? {} %}
+
+{% include 'components/image/image' with { asset: image, ratio: ratio, attrs: attrs } only %}
+{% if caption %}
+    {% include 'components/caption/caption' with { text: caption } only %}
+{% endif %}

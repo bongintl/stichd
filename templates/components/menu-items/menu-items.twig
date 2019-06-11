@@ -1,0 +1,20 @@
+{% set primary = primary ?? [] %}
+{% set secondary = secondary ?? [] %}
+{% set circles = circles ?? false %}
+
+<div class="menu-items">
+    {% for item in primary %}
+        <a class="{{ bem( 'menu-items__item', { circle: circles }) }} text-xl m-gap-right-half" href="{{ item.url }}">
+            <span class="text-xl">{{ item.name }}</span>
+            <span class="menu-items__index text-s">{{ "%02d" | format( loop.index ) }}</span>
+        </a>
+    {% endfor %}
+    {% for item in secondary %}
+        <a class="menu-items__item m-gap-right-half text-xl" href="{{ item.url }}" target="_blank">
+            <span class="text-stroke">{{ item.name ~ ( loop.last ? '.' : ',' ) }}</span>
+            {% if loop.last %}
+                <span class="menu-items__index text-s">{{ "%02d" | format( primary | length + 1 ) }}</span>
+            {% endif %}
+        </a>
+    {% endfor %}
+</div>

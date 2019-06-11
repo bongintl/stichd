@@ -1,0 +1,3 @@
+{% for block in blocks %}
+    {% include [ 'components/news-blocks/' ~ block.type ~ '/' ~ block.type, 'components/news-blocks/missing' ] %}
+{% endfor %}

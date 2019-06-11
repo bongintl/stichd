@@ -1,0 +1,46 @@
+{% set header = header ?? {} %}
+{% set menu = menu ?? {} %}
+{% set content = content ?? '' %}
+{% set content_complex = content_complex ?? null %}
+{% set footer = footer ?? {} %}
+
+{% set isTwo = content_complex is not null %}
+
+<div
+    class="{{ bem( 'panels', { one: not isTwo, two: isTwo }) }}"
+    style="--page-pad-top: var({{
+        header.backUrl is defined and header.backUrl is not null
+            ? '--header-height-compact'
+            : '--header-height'
+    }})"
+>
+    <div class="panels__headers">
+        {% if not isTwo %}
+            {# TESTING #}
+            
+            <div class="panels__header{% if craft.request.firstSegment == 'news' %} bg-dark{% else %} bg-light{% endif %}">
+                {% include 'components/header/header' with header only %}
+            </div>
+        {% else %}
+            <div class="panels__header bg-light">
+                {% include 'components/header/header' with header | merge({ toggleTo: 'right' }) only %}
+            </div>
+            <div class="panels__header bg-dark">
+                {% include 'components/header/header' with header | merge({ toggleTo: 'left' }) only %}
+            </div>
+        {% endif %}
+    </div>
+    {% include 'components/menu/menu' with menu only %}
+    <div class="panels__pages">
+        <div class="panels__page {% if craft.request.firstSegment == 'news' %} bg-dark{% endif %}">
+            {{ content | raw }}
+            {% include 'components/footer/footer' with footer only %}
+        </div>
+        {% if isTwo %}
+            <div class="panels__page panels__page--inactive bg-dark">
+                {{ content_complex | raw }}
+                {% include 'components/footer/footer' with footer only %}
+            </div>
+        {% endif %}
+    </div>
+</div>

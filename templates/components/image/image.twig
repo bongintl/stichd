@@ -1,0 +1,12 @@
+{% if asset %}
+    {% set ratio = ratio ?? ( asset.height / asset.width ) %}
+    {% set attrs = attrs ?? {} %}
+    
+    {% if ratio %}
+        <div style="padding-bottom: {{ ratio * 100 }}%" {{ attrs( attrs ) }}>
+            <img data-srcset="{{ srcset( asset, ratio ) }}" src="{{ asset.getUrl({ width: 2 }) }}" class="cover">
+        </div>
+    {% else %}
+        <img srcset="{{ srcset( asset, ratio ) }}" src="{{ asset.getUrl({ width: 2 }) }}" {{ attrs( attrs ) }}>
+    {% endif %}
+{% endif %}

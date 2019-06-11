@@ -1,0 +1,34 @@
+{
+  "name": "environment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:js": "parcel watch templates/main.js -d web/static",
+    "build:js": "parcel templates/main.js -d web/static",
+    "watch:sass": "npm run build:sass && onchange 'scss/**/*.scss' 'templates/**/*.scss' -- npm run build:sass",
+    "build:sass": "node-sass scss/style.scss --importer node_modules/node-sass-glob/index.js --output web/static",
+    "dev": "npm run watch:js & npm run watch:sass",
+    "build": "npm run build:js & npm run build:sass"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debounce": "^1.2.0",
+    "es6-map": "^0.1.5",
+    "intersection-observer": "^0.7.0",
+    "node-sass": "^4.12.0",
+    "node-sass-glob": "^1.0.4",
+    "onchange": "^6.0.0",
+    "parcel-bundler": "^1.12.3",
+    "ramda": "^0.26.1",
+    "resize-observer-polyfill": "^1.5.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "sass": "^1.20.1"
+  }
+}

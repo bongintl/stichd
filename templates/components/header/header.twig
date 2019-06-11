@@ -1,0 +1,78 @@
+{% set logo = logo ?? '' %}
+{% set backUrl = backUrl ?? null %}
+{% set apply = apply ?? null %}
+{% set toggleTo = toggleTo ?? null %}
+{% set search = search ?? false %}
+
+{% if backUrl %}
+    <div class="header-compact border-bottom">
+        <a class="header-compact__icon" href="{{ backUrl }}">
+            <div class="m-hide">
+                {% include 'components/header/icon_arrow_left.svg' %}
+            </div>
+            <div class="s-hide m-show">
+                {% include 'components/header/icon_arrow_left_circle.svg' %}
+            </div>
+            <span class="text-s">Back</span>
+        </a>
+        {% if apply %}
+            <div class="header-compact__center">
+                {% include 'components/button/button' with { label: 'Apply', href: apply } only %}
+            </div>
+        {% else %}
+            <a class="header-compact__center m-hide" href="{{ backUrl }}">
+                Back
+            </a>
+        {% endif %}
+        <a class="header-compact__icon" data-toggle-menu>
+            <div class="s-hide m-show">
+                {% include 'components/header/icon_menu_circle.svg' %}
+            </div>
+        </a>
+    </div>
+{% else %}
+    <div class="{{ bem('header', { 'toggle-left': toggleTo == 'left', 'toggle-right': toggleTo == 'right' }) }} border-bottom">
+        <a class="header__logo" href="{{ siteUrl }}">{{ logo | raw }}</a>
+        {% if toggleTo == 'left' %}
+            <a class="header__icon header__icon--toggle-left" data-toggle-panels>
+                <div class="m-hide">
+                    {% include 'components/header/icon_arrow_left.svg' %}
+                </div>
+                <div class="s-hide m-show">
+                    {% include 'components/header/icon_arrow_left_circle.svg' %}
+                </div>
+            </a>
+        {% endif %}
+        <a class="header__icon header__icon--menu" data-toggle-menu>
+            <div class="m-hide">
+                {% include 'components/header/icon_menu.svg' %}
+            </div>
+            <div class="s-hide m-show">
+                {% include 'components/header/icon_menu_circle.svg' %}
+            </div>
+        </a>
+        {% if search %}
+            <a class="header__icon header__icon--search" data-toggle-search>
+                <div class="m-hide">
+                    {% include 'components/header/icon_search.svg' %}
+                </div>
+                <div class="s-hide m-show">
+                    {% include 'components/header/icon_search_circle.svg' %}
+                </div>
+            </a>
+        {% endif %}
+        {% if toggleTo == 'right' %}
+            <a class="header__icon header__icon--toggle-right" data-toggle-panels>
+                <div class="m-hide">
+                    {% include 'components/header/icon_arrow_right.svg' %}
+                </div>
+                <div class="s-hide m-show">
+                    {% include 'components/header/icon_arrow_right_circle.svg' %}
+                </div>
+            </a>
+        {% endif %}
+        {% if toggleTo == null and search == false %}
+            <div class="header__icon header__icon--blank m-hide"></div>
+        {% endif %}
+    </div>
+{% endif %}

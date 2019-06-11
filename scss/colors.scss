@@ -1,0 +1,24 @@
+:root {
+    --greige: #E7E3D1;
+    --text-color: black;
+    --background-color: var( --greige );
+}
+
+html {
+    color: var( --text-color );
+    background-color: var( --background-color );
+}
+
+.bg-dark {
+    --text-color: var( --greige );
+    --background-color: black;
+    background-color: var( --background-color );
+    color: var( --greige );
+}
+
+.bg-light {
+    --text-color: black;
+    --background-color: var( --greige );
+    background-color: var( --background-color );
+    color: var( --text-color );
+}

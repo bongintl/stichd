@@ -1,0 +1,11 @@
+<a class="news-item text-l col-justify grid col-baseline s-pad-top-1" href="{{ entry.url }}">
+        <img class="news-item__arrow" src="/components/button/arrow.svg" /> 
+        <span class="news-item__text col-baseline">
+            {{ entry.title }}
+            <span class="text-s news-item__date s-pad-top-half">
+                {{ entry.postDate | date("d F")  }}
+            </span>
+        </span>
+
+    <div class="rule s-pad-top-1"></div>
+</a>

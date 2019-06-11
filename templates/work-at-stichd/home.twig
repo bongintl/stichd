@@ -1,0 +1,26 @@
+{% extends 'work-at-stichd/layout' %}
+{% block content %}
+    {% for section in entry.homeSections.all() %}
+        {% include 'components/home-section/home-section' with {
+            title: section.sectionTitle,
+            body: section.bodySimple,
+            bodySize: 'l',
+            link: section.entry | length ? section.entry.one.url,
+            images: section.imagesSimple,
+            id: loop.index,
+            borderTop: loop.index > 1
+        } only %}
+    {% endfor %}
+{% endblock %}
+{% block content_complex %}
+    {% for section in entry.homeSections.all() %}
+        {% include 'components/home-section/home-section' with {
+            title: section.sectionTitle,
+            body: section.bodyComplex,
+            link: section.entry | length ? section.entry.one.url,
+            images: section.imagesComplex,
+            id: loop.index,
+            borderTop: loop.index > 1
+        } only %}
+    {% endfor %}
+{% endblock %}

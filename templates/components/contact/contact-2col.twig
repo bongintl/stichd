@@ -1,0 +1,50 @@
+{% set borderBottom = borderBottom ?? false %}
+<div class="contact contact--2col x">
+    <div class="grid xx {{ borderBottom ? 'border-bottom' }}">
+        <div class="s-col-12 s-pad-top-1 l-pad-top-2">
+            <h2 class="text-xl s-gap-bottom-half">
+                {{ city }}
+                {% if subtitle %}
+                    <span class="text-s">
+                        ({{ subtitle }})
+                    </span>
+                {% endif %}
+            </h2>
+            <div class="x xw s-gap-bottom-half">
+                {% for link in links %}
+                    <div class="s-gap-right-half s-gap-bottom-half">
+                        {% include 'components/button/button' with {
+                            label: link.text,
+                            href: link.url,
+                            icon: 'arrow'
+                        } only %}
+                    </div>
+                {% endfor %}
+                {% if extraLinks | length %}
+                    <div class="s-gap-right-half s-gap-bottom-half contact__toggle">
+                        {% include 'components/button/button' with { label: '...' } only %}
+                    </div>
+                {% endif %}
+                {% for link in extraLinks %}
+                    <div class="s-gap-right-half s-gap-bottom-half contact__extra">
+                        {% include 'components/button/button' with {
+                            label: link.text,
+                            href: link.url,
+                            icon: 'arrow'
+                        } only %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="grid xx bg-dark {{ borderBottom ? 'border-bottom' }}">
+        <div class="s-col-12 text-l s-pad-top-1 l-pad-top-2">
+            <div class="s-pad-left-2">
+                <div class="contact__arrow">
+                    {% include 'components/button/arrow.svg' %}
+                </div>
+                {{ address }}
+            </div>
+        </div>
+    </div>
+</div>

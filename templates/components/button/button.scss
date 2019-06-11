@@ -1,0 +1,41 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 100vw;
+    border: 2px solid var( --text-color );
+    padding: .4em .6em;
+    background: transparent;
+    transition: background-color .1s, color .1s, border-color .1s;
+    line-height: 1;
+    cursor: pointer;
+    svg {
+        width: .75em;
+        
+        @include large {
+            width: auto;
+        }
+    }
+    svg path {
+        transition: fill .1s;
+        fill: var( --text-color );
+    }
+    &__label {
+        top: .05em;
+    }
+    &__label + svg {
+        margin-left: .25em;
+        @include large {
+            margin-left: .5em;
+        }
+        @include large {
+            margin-left: .4em;
+        }
+    }
+    &:hover, a:hover &, &--pressed {
+        background: var( --text-color );
+        color: var( --background-color );
+        svg path {
+            fill: var( --background-color );
+        }
+    }
+}

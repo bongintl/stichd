@@ -1,0 +1,9 @@
+<div class="grid">
+    <div class="s-col-12 m-col-6 s-pad-bottom-1">
+        {% include '/components/image/image' with { asset: block.file.one() } only %}
+        {% include '/components/caption/caption' with { text: block.caption } only %}
+    </div>
+    <div class="s-col-12 m-col-6">
+        {{ block.copy }}
+    </div>
+</div>

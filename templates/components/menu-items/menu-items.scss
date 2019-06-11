@@ -1,0 +1,36 @@
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    &__item {
+        display: flex;
+        width: 100%;
+        margin-bottom: .25em;
+        @include medium {
+            margin-bottom: 0;
+            width: auto;
+            display: inline-flex;
+            flex-shrink: 1;
+        }
+        &--circle {
+            &:before {
+                content: '';
+                display: block;
+                border: 1px solid var( --text-color );
+                align-self: center;
+                border-radius: 50%;
+                transition: background .1s;
+                background: transparent;
+                width: .5em;
+                height: .5em;
+                margin-bottom: .25em;
+                margin-right: .3em;
+            }
+            &:hover:before {
+                background: var( --text-color );
+            }
+        }
+    }
+    &__index {
+        margin-left: .3em;
+    }
+}

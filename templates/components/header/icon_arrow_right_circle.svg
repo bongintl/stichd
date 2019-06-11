@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Arrow-icon-right" transform="translate(-1046 -257)">
+    <g id="Rectangle_2663" data-name="Rectangle 2663" transform="translate(1046 257)" fill="none" stroke-width="2" stroke="#000">
+      <rect width="48" height="48" rx="24" stroke="none"/>
+      <rect x="1" y="1" width="46" height="46" rx="23" fill="none"/>
+    </g>
+    <rect id="Rectangle_2666" fill="#000" data-name="Rectangle 2666" width="2" height="23" transform="translate(1058 282) rotate(-90)"/>
+    <path id="Path_1041" data-name="Path 1041" d="M3,2l9,10L3,22" transform="translate(1069 269)" fill="none" stroke="#000" stroke-width="2"/>
+  </g>
+</svg>

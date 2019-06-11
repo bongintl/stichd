@@ -1,0 +1,84 @@
+{% extends 'stichd/layout' %}
+{% set news = craft.entries
+    .section( 'stichd_news' )
+    .limit( 1 )
+    .all %}
+{% block content %}
+    {% include 'components/home-sections/home-sections' with {
+        sections: entry.homeSections,
+        complex: false
+    } only %}
+    {#{% for section in entry.homeSections.all() %}#}
+        {#{% set images = [] %}#}
+        {#{% switch section.type %}#}
+        {#    {% case 'oneImage' %}#}
+        {#        {% set images = [{ image: section.imageSimple, caption: section.captionSimple }] %}#}
+        {#    {% case 'twoImages' %}#}
+        {#        {% set images = [#}
+        {#            { image:  }#}
+        {#        ] %}#}
+        {#{% endswitch %}#}
+        {#{% include 'components/home-section/home-section' with {#}
+        {#    heading: section.sectionTitle,#}
+        {#    body: section.bodySimple,#}
+        {#    bodySize: 'l',#}
+        {#    link: section.entry | length ? section.entry.one.url,#}
+        {#    images: section.type == 'oneImage'#}
+        {#        ? [{ image: section.imageSimple, caption: section.captionSimple }]#}
+        {#        : null#}
+        {#    ,#}
+        {#    id: loop.index,#}
+        {#    borderTop: loop.index > 1#}
+        {#} only %}#}
+    {#{% endfor %}#}
+    {#{% for section in entry.homeSections.all() %}#}
+    {#    {% include 'components/home-section/home-section' with {#}
+    {#        title: section.sectionTitle,#}
+    {#        body: section.bodySimple,#}
+    {#        bodySize: 'l',#}
+    {#        link: section.entry | length ? section.entry.one.url,#}
+    {#        images: section.type == 'oneImage'#}
+    {#            ? section.imageSimple#}
+    {#            : null#}
+    {#        ,#}
+    {#        id: loop.index,#}
+    {#        borderTop: loop.index > 1#}
+    {#    } only %}#}
+    {#{% endfor %}#}
+    {#{% for article in news %}#}
+    {#    {% include 'components/home-section/home-section' with {#}
+    {#        title: "Latest news",#}
+    {#        body: "<p>#{ article.title }</p>",#}
+    {#        bodySize: 'l',#}
+    {#        link: article.url,#}
+    {#        images: article.thumbnail,#}
+    {#        id: article.id#}
+    {#    } only %}#}
+    {#{% endfor %}#}
+{% endblock %}
+{% block content_complex %}
+    {% include 'components/home-sections/home-sections' with {
+        sections: entry.homeSections,
+        complex: true
+    } only %}
+    {#{% for section in entry.homeSections.all() %}#}
+    {#    {% include 'components/home-section/home-section' with {#}
+    {#        title: section.sectionTitle,#}
+    {#        body: section.bodyComplex,#}
+    {#        link: section.entry | length ? section.entry.one.url,#}
+    {#        images: section.imagesComplex,#}
+    {#        id: loop.index,#}
+    {#        borderTop: loop.index > 1#}
+    {#    } only %}#}
+    {#{% endfor %}#}
+    {#{% for article in news %}#}
+    {#    {% include 'components/home-section/home-section' with {#}
+    {#        title: "Latest news",#}
+    {#        body: "<p>#{ article.title }</p>",#}
+    {#        bodySize: 'l',#}
+    {#        link: article.url,#}
+    {#        images: article.thumbnail,#}
+    {#        id: article.id#}
+    {#    } only %}#}
+    {#{% endfor %}#}
+{% endblock %}

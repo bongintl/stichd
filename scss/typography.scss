@@ -1,0 +1,119 @@
+:root {
+    --line-height: 1.333;
+    --line: calc( var( --line-height ) * 1rem );
+}
+
+html {
+    font-family: "Graebenbach", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    line-height: var( --line-height );
+    -webkit-font-smoothing: antialiased;
+}
+
+.text-s {
+    font-size: 12px;
+    @include large {
+        font-size: 16px;
+    }
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    line-height: 0.63333;
+}
+
+.text-m {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -.01em;
+}
+
+.text-l {
+    font-size: 26px;
+    @include large {
+        font-size: 36px;
+    }
+    line-height: 1.19444;
+    letter-spacing: 0;
+}
+
+.text-xl {
+    font-size: 48px;
+    @include large {
+        font-size: 72px;
+    }
+    line-height: 1.19444;
+    letter-spacing: -.01em;
+}
+
+.text-xxl {
+    font-size: 48px;
+    @include large {
+        font-size: 144px;
+    }
+    line-height: 1;
+    letter-spacing: -.03em;
+}
+
+.text-stroke {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var( --text-color );
+    a & {
+        transition: -webkit-text-fill-color .1s;
+        &:hover {
+            -webkit-text-fill-color: var( --text-color );
+        }
+    }
+}
+
+.text-center {
+    text-align: center
+}
+
+p {
+    margin-bottom: calc( var( --line-height ) * 1em );
+}
+
+.circle {
+    &:before {
+        content: '';
+        display: inline-block;
+        border: 1px solid var( --text-color );
+        align-self: center;
+        border-radius: 50%;
+        transition: background .1s;
+        background: transparent;
+        width: 0.8em;
+        height: 0.8em;
+        margin-bottom: -.1em;
+        margin-right: .5em;
+    }
+    // &--reverse {
+    //     &:before {
+    //         border: 1px solid var( --text-color );
+    //         &:hover {
+    //             background-color: var( --background-color );
+    //         }
+    //     }
+        
+    // }
+    &--small{
+        &:before {
+            width: 0.55em;
+            height: 0.6em;
+            margin-bottom: -.05em;
+            margin-right: .5em;
+            
+        }
+        &:hover:before {
+            background-color: var( --text-color );
+        }
+    }
+    
+}
+
+.rule {
+    width: 100%;
+    border-bottom: 1px solid var( --text-color );
+}

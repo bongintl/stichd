@@ -1,0 +1,9 @@
+.pagination {
+    &__arrow{
+        width: 0.35em;
+        margin-bottom: 0.1em;
+        &--reverse {
+            transform: rotate(180deg);
+        }
+    }
+}

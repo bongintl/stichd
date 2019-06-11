@@ -1,0 +1,32 @@
+.video {
+    width: 100%;
+    padding-bottom: 56.25%;
+    &__iframe {
+        border: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    &__cover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        div {
+            position: absolute;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+        }
+        svg {
+            position: absolute;
+            z-index: 11;
+            width: 50%;
+            @include medium {
+                width: 25%;
+            }
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+}

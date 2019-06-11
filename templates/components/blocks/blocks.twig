@@ -1,0 +1,68 @@
+{% for block in blocks %}
+    {% set template = "components/blocks/#{ block.type }/#{ block.type }" %}
+    {% switch block.type %}
+        {% case 'headingText' %}
+            {% include template with {
+                heading: block.heading,
+                copy: block.copy,
+                size: block.size.value
+            } only %}
+        {% case 'text' %}
+            {% include template with {
+                copy: block.copy
+            } only %}
+        {% case 'halfWidthImage' %}
+            {% include template with {
+                image: block.image | length ? block.image.one : null,
+                caption: block.caption,
+                position: block.position.value,
+                ratio: block.ratio.value
+            } only %}
+        {% case 'quarterWidthImage' %}
+            {% include template with {
+                image: block.image | length ? block.image.one : null,
+                ratio: block.ratio.value
+            } only %}
+        {% case 'fullWidthImage' %}
+            {% include template with {
+                image: block.image | length ? block.image.one : null,
+                caption: block.caption
+            } only %}
+        {% case 'twoImages' %}
+            {% include template with {
+                leftImage: block.leftImage | length ? block.leftImage.one : null,
+                leftImageCaption: block.leftImageCaption,
+                rightImage: block.rightImage | length ? block.rightImage.one : null,
+                rightImageCaption: block.rightImageCaption,
+                offset: block.offset
+            } only %}
+        {% case 'magnifier' %}
+            {% include template with {
+                image: block.image | length ? block.image.one : null,
+                magnifiedImage: block.magnifiedImage | length ? block.magnifiedImage.one : null
+            } only %}
+        {% case 'video' %}
+            {% include template with {
+                videoUrl: block.videoUrl,
+                coverImage: block.coverImage | length ? block.coverImage.one : null
+            } only %}
+        {% case 'quote' %}
+            {% include template with {
+                copy: block.copy,
+                attribution: block.attribution
+            } only %}
+        {% case 'imageQuote' %}
+            {% include template with {
+                image: block.image | length ? block.image.one : null,
+                caption: block.caption,
+                copy: block.copy,
+                position: block.position.value
+            } only %}
+        {% default %}
+            you fool: {{ block.type }}
+    {#{% include [#}
+    {#    "components/blocks/#{ block.type }/#{ block.type }",#}
+    {#    'components/blocks/missing'#}
+    {#] with block only %}#}
+    {% endswitch %}
+{% endfor %}

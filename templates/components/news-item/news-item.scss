@@ -1,0 +1,23 @@
+.news-item {
+    &__text {
+        width: calc(100% - 1em);
+        @include medium {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &__date {
+        display: block;
+        @include medium {
+            display: flex;
+        }
+    }
+    &:hover {
+        .news-item__arrow {
+            opacity: 0;
+        }
+    }
+    &__arrow {
+        width: 0.5em;
+    }
+}

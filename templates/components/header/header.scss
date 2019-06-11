@@ -1,0 +1,106 @@
+:root {
+    --header-height: calc( var( --icon-size ) + var( --gutter ) * 3 );
+    --header-height-compact: calc( var( --icon-size ) + var( --gutter ) * 2 );
+    --icon-size: 25px;
+    @include medium {
+        --header-height: calc( var( --icon-size ) + var( --gutter ) * 2 );
+        --icon-size: 48px;
+    }
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    padding: calc( var( --gutter ) ) calc( var( --gutter ) * 1.5 );
+    height: var( --header-height );
+    overflow: hidden;
+    @include medium {
+        padding: 0 calc( var( --gutter ) * .5 );
+    }
+    @include small {
+        &__logo {
+            order: 2;
+        }
+        &--toggle-right {
+            .header__icon--toggle-right {
+                order: 3;
+            }
+            .header__icon--menu {
+                order: 1;
+            }
+        }
+        &--toggle-left {
+            .header__icon--toggle-left {
+                order: 1;
+            }
+            .header__icon--menu {
+                order: 3;
+            }
+        }
+        .header__icon--blank {
+            order: 3;
+        }
+    }
+    &__icon {
+        width: var(--icon-size);
+        height: var(--icon-size);
+        margin: 0 calc( var(--gutter) / 2 );
+        cursor: pointer;
+        &[data-toggle-panels] {
+            transition: transform .2s;
+            transform-origin: 50% 50%;
+            .panels__header--inactive & {
+                transform: rotate( 180deg );
+            }
+        }
+    }
+    .bg-dark & svg {
+        *[fill="#000"] {
+            fill: var(--greige);
+        }
+        *[stroke="#000"] {
+            stroke: var(--greige);
+        }
+    }
+    &__logo {
+        flex-grow: 1;
+        margin: 0 calc( var(--gutter) / 2 );
+        text-align: center;
+        @include medium {
+            text-align: left;
+        }
+    }
+}
+
+.header-compact {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: var( --gutter );
+    height: var( --header-height-compact );
+    overflow: hidden;
+    &__icon {
+        display: block;
+        width: var(--icon-size);
+        height: var(--icon-size);
+        svg {
+            
+        }
+        span {
+            line-height: 1;
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 1em;
+            @include medium {
+                display: block;
+            }
+        }
+    }
+}
