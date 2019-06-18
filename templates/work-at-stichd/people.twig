@@ -1,0 +1,36 @@
+{% extends 'work-at-stichd/layout' %}
+{% block content %}
+    {% include 'components/blocks/headingText/headingText' with {
+        heading: 'Inclusion and Diversity',
+        copy: entry.inclusionDiversityIntro,
+        size: 'l'
+    } only %}
+    {% for block in entry.data %}
+        {% switch block.type %}
+            {% case 'heading' %}
+                <div class="grid">
+                    <div class="s-col-12 text-l">
+                        {{ block.text }}
+                    </div>
+                </div>
+            {% case 'fact' %}
+                {% include 'components/blocks/quote/quote' with { copy: block.text } only %}
+            {% case 'horizontalBarChart' %}
+                {% switch block.style %}
+                    {% case 'square' %}
+                        {% include "components/data/horizontal-bar-chart-square/horizontal-bar-chart-square" with block only %}
+                    {% case 'rounded' %}
+                        {% include "components/data/horizontal-bar-chart-rounded/horizontal-bar-chart-rounded" with block only %}
+                {% endswitch %}
+                
+            {% case 'grid' %}
+                {% include "components/data/grid/grid" with block only %}
+            {% case 'verticalBarChart' %}
+                {% include "components/data/vertical-bar-chart/vertical-bar-chart" with block only %}
+            {% case 'comparisons' %}
+                {% include "components/data/comparisons/comparisons" with block only %}
+            {% default %}
+                {{ block.type }}
+        {% endswitch %}
+    {% endfor %}
+{% endblock %}

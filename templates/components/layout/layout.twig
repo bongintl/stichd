@@ -4,9 +4,7 @@
 {% set menu = menu ?? {} %}
 {% set footer = footer ?? {} %}
 
-{% set footerTemplate %}
-    {% include 'components/footer/footer' with footer only %}
-{% endset %}
+{% import 'macros/macros' as m %}
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +20,7 @@
         {% endif %}
     	{% if globals.favicon16 | length %}<link rel="icon" href="{{ globals.favicon16.first.url }}" sizes="16x16">{% endif %}
         {% if globals.favicon32 | length %}<link rel="icon" href="{{ globals.favicon32.first.url }}" sizes="32x32">{% endif %}
-        <link rel="stylesheet" href="{{ craft.app.sites.getPrimarySite().getBaseUrl() }}static/style.css" type="text/css" />
+        <link rel="stylesheet" href="{{ m.baseUrl() }}static/style.css" type="text/css" />
     </head>
     <body>
         {% include 'components/panels/panels' with {
@@ -32,6 +30,6 @@
             content_complex: content_complex,
             footer: footer
         } only %}
-        <script type="text/javascript" src="{{ craft.app.sites.getPrimarySite().getBaseUrl() }}static/main.js"></script>
+        <script type="text/javascript" src="{{ m.baseUrl() }}static/main.js"></script>
     </body>
 </html>

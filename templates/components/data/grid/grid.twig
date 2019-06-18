@@ -1,0 +1,29 @@
+{% set data = data ?? [] %}
+
+{% set baseUrl = craft.app.sites.getPrimarySite().getBaseUrl() %}
+
+<div class="grid">
+    <div class="s-col-12">
+        <div class="data-grid">
+            {% for item in data %}
+                <div class="data-grid__item">
+                    <div class="text-s">
+                        {{ item.label }}
+                    </div>
+                    <div class="data-grid__item-percentage text-l bg-dark cover">
+                        {{ item.percentage }}%
+                    </div>
+                </div>
+                {% if loop.index == floor( data | length * 1/3 ) %}
+                    <div class="data-grid__item data-grid__item--height-2">
+                        <img src="{{ baseUrl }}static/img/illustration_chameleon.png" class="contain"></img>
+                    </div>
+                {% elseif loop.index == floor( data | length * 2/3 ) %}
+                    <div class="data-grid__item data-grid__item--height-3">
+                        <img src="{{ baseUrl }}static/img/illustration_hands.png" class="contain"></img>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{% extends 'work-at-stichd/layout' %}
+{% block content %}
+
+    <div class="s-pad-top-2 grid border-bottom s-pad-bottom">
+        <div class="s-col-12 m-col-6 l-col-8 text-xl">
+            {{ entry.vacanciesIndexIntroduction }}
+        </div>
+        <div class="s-col-12 m-col-6 l-col-4">
+            {% for asset in entry.vacanciesIndexIllustration %}
+                {% include 'components/image/image' with { asset: asset } only %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    {% set query = craft.entries
+        .section( 'workAtStichd_jobs' )
+        .limit( 10 )
+        .orderBy('lft desc') %}
+    {% paginate query as pageInfo, pageEntries %}
+    
+    {% for job in pageEntries %}
+        {% include 'components/job-row/job-row' with {
+            title: job.title,
+            url: job.url,
+            qualities: job.jobQualities | map( _ => _.text ),
+            location: job.jobLocation
+        } only %}
+    {% endfor %}
+    
+    {% include 'components/pagination/pagination' with {
+        nextText: 'next',
+        nextHref: pageInfo.nextUrl,
+        prevText: 'prev',
+        prevHref: pageInfo.prevUrl
+    } only %}
+    
+{% endblock %}

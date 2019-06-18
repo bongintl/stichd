@@ -22,3 +22,13 @@ html {
     background-color: var( --background-color );
     color: var( --text-color );
 }
+
+.bg-invert {
+    transition: color .2s, background-color .2s;
+    &:hover {
+        --text-color: var( --greige );
+        --background-color: black;
+        background-color: var( --background-color );
+        color: var( --text-color );
+    }
+}

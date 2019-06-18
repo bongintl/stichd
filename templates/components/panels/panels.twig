@@ -1,3 +1,5 @@
+{% import 'macros/macros' as m %}
+
 {% set header = header ?? {} %}
 {% set menu = menu ?? {} %}
 {% set content = content ?? '' %}
@@ -7,7 +9,7 @@
 {% set isTwo = content_complex is not null %}
 
 <div
-    class="{{ bem( 'panels', { one: not isTwo, two: isTwo }) }}"
+    class="{{ m.bem( 'panels', { one: not isTwo, two: isTwo }) }}"
     style="--page-pad-top: var({{
         header.backUrl is defined and header.backUrl is not null
             ? '--header-height-compact'
@@ -16,8 +18,6 @@
 >
     <div class="panels__headers">
         {% if not isTwo %}
-            {# TESTING #}
-            
             <div class="panels__header{% if craft.request.firstSegment == 'news' %} bg-dark{% else %} bg-light{% endif %}">
                 {% include 'components/header/header' with header only %}
             </div>

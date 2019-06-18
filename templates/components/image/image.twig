@@ -1,12 +1,14 @@
+{% import 'macros/macros' as m %}
+
 {% if asset %}
     {% set ratio = ratio ?? ( asset.height / asset.width ) %}
     {% set attrs = attrs ?? {} %}
     
     {% if ratio %}
-        <div style="padding-bottom: {{ ratio * 100 }}%" {{ attrs( attrs ) }}>
-            <img data-srcset="{{ srcset( asset, ratio ) }}" src="{{ asset.getUrl({ width: 2 }) }}" class="cover">
+        <div style="padding-bottom: {{ ratio * 100 }}%" {{ m.attrs( attrs ) }}>
+            <img data-srcset="{{ m.srcset( asset, ratio ) }}" src="{{ asset.getUrl({ width: 2 }) }}" class="cover">
         </div>
     {% else %}
-        <img srcset="{{ srcset( asset, ratio ) }}" src="{{ asset.getUrl({ width: 2 }) }}" {{ attrs( attrs ) }}>
+        <img srcset="{{ m.srcset( asset, ratio ) }}" src="{{ asset.getUrl({ width: 2 }) }}" {{ m.attrs( attrs ) }}>
     {% endif %}
 {% endif %}

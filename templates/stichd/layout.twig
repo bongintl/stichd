@@ -31,6 +31,6 @@
             globals.cookiePolicy | length ? { name: "Cookies", url: globals.cookiePolicy.one.url },
             { name: 'Join Us', url: "" },
             { name: 'Contact', url: "#{ siteUrl }contact" },
-        ] | compact
+        ] | filter( _ => _ )
     }
 } only %}

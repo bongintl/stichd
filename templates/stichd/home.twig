@@ -1,51 +1,54 @@
 {% extends 'stichd/layout' %}
 
-{% set newsEntry = craft.entries
-    .section( 'stichd_news' )
-    .limit( 1 )
-    .one %}
-    
-{% set newsSection = newsEntry == null
-    ? null 
-    : {
-        id: 'news',
-        heading: 'Latest news',
-        body: "<p>#{ newsEntry.title }</p>",
-        textSize: 'l',
-        link: newsEntry.url,
-        images: newsEntry.thumbnail
-    }
-%}
+{% set latestNews %}
+    {% for entry in craft.entries.section( 'stichd_news' ).limit( 1 ) %}
+        {% include 'components/home/home-section' with {
+            id: entry.id,
+            heading: "Latest news",
+            body: "<p>#{ entry.title }</p>",
+            textSize: 'l',
+            link: entry.url,
+            images: entry.thumbnail.all
+        } only %}
+    {% endfor %}
+{% endset %}
 
 {% block content %}
-    {% include 'components/home/home' with {
-        intro: {
-            text: entry.introSimple,
-            images: entry.introImagesSimple,
-            link: siteUrl ~ 'about-us',
-            size: 'xl'
-        },
-        sections: entry.homeSectionsSimple
-            | map( s => s | merge({
-                textSize: 'l',
-                link: s.entry | length ? s.entry.one.url
-            }))
-            | merge( newsSection ? [ newsSection ] : [] )
-    } only %}
+    <a href="{{ siteUrl ~ 'about-us' }}" class="db s-pad-top-1 l-pad-top-2" data-panel-section-id="intro">
+        <div class="grid">
+            <div class="s-col-12 s-gap-bottom-2 text-xl">
+                {{ entry.introSimple }}
+                {% include 'components/button/button' with { icon: 'arrow' } %}
+            </div>
+        </div>
+        {% include 'components/home/home-images' with { images: entry.introImagesSimple.all } only %}
+    </a>
+    {% for section in entry.homeSectionsSimple %}
+        {% include 'components/home/home-section' with section | merge({
+            id: loop.index,
+            textSize: 'l',
+            link: section.entry | length ? section.entry.one.url
+        }) only %}
+    {% endfor %}
+    {{ latestNews }}
 {% endblock %}
+
 {% block content_complex %}
-    {% include 'components/home/home' with {
-        intro: {
-            text: entry.introComplex,
-            images: entry.introImagesComplex,
-            link: siteUrl ~ 'about-us',
-            size: 'm'
-        },
-        sections: entry.homeSectionsComplex
-            | map( s => s | merge({
-                textSize: 'm',
-                link: s.entry | length ? s.entry.one.url
-            }))
-            | merge( newsSection ? [ newsSection ] : [] )
-    } only %}
+    <a href="{{ siteUrl ~ 'about-us' }}" class="db s-pad-top-1 l-pad-top-2" data-panel-section-id="intro">
+        <div class="grid">
+            <div class="s-col-8 s-gap-bottom-2 text-m">
+                {{ entry.introComplex }}
+                {% include 'components/button/button' with { icon: 'arrow' } %}
+            </div>
+        </div>
+        {% include 'components/home/home-images' with { images: entry.introImagesComplex.all } only %}
+    </a>
+    {% for section in entry.homeSectionsComplex %}
+        {% include 'components/home/home-section' with section | merge({
+            id: loop.index,
+            textSize: 'm',
+            link: section.entry | length ? section.entry.one.url
+        }) only %}
+    {% endfor %}
+    {{ latestNews }}
 {% endblock %}

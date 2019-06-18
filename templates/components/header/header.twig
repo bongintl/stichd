@@ -1,3 +1,5 @@
+{% import 'macros/macros' as m %}
+
 {% set logo = logo ?? '' %}
 {% set backUrl = backUrl ?? null %}
 {% set apply = apply ?? null %}
@@ -31,7 +33,7 @@
         </a>
     </div>
 {% else %}
-    <div class="{{ bem('header', { 'toggle-left': toggleTo == 'left', 'toggle-right': toggleTo == 'right' }) }} border-bottom">
+    <div class="{{ m.bem('header', { 'toggle-left': toggleTo == 'left', 'toggle-right': toggleTo == 'right' }) }} border-bottom">
         <a class="header__logo" href="{{ siteUrl }}">{{ logo | raw }}</a>
         {% if toggleTo == 'left' %}
             <a class="header__icon header__icon--toggle-left" data-toggle-panels>

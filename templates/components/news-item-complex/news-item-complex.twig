@@ -6,7 +6,14 @@
     {% set mins = 10 %}
 {% endif %}
     
-<a class="news-item text-m grid col-justify col-baseline s-pad-top-1" href="{{ entry.url }}">
+<a  class="news-item news-item-complex text-m grid col-justify col-baseline s-pad-top-1" 
+    href="{{ entry.url }}" 
+    data-category="{{ category.title }}"
+    data-author="{{ author.title }}"
+    data-length="{{ entry.wordCount }}"
+    data-date="{{ entry.postDate.getTimestamp() }}"
+    >
+    
     <div class="m-col-4">
         {{ entry.title }}
     </div>

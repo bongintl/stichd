@@ -9,8 +9,7 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\": "modules/",
-      "bongTwigExtension\\": "modules/bong-twig-extension/"
+      "modules\\": "modules/"
     }
   },
   "config": {

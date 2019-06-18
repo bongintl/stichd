@@ -1,10 +1,8 @@
 :root {
     --header-height: calc( var( --icon-size ) + var( --gutter ) * 3 );
     --header-height-compact: calc( var( --icon-size ) + var( --gutter ) * 2 );
-    --icon-size: 25px;
     @include medium {
         --header-height: calc( var( --icon-size ) + var( --gutter ) * 2 );
-        --icon-size: 48px;
     }
 }
 

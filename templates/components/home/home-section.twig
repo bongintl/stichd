@@ -5,20 +5,30 @@
 {% set link = link ?? null %}
 {% set images = images ?? [] %}
 
-<a href="{{ link }}" class="db" data-panel-section-id="{{ id }}">
-    <div class="grid">
-        <div class="s-col-12">
-            <div class="border-top s-pad-bottom-1"></div>
+{% set content %}
+    <div data-panel-section-id="{{ id }}">
+        <div class="grid">
+            <div class="s-col-12">
+                <div class="border-top s-pad-bottom-1"></div>
+            </div>
+            <div class="s-col-12 m-col-6 s-pad-bottom-1">
+                <h2 class="text-xl">{{ heading }}</h2>
+            </div>
+            <div class="s-col-12 m-col-6 {{ textSize ? "text-#{ textSize }" }} s-pad-bottom-2">
+                {{ body | raw }}
+                {% if link %}
+                    {% include 'components/button/button' with { icon: 'arrow' } %}
+                {% endif %}
+            </div>
         </div>
-        <div class="s-col-12 m-col-6 s-pad-bottom-1">
-            <h2 class="text-xl">{{ heading }}</h2>
-        </div>
-        <div class="s-col-12 m-col-6 {{ textSize ? "text-#{ textSize }" }} s-pad-bottom-2">
-            {{ body | raw }}
-            {% if link %}
-                {% include 'components/button/button' with { icon: 'arrow' } %}
-            {% endif %}
-        </div>
+        {% include 'components/home/home-images' with { images: images } only %}
     </div>
-    {% include 'components/home/home-images' with { images: images } only %}
-</a>
+{% endset %}
+
+{% if link %}
+    <a href="{{ link }}" class="db">
+        {{ content }}
+    </a>
+{% else %}
+    {{ content }}
+{% endif %}

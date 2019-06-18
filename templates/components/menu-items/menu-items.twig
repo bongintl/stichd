@@ -1,10 +1,12 @@
+{% import 'macros/macros' as m %}
+
 {% set primary = primary ?? [] %}
 {% set secondary = secondary ?? [] %}
 {% set circles = circles ?? false %}
 
 <div class="menu-items">
     {% for item in primary %}
-        <a class="{{ bem( 'menu-items__item', { circle: circles }) }} text-xl m-gap-right-half" href="{{ item.url }}">
+        <a class="{{ m.bem( 'menu-items__item', { circle: circles }) }} text-xl m-gap-right-half" href="{{ item.url }}">
             <span class="text-xl">{{ item.name }}</span>
             <span class="menu-items__index text-s">{{ "%02d" | format( loop.index ) }}</span>
         </a>

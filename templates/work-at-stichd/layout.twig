@@ -1,9 +1,11 @@
 {% set backUrl = backUrl ?? null %}
+{% set applyUrl = applyUrl ?? null %}
 {% include 'components/layout/layout' with {
     header: {
         logo: "<h1 class='text-xl'><span class='text-stroke'>work at</span> stichd</h1>",
         backUrl: backUrl,
-        search: false
+        apply: applyUrl,
+        search: true
     },
     menu: {
         primary: [
@@ -34,6 +36,6 @@
             globals.cookiePolicy | length ? { name: "Cookies", url: globals.cookiePolicy.one.url },
             { name: 'Join Us', url: "" },
             { name: 'Contact', url: "#{ siteUrl }contact" },
-        ] | compact
+        ] | filter( _ => _ )
     }
 } only %}

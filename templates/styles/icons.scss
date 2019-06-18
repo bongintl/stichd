@@ -1,0 +1,22 @@
+:root {
+    --icon-size: 25px;
+    @include large {
+        --icon-size: 48px;
+    }
+}
+
+.icon {
+    width: var( --icon-size );
+    height: var( --icon-size );
+    svg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        *[fill="#000"]{
+            transition: fill .2s;
+            fill: var( --text-color );
+        }
+    }
+}

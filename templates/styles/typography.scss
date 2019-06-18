@@ -12,6 +12,28 @@ html {
     -webkit-font-smoothing: antialiased;
 }
 
+@mixin text-sizes ( $prefix ) {
+    @each $size in 12 16 18 26 32 36 48 72 144 {
+        .#{ $prefix }-text-#{ $size } {
+            font-size: $size * 1px;
+        }
+    }
+}
+
+@include text-sizes('s');
+@include medium {
+    @include text-sizes('m');
+}
+@include large {
+    @include text-sizes('l');
+}
+@include xlarge {
+    @include text-sizes('xl');
+}
+@include xxlarge {
+    @include text-sizes('xxl');
+}
+
 .text-s {
     font-size: 12px;
     @include large {
@@ -19,7 +41,7 @@ html {
     }
     text-transform: uppercase;
     letter-spacing: .03em;
-    line-height: 0.63333;
+    // line-height: 0.63333;
 }
 
 .text-m {
@@ -82,7 +104,7 @@ p {
         border: 1px solid var( --text-color );
         align-self: center;
         border-radius: 50%;
-        transition: background .1s;
+        transition: background .1s, border-color .2s;
         background: transparent;
         width: 0.8em;
         height: 0.8em;
@@ -116,4 +138,13 @@ p {
 .rule {
     width: 100%;
     border-bottom: 1px solid var( --text-color );
+}
+
+.lh1 {
+    line-height: 1;
+    top: .05em;
+}
+
+.uc {
+    text-transform: uppercase;
 }

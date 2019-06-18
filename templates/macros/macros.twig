@@ -45,3 +45,7 @@
     {%- endfor -%}
     {{ res | join(' ') | raw }}
 {%- endmacro -%}
+
+{%- macro baseUrl() -%}
+    {{ craft.app.sites.getPrimarySite().getBaseUrl() }}
+{%- endmacro -%}

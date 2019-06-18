@@ -1,0 +1,6 @@
+{% extends 'work-at-stichd/layout' %}
+{% block content %}
+    {% for entry in craft.entries.section('workAtStichd_editorials').all %}
+        <a href="{{ entry.url }}">{{ entry.title }}</a>
+    {% endfor %}
+{% endblock %}

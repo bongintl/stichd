@@ -1,26 +1,60 @@
 {% extends 'work-at-stichd/layout' %}
+
+{% macro intro ( props ) %}
+    <div class="grid s-pad-top-1 l-pad-top-2" data-panel-section-id="intro">
+        <div class="s-col-12 s-gap-bottom-2 text-{{ props.textSize }}">
+            {{ props.text }}
+            {% include 'components/button/button' with { label: 'Search jobs', icon: 'search' } %}
+        </div>
+    </div>
+    {% include 'components/home/home-images' with { images: props.images } only %}
+{% endmacro %}
+
+{% import _self as macros %}
+
+{% set latestNews %}
+    {% for entry in craft.entries.section( 'workAtStichd_editorials' ).limit( 1 ) %}
+        {% include 'components/home/home-section' with {
+            id: entry.id,
+            heading: "Editorials",
+            body: "<p>#{ entry.title }</p>",
+            textSize: 'l',
+            link: entry.url,
+            images: entry.thumbnail.all
+        } only %}
+    {% endfor %}
+{% endset %}
+
 {% block content %}
-    {% for section in entry.homeSections.all() %}
-        {% include 'components/home-section/home-section' with {
-            title: section.sectionTitle,
-            body: section.bodySimple,
-            bodySize: 'l',
-            link: section.entry | length ? section.entry.one.url,
-            images: section.imagesSimple,
+    {{ macros.intro({
+        text: entry.introSimple,
+        images: entry.introImagesSimple.all,
+        link: siteUrl ~ 'about-us',
+        textSize: 'xl'
+    }) }}
+    {% for section in entry.homeSectionsSimple %}
+        {% include 'components/home/home-section' with section | merge({
             id: loop.index,
-            borderTop: loop.index > 1
-        } only %}
+            textSize: 'l',
+            link: section.entry | length ? section.entry.one.url
+        }) only %}
     {% endfor %}
+    {{ latestNews }}
 {% endblock %}
+
 {% block content_complex %}
-    {% for section in entry.homeSections.all() %}
-        {% include 'components/home-section/home-section' with {
-            title: section.sectionTitle,
-            body: section.bodyComplex,
-            link: section.entry | length ? section.entry.one.url,
-            images: section.imagesComplex,
+    {{ macros.intro({
+        text: entry.introComplex,
+        images: entry.introImagesComplex.all,
+        link: siteUrl ~ 'about-us',
+        textSize: 'l'
+    }) }}
+    {% for section in entry.homeSectionsComplex %}
+        {% include 'components/home/home-section' with section | merge({
             id: loop.index,
-            borderTop: loop.index > 1
-        } only %}
+            textSize: 'm',
+            link: section.entry | length ? section.entry.one.url
+        }) only %}
     {% endfor %}
+    {{ latestNews }}
 {% endblock %}

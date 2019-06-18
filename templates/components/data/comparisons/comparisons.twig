@@ -1,0 +1,16 @@
+{% set data = data ?? [] %}
+
+<div class="grid">
+    <div class="s-col-12">
+        {% for item in data %}
+            <div class="comparison s-gap-bottom-half border text-xl">
+                <div class="comparison__bar s-pad-1 bg-dark lh1" style="width: {{ item.percentage }}%">
+                    {{ item.leftLabel }}
+                </div>
+                <div class="comparison__label-right s-pad-1 lh1">
+                    {{ item.rightLabel }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

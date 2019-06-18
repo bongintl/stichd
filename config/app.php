@@ -18,8 +18,5 @@
  */
 
 return [
-    'modules' => [
-        'bong-twig-extension' => bongTwigExtension\Module::class
-    ],
-    'bootstrap' => ['bong-twig-extension'],
+    
 ];

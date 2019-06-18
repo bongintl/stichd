@@ -1,0 +1,11 @@
+.horizontal-bar-chart-rounded {
+    &__bar {
+        border-radius: 100vw;
+    }
+    &__percentage {
+        border-radius: 100vw;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}

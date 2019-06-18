@@ -1,7 +1,12 @@
 {% extends 'stichd/layout' %}
 {% block content %}
      
-    {% set query = craft.entries().section('stichd_news').limit(10).orderBy('postDate desc') %}
+
+    {#{% set query = craft.entries().section('stichd_news').limit(10).orderBy('postDate desc') %}#}
+    {% set query = craft.entries().section('stichd_news').limit(10).orderBy('wordCount desc') %}
+
+
+
     
     {% paginate query as pageInfo, pageEntries %}
 
