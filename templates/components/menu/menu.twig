@@ -1,7 +1,7 @@
 {% set primary = primary ?? [] %}
 {% set secondary = secondary ?? [] %}
 
-<div class="menu grid bg-dark s-pad-top-1 m-pad-top-2 s-pad-bottom-2">
+<div class="menu grid bg-dark s-pad-top-1 s-pad-bottom-2">
     <div class="s-col-12">
         {% include 'components/menu-items/menu-items' with { primary: primary, secondary: secondary } only %}
     </div>

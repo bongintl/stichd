@@ -1,5 +1,8 @@
 :root {
     --gutter: 9px;
+    @include medium {
+        --gutter: 16px;
+    }
     @include large {
         --gutter: 22px;
     }

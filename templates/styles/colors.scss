@@ -9,26 +9,53 @@ html {
     background-color: var( --background-color );
 }
 
-.bg-dark {
-    --text-color: var( --greige );
-    --background-color: black;
-    background-color: var( --background-color );
-    color: var( --greige );
-}
-
-.bg-light {
+@mixin light {
     --text-color: black;
     --background-color: var( --greige );
     background-color: var( --background-color );
     color: var( --text-color );
 }
 
+@mixin dark {
+    --text-color: var( --greige );
+    --background-color: black;
+    background-color: var( --background-color );
+    color: var( --greige );
+}
+
+svg *[fill="#000"] {
+    transition: fill .2s;
+    fill: var( --text-color );
+}
+svg *[stroke="#000"] {
+    transition: stroke .2s;
+    stroke: var( --text-color );
+}
+
+.bg-dark {
+    @include dark;
+    &::selection, *::selection {
+        @include light;
+    }
+}
+
+.bg-light {
+    @include light;
+    &::selection, *::selection {
+        @include dark;
+    }
+}
+
 .bg-invert {
     transition: color .2s, background-color .2s;
     &:hover {
-        --text-color: var( --greige );
-        --background-color: black;
-        background-color: var( --background-color );
-        color: var( --text-color );
+        @include dark;
+        &.bg-dark, .bg-dark & {
+            @include light;
+        }
     }
+}
+
+.text-light {
+    
 }

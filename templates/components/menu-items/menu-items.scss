@@ -5,6 +5,9 @@
         display: flex;
         width: 100%;
         margin-bottom: .25em;
+        span {
+            white-space: nowrap;
+        }
         @include medium {
             margin-bottom: 0;
             width: auto;
@@ -20,10 +23,11 @@
                 border-radius: 50%;
                 transition: background .1s;
                 background: transparent;
-                width: .5em;
-                height: .5em;
+                width: .4em;
+                height: .4em;
                 margin-bottom: .25em;
-                margin-right: .3em;
+                margin-right: .25em;
+                flex-shrink: 0;
             }
             &:hover:before {
                 background: var( --text-color );

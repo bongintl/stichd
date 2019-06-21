@@ -3,7 +3,9 @@
     {% if nextHref %}
     <a class="grid col-justify s-pad-top-1 s-pad-bottom-half text-stroke" href="{{ nextHref }}">
         <span class="text-stroke">{{ nextText }}</span>
-        <img class="pagination__arrow" src="/components/button/arrow.svg" />
+        <div class="pagination__arrow">
+            {% include 'icons/arrow.svg' only %}
+        </div>
     </a>
     {% endif %}
 
@@ -16,7 +18,9 @@
     {% if prevHref %}
     <a class="grid col-justify s-pad-top-1 s-pad-bottom-half" href="{{ prevHref }}">
         <span class="text-stroke">{{ prevText }}</span>
-        <img class="pagination__arrow pagination__arrow--reverse" src="/components/button/arrow.svg" />
+        <div class="pagination__arrow pagination__arrow--reverse">
+            {% include 'icons/arrow.svg' only %}
+        </div>
     </a>
     {% endif %}
 </div>

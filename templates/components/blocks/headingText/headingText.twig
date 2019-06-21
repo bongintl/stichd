@@ -1,8 +1,14 @@
 {% set heading = heading ?? '' %}
 {% set copy = copy ?? '' %}
 {% set size = size ?? 'm' %}
+{% set borderTop = borderTop ?? false %}
 
 <div class="grid s-pad-bottom-half m-pad-bottom-2">
+    {% if borderTop %}
+        <div class="s-col-12 s-pad-bottom-1">
+            <div class="border-top"></div>
+        </div>
+    {% endif %}
     <div class="s-col-12 m-col-6 s-pad-bottom-half">
         <h2 class="{{ size == 'm' ? 'text-l' : 'text-xl' }}">{{ heading }}</h2>
     </div>

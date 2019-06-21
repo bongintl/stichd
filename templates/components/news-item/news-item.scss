@@ -1,4 +1,18 @@
 .news-item {
+    display: block;
+    color: black;
+    &__complex {
+        color: var( --greige );
+        display: none;    
+    }
+    .news--complex & {
+        .news-item__complex {
+            display: flex;
+        }
+        .news-item__simple {
+            display: none;
+        }
+    }
     &__text {
         width: calc(100% - 1em);
         @include medium {
@@ -10,11 +24,6 @@
         display: block;
         @include medium {
             display: flex;
-        }
-    }
-    &:hover {
-        .news-item__arrow {
-            opacity: 0;
         }
     }
     &__arrow {

@@ -1,7 +1,7 @@
 {% extends 'stichd/layout' %}
 {% block content %}
-    {% for location in entry.locations %}
-        {% set props = location | merge({ borderBottom: loop.index < entry.locations | length }) %}
+    {% for location in entry.contactLocations %}
+        {% set props = location | merge({ borderBottom: not loop.last }) %}
         {% include 'components/contact/contact' with props only %}
     {% endfor %}
 {% endblock %}

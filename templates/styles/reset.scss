@@ -5,4 +5,13 @@
     position: relative;
     font: inherit;
     color: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+input {
+    color: inherit;
+    font: inherit;
+    background: transparent;
+    border: 0;
+    outline: 0;
 }

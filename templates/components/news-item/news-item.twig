@@ -1,11 +1,44 @@
-<a class="news-item text-l col-justify grid col-baseline s-pad-top-1" href="{{ entry.url }}">
-        <img class="news-item__arrow" src="/components/button/arrow.svg" /> 
+{% set title = title ?? '' %}
+{% set url = url ?? '' %}
+{% set category = category ?? '' %}
+{% set author = author ?? '' %}
+{% set wordCount = wordCount ?? 0 %}
+
+<a class="news-item" href="{{ url }}">
+    <div class="news-item__simple s-pad-top-1 s-pad-bottom-1 text-l col-justify grid col-baseline bg-invert">
+        <div class="news-item__arrow">
+            {% include 'icons/arrow.svg' only %}
+        </div>
         <span class="news-item__text col-baseline">
-            {{ entry.title }}
+            {{ title }}
             <span class="text-s news-item__date s-pad-top-half">
-                {{ entry.postDate | date("d F")  }}
+                {{ date | date("d F")  }}
             </span>
         </span>
+    </div>
+    
+    <div class="news-item__complex s-pad-top-1 s-pad-bottom-1 text-m col-justify grid col-baseline bg-invert">
+        <div class="m-col-4">
+            {{ title }}
+        </div>
+        <div class="m-col-2">
+            <span class="">{{ category }}</span>
+        </div>
+        <div class="m-col-2">
+            <span class="">{{ author }}</span>
+        </div>
+        <div class="m-col-2">
+            <span class="">{{ wordCount }} words<br> 
+            ~ {{ ( wordCount / 200 ) | round( 0, 'floor' ) }} mins</span>
+        </div>
+        <div class="m-col-2">
+            {% set mins = "%02d" | format( date | date('i') - date | date('g') ) %}
+            <span class="">{{ date | date("F j, Y")  }}<br>
+            {{ date | date("H:i")  }}:{{ mins }}</span>
+        </div>
+    </div>
 
-    <div class="rule s-pad-top-1"></div>
+    <div class="rule"></div>
 </a>
+
+

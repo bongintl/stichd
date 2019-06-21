@@ -4,7 +4,13 @@
     <div class="grid s-pad-top-1 l-pad-top-2" data-panel-section-id="intro">
         <div class="s-col-12 s-gap-bottom-2 text-{{ props.textSize }}">
             {{ props.text }}
-            {% include 'components/button/button' with { label: 'Search jobs', icon: 'search' } %}
+            <a data-toggle-search>
+                {% set buttonLabel %}
+                    <div class="m-hide">Search jobs</div>
+                    <div class="s-hide m-show">Search jobs by keyword</div>
+                {% endset %}
+                {% include 'components/button/button' with { label: buttonLabel, icon: 'search' } %}
+            </a>
         </div>
     </div>
     {% include 'components/home/home-images' with { images: props.images } only %}
@@ -26,6 +32,7 @@
 {% endset %}
 
 {% block content %}
+    {% include 'components/splash/splash' only %}
     {{ macros.intro({
         text: entry.introSimple,
         images: entry.introImagesSimple.all,

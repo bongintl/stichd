@@ -1,6 +1,46 @@
 {% extends 'work-at-stichd/layout' %}
 {% block content %}
-    {% for entry in craft.entries.section('workAtStichd_editorials').all %}
-        <a href="{{ entry.url }}">{{ entry.title }}</a>
+
+<div class="s-pad-bottom-2 l-pad-bottom-4">
+    {% set query = craft.entries()
+        .section( 'workAtStichd_editorials' )
+        .limit( 10 )
+        .orderBy( 'postDate desc' ) %}
+    
+    {% paginate query as pageInfo, pageEntries %}
+    
+    {% for entry in pageEntries %}
+    
+        <div class="s-gap-bottom-{{ loop.first ? 4 : 2 }} s-gap-top-2">
+            
+            {% include 'components/news-item-featured/news-item-featured' with {
+                title: entry.title,
+                url: entry.url,
+                info: [
+                    entry.newsAuthor,
+                    entry.category,
+                    "#{ ( entry.wordCount / 200 ) | round( 0, 'floor' ) } minute read"
+                ] | filter( _ => _ ),
+                infoSize: 'l'
+            } only %}
+            
+        </div>
+        
+        {% if loop.first %}
+            <div class="grid border-bottom"></div>
+        {% else %}
+            <div class="grid">
+                <div class="s-col-12">
+                    <div class="border-bottom"></div>
+                </div>
+            </div>
+        {% endif %}
+        
     {% endfor %}
+    
+    {% include 'components/pagination/pagination' with { nextText: 'next', nextHref: pageInfo.nextUrl, prevText: 'prev', prevHref: pageInfo.prevUrl } %}
+    
+</div>
+    
+    
 {% endblock %}

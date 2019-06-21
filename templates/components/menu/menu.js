@@ -4,4 +4,5 @@
             menu.classList.toggle('menu--open');
         })
     });
-})
+});
+

@@ -1,13 +1,6 @@
-:root {
-    --icon-size: 25px;
-    @include large {
-        --icon-size: 48px;
-    }
-}
-
 .icon {
-    width: var( --icon-size );
-    height: var( --icon-size );
+    width: .7em;
+    height: .7em;
     svg {
         position: absolute;
         width: 100%;

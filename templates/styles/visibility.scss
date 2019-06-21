@@ -3,7 +3,13 @@
         display: none;
     }
     .#{ $prefix }-show {
-        display: initial;
+        display: block;
+    }
+    .#{ $prefix }-show-f {
+        display: flex;
+    }
+    .#{ $prefix }-show-i {
+        display: inline;
     }
 }
 

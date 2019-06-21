@@ -51,7 +51,12 @@
         }
     }
     &__text {
-        padding-right: var( --gutter );
+        width: 100%;
+        padding-right: 50%;
         padding-left: var( --gutter );
+        // width: 50%;
+        @include medium {
+            padding-right: var( --gutter );
+        }
     }
 }

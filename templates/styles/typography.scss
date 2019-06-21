@@ -71,6 +71,9 @@ html {
 .text-xxl {
     font-size: 48px;
     @include large {
+        font-size: 96px;
+    }
+    @include xlarge {
         font-size: 144px;
     }
     line-height: 1;
@@ -83,11 +86,19 @@ html {
     -webkit-text-stroke-color: var( --text-color );
     a & {
         transition: -webkit-text-fill-color .1s;
-        &:hover {
-            -webkit-text-fill-color: var( --text-color );
+    }
+    a:hover & {
+        -webkit-text-fill-color: var( --text-color );
+    }
+    &--reverse {
+        a:hover & {
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: var( --text-color );
         }
     }
 }
+
 
 .text-center {
     text-align: center
@@ -95,6 +106,17 @@ html {
 
 p {
     margin-bottom: calc( var( --line-height ) * 1em );
+    a {
+        border-bottom: 1px solid var( --text-color );
+        &:hover {
+            border-bottom: 0;
+        }
+    }
+}
+
+blockquote {
+    @extend .text-l;
+    padding-bottom: 1em;
 }
 
 .circle {
@@ -132,7 +154,9 @@ p {
             background-color: var( --text-color );
         }
     }
-    
+    &--filled:before {
+        background-color: var( --text-color );
+    }
 }
 
 .rule {

@@ -1,0 +1,21 @@
+{% set title = title ?? '' %}
+{% set description = description ?? '' %}
+{% set index = index ?? 0 %}
+{% set count = count ?? 0 %}
+
+<div class="grid">
+    <div class="s-col-12 s-gap-bottom-1 l-gap-bottom-2">
+        <div class="border-top"></div>
+    </div>
+    <div class="s-col-12 x xjb s-gap-bottom-1 l-gap-bottom-2">
+        <div class="text-xxl">
+            {{ title }}
+        </div>
+        <div class="text-s">
+            {{ index }}/{{ count }}
+        </div>
+    </div>
+    <div class="s-col-12 text-l s-gap-bottom-2 l-gap-bottom-3">
+        {{ description }}
+    </div>
+</div>

@@ -1,5 +1,6 @@
 {% set label = label ?? null %}
 {% set href = href ?? null %}
+{% set target = target ?? null %}
 {% set icon = icon ?? null %}
 
 {% set content %}
@@ -9,12 +10,20 @@
         </div>
     {% endif %}
     {% if icon %}
-        {% include "components/button/#{icon}.svg" ignore missing %}
+        <div class="icon">
+            {% include "icons/#{icon}.svg" ignore missing %}
+        </div>
     {% endif %}
 {% endset %}
 
 {% if href %}
-    <a class="button text-l" href="{{ href }}">
+    <a
+        class="button text-l"
+        href="{{ href }}"
+        {% if target %}
+            target="{{ target }}"
+        {% endif %}
+    >
         {{ content }}
     </a>
 {% else %}

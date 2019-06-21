@@ -1,17 +1,24 @@
+{% import 'macros/macros' as m %}
+{% set order = order ?? 'postDate' %}
+{% set dir = dir ?? 'desc' %}
+{% set otherDir = dir == 'desc' ? 'asc' : 'desc' %}
+
 <div class="grid text-s news-filter">
-    <div class="s-col-4 s-pad-bottom-half">
-        <span>LESS</span> / <span>MORE</span>
+    <div class="s-col-4 s-pad-bottom-half news__toggle">
+        <span class="news-filter__toggle-less">Less</span>
+        /
+        <span class="news-filter__toggle-more">More</span>
     </div>
-    <div class="m-col-2">
-        <span class="circle circle--small news-filter__category">category </span>
-    </div>
-    <div class="m-col-2">
-        <span class="circle circle--small news-filter__author">author </span>
-    </div>
-    <div class="m-col-2">
-        <span class="circle circle--small news-filter__length">Length</span>
-    </div>
-    <div class="m-col-2">
-        <span class="circle circle--small news-filter__date">DATE</span>
-    </div>
+    {% for column in [ 'category', 'author', 'length', 'date' ] %}
+        {% set params = {
+            complex: true,
+            order: column,
+            dir: order == column ? otherDir : dir
+        } %}
+        <div class="m-col-2 news-filter__item">
+            <a href="/news?{{ params | url_encode }}">
+                <span class="{{ m.bem( 'circle', { small: true, filled: order == column } ) }}">{{ column }}</span>
+            </a>
+        </div>
+    {% endfor %}
 </div>

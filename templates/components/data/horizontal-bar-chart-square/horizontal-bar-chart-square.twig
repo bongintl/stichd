@@ -2,9 +2,9 @@
 
 {% set data = data ?? [] %}
 
-{% set max = max( data | map( _ => _.percentage ) ) %}
+{% set max = max( data | map( _ => _.percentage ) | merge([ 1 ]) ) %}
 
-<div class="grid">
+<div class="grid s-pad-bottom-3 l-pad-bottom-5">
     <div class="s-col-12">
         <div class="{{ m.bem( 'horizontal-bar-chart-square' ) }}">
             {% for item in data %}

@@ -14,8 +14,8 @@
     
     {% set query = craft.entries
         .section( 'workAtStichd_jobs' )
-        .limit( 10 )
-        .orderBy('lft desc') %}
+        .limit( null )
+        .orderBy('lft asc') %}
     {% paginate query as pageInfo, pageEntries %}
     
     {% for job in pageEntries %}

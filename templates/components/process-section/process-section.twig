@@ -10,8 +10,15 @@
             {% if borderTop %}
                 <div class="border-top"></div>
             {% endif %}
-            <h2 class="text-xxl s-pad-top-1 s-pad-bottom-1">{{ title }}</h2>
-            <div class="text-l">
+            <h2 class="s-pad-top-1 s-pad-bottom-1 x xjb xac text-xxl">
+                <div>{{ title }}</div>
+                {% if link %}
+                    <div class="icon m-hide">
+                        {% include 'icons/arrow.svg' only %}
+                    </div>
+                {% endif %}
+            </h2>
+            <div class="text-l s-hide m-show">
                 {{ body | raw }}
                 {% if link %}
                     {% include 'components/button/button' with { icon: 'arrow' } %}

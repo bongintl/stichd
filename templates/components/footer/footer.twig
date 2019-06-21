@@ -1,13 +1,15 @@
 {% set primary = primary ?? [] %}
 {% set secondary = secondary ?? [] %}
 {% set tertiary = tertiary ?? [] %}
+{% set bg = bg ?? 'dark' %}
 
+<div class="xg"></div>
 <div class="grid s-pad-top-1 m-pad-bottom-1 border-top">
     <div class="s-col-12">
         {% include 'components/menu-items/menu-items' with { primary: primary, secondary: secondary, circles: true } only %}
     </div>
 </div>
-<footer class="footer bg-dark s-pad-top-half s-pad-bottom-1 m-pad-bottom-half">
+<footer class="footer bg-{{ bg }} s-pad-top-half s-pad-bottom-1 m-pad-bottom-half">
     <div class="footer__links s-gap-bottom-1 m-gap-bottom-half l-gap-bottom-0">
         <div class="footer__item s-hide m-show">
             © {{ now.year }} Stichd

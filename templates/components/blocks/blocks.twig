@@ -5,7 +5,8 @@
             {% include template with {
                 heading: block.heading,
                 copy: block.copy,
-                size: block.size.value
+                size: block.size.value,
+                borderTop: block.size.value == 'l' and loop.index > 1
             } only %}
         {% case 'text' %}
             {% include template with {
@@ -21,12 +22,15 @@
         {% case 'quarterWidthImage' %}
             {% include template with {
                 image: block.image | length ? block.image.one : null,
+                position: block.position.value,
+                caption: block.caption,
                 ratio: block.ratio.value
             } only %}
         {% case 'fullWidthImage' %}
             {% include template with {
                 image: block.image | length ? block.image.one : null,
-                caption: block.caption
+                caption: block.caption,
+                ratio: block.ratio.value
             } only %}
         {% case 'twoImages' %}
             {% include template with {
@@ -49,7 +53,8 @@
         {% case 'quote' %}
             {% include template with {
                 copy: block.copy,
-                attribution: block.attribution
+                attribution: block.attribution,
+                size: block.size.value
             } only %}
         {% case 'imageQuote' %}
             {% include template with {
@@ -58,6 +63,10 @@
                 copy: block.copy,
                 position: block.position.value
             } only %}
+        {% case 'overflowText' %}
+            {%  include template %}
+        {% case 'overflowTextImage' %}
+            {%  include template %}
         {% default %}
             you fool: {{ block.type }}
     {#{% include [#}

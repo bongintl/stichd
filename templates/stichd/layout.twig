@@ -1,7 +1,9 @@
 {% set backUrl = backUrl ?? null %}
+{% set dark = dark ?? false %}
 {% include 'components/layout/layout' with {
+    dark: dark,
     header: {
-        logo: "<h1 class='text-xl'>stichd</h1>",
+        logo: "stichd",
         backUrl: backUrl,
         search: false
     },
@@ -12,7 +14,7 @@
             { name: 'About us', url: siteUrl ~ 'about-us' },
             { name: 'News', url: siteUrl ~ 'news' },
             { name: 'Contact', url: siteUrl ~ 'contact' },
-            { name: 'workatstichd.com', url: craft.app.sites.getSiteByHandle('workAtStichd').getBaseUrl() }
+            { name: 'workatstichd<span class="s-hide m-show-i">.com</span>', url: craft.app.sites.getSiteByHandle('workAtStichd').getBaseUrl() }
         ],
         secondary: globals.social
     },
@@ -22,7 +24,7 @@
         primary: [
             { name: 'email', url: "mailto:#{ globals.email }" },
             { name: 'call', url: "tel:#{ globals.phone }" },
-            { name: 'workatstichd.com', url: craft.app.sites.getSiteByHandle('workAtStichd').getBaseUrl() }
+            { name: 'workatstichd<span class="s-hide m-show-i">.com</span>', url: craft.app.sites.getSiteByHandle('workAtStichd').getBaseUrl() }
         ],
         secondary: globals.social,
         tertiary: [

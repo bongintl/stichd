@@ -1,3 +1,22 @@
 .news-filter {
-    
+    span {
+        cursor: pointer;
+    }
+    &__item {
+        display: none;
+    }
+    &__toggle-less {
+        border-bottom: 1px solid var( --text-color );
+    }
+    .news--complex & {
+        &__toggle-less {
+            border-bottom: none;
+        }
+        &__toggle-more {
+            border-bottom: 1px solid var( --text-color );
+        }
+        .news-filter__item {
+            display: block;
+        }
+    }
 }
