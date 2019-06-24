@@ -11,7 +11,8 @@
                     {{ item.rightLabel }}
                 </div>
                 <div class="fill border"></div>
-                <div class="fill bg-dark x xjb s-pad-half m-pad-1" style="clip-path: inset( 0 {{ 100 - item.percentage }}% 0 0 )">
+                {% set clipPath = "inset( 0 #{ 100 - item.percentage }% 0 0 )" %}
+                <div class="fill bg-dark x xjb s-pad-half m-pad-1" style="clip-path: {{ clipPath }}; -webkit-clip-path: {{ clipPath }}">
                     <div class="lh1">
                         {{ item.leftLabel }}
                     </div>

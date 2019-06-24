@@ -1,4 +1,7 @@
 .news-filter {
+    @include small {
+        display: none;
+    }
     span {
         cursor: pointer;
     }

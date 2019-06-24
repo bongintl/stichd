@@ -13,6 +13,11 @@
             calc( var( --radius ) + var( --cx, 50% ) )
             calc( var( --radius ) + var( --cy, 50% ) )
         );
+        -webkit-clip-path: circle(
+            var( --radius ) at
+            calc( var( --radius ) + var( --cx, 50% ) )
+            calc( var( --radius ) + var( --cy, 50% ) )
+        );
         transition: opacity .1s;
         opacity: 0;
         .magnifier:hover & {

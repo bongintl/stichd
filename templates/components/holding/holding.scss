@@ -30,6 +30,7 @@
     }
     &__video {
         z-index: 5001;
+        background-color: black;
         video {
             object-fit: contain;
             width: 100%;
@@ -42,5 +43,10 @@
         left: 50%;
         z-index: 5003;
         transform: translate(-50%);
+        mix-blend-mode: difference;
+        color:var(--background-color);
+        a {
+            padding: 1em;
+        }
     }
 }

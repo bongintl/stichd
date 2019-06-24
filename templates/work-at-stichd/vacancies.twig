@@ -14,24 +14,21 @@
     
     {% set query = craft.entries
         .section( 'workAtStichd_jobs' )
-        .limit( null )
+        .limit( 10 )
         .orderBy('lft asc') %}
     {% paginate query as pageInfo, pageEntries %}
     
-    {% for job in pageEntries %}
-        {% include 'components/job-row/job-row' with {
-            title: job.title,
-            url: job.url,
-            qualities: job.jobQualities | map( _ => _.text ),
-            location: job.jobLocation
-        } only %}
-    {% endfor %}
-    
-    {% include 'components/pagination/pagination' with {
-        nextText: 'next',
-        nextHref: pageInfo.nextUrl,
-        prevText: 'prev',
-        prevHref: pageInfo.prevUrl
-    } only %}
+    {% embed 'components/more/more' with { next: pageInfo.nextUrl } %}
+        {% block items %}
+            {% for job in pageEntries %}
+                {% include 'components/job-row/job-row' with {
+                    title: job.title,
+                    url: job.url,
+                    qualities: job.jobQualities | map( _ => _.text ),
+                    location: job.jobLocation
+                } only %}
+            {% endfor %}
+        {% endblock %}
+    {% endembed %}
     
 {% endblock %}

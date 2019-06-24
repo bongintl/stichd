@@ -48,7 +48,7 @@
 
     <div class="{{ m.bem('header', { 'toggle': toggleTo, 'toggle-left': toggleTo == 'left', 'toggle-right': toggleTo == 'right' }) }} border-bottom">
         
-        <a class="header__logo" href="{{ siteUrl }}">{{ logo | raw }}</a>
+        <a class="header__logo" href="{{ siteUrl }}{% if currentSite.handle == 'stichd' %}home{% endif %}">{{ logo | raw }}</a>
         
         {% if toggleTo == 'left' %}
             <a class="header__icon header__icon--toggle-left header__icon--small" data-toggle-panels>

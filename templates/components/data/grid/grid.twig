@@ -10,9 +10,9 @@
                     <div class="text-s">
                         {{ item.label }}
                     </div>
-                    <div class="data-grid__item-percentage text-l bg-dark cover">
+                    <a class="data-grid__item-percentage text-l bg-dark cover">
                         {{ item.percentage }}%
-                    </div>
+                    </a>
                 </div>
                 {% if loop.index == floor( data | length * 1/4 ) %}
                     <div class="data-grid__item data-grid__item--height-2">

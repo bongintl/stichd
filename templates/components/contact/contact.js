@@ -1,19 +1,5 @@
 var wait = delay => new Promise( resolve => setTimeout( resolve, delay ) );
 
-var transitionHeight = ( el, modify, reset, delay ) => {
-    var heightBefore = el.clientHeight;
-    modify( el );
-    var heightAfter = el.clientHeight;
-    if ( heightBefore === heightAfter ) return Promise.resolve();
-    el.style.height = heightBefore + 'px';
-    return wait( 0 )
-        .then( () => {
-            el.style.height = heightAfter + 'px';
-            return wait( delay )
-        })
-        .then( () => el.style.height = '' );
-}
-
 [ ...document.querySelectorAll('.contact') ].forEach( el => {
     var toggle = el.querySelector('.contact__toggle');
     if ( !toggle ) return;

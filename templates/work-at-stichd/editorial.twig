@@ -9,36 +9,65 @@
     
     {% paginate query as pageInfo, pageEntries %}
     
-    {% for entry in pageEntries %}
     
-        <div class="s-gap-bottom-{{ loop.first ? 2 : 1 }} m-gap-bottom-{{ loop.first ? 4 : 2 }} s-gap-top-2">
-            
-            {% include 'components/news-item-featured/news-item-featured' with {
-                title: entry.title,
-                url: entry.url,
-                info: [
-                    entry.newsAuthor,
-                    entry.category,
-                    "#{ ( entry.wordCount / 200 ) | round( 0, 'floor' ) } minute read"
-                ] | filter( _ => _ ),
-                infoSize: 'l'
-            } only %}
-            
-        </div>
-        
-        {% if loop.first %}
-            <div class="grid border-bottom"></div>
-        {% else %}
-            <div class="grid">
-                <div class="s-col-12">
-                    <div class="border-bottom"></div>
+    {% embed 'components/more/more' with { next: pageInfo.nextUrl } %}
+        {% block items %}
+            {% for entry in pageEntries %}
+                <div class="s-gap-bottom-{{ loop.first ? 2 : 1 }} m-gap-bottom-{{ loop.first ? 4 : 2 }} s-gap-top-2">
+                    {% include 'components/news-item-featured/news-item-featured' with {
+                        title: entry.title,
+                        url: entry.url,
+                        info: [
+                            entry.newsAuthor,
+                            entry.category,
+                            "#{ ( entry.wordCount / 200 ) | round( 0, 'floor' ) } minute read"
+                        ] | filter( _ => _ ),
+                        infoSize: 'l'
+                    } only %}
                 </div>
-            </div>
-        {% endif %}
-        
-    {% endfor %}
+                {% if loop.first %}
+                    <div class="grid border-bottom"></div>
+                {% else %}
+                    <div class="grid">
+                        <div class="s-col-12">
+                            <div class="border-bottom"></div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endblock %}
+    {% endembed %}
     
-    {% include 'components/pagination/pagination' with { nextText: 'next', nextHref: pageInfo.nextUrl, prevText: 'prev', prevHref: pageInfo.prevUrl } %}
+    {#{% for entry in pageEntries %}#}
+    
+    {#    <div class="s-gap-bottom-{{ loop.first ? 2 : 1 }} m-gap-bottom-{{ loop.first ? 4 : 2 }} s-gap-top-2">#}
+            
+    {#        {% include 'components/news-item-featured/news-item-featured' with {#}
+    {#            title: entry.title,#}
+    {#            url: entry.url,#}
+    {#            info: [#}
+    {#                entry.newsAuthor,#}
+    {#                entry.category,#}
+    {#                "#{ ( entry.wordCount / 200 ) | round( 0, 'floor' ) } minute read"#}
+    {#            ] | filter( _ => _ ),#}
+    {#            infoSize: 'l'#}
+    {#        } only %}#}
+            
+    {#    </div>#}
+        
+    {#    {% if loop.first %}#}
+    {#        <div class="grid border-bottom"></div>#}
+    {#    {% else %}#}
+    {#        <div class="grid">#}
+    {#            <div class="s-col-12">#}
+    {#                <div class="border-bottom"></div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    {% endif %}#}
+        
+    {#{% endfor %}#}
+    
+    {#{% include 'components/pagination/pagination' with { nextText: 'next', nextHref: pageInfo.nextUrl, prevText: 'prev', prevHref: pageInfo.prevUrl } %}#}
     
 </div>
     

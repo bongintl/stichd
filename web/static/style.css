@@ -1794,6 +1794,7 @@ svg *[stroke="#000"] {
     object-fit: cover;
     pointer-events: none;
     clip-path: circle(var(--radius) at calc( var( --radius ) + var( --cx, 50% )) calc( var( --radius ) + var( --cy, 50% )));
+    -webkit-clip-path: circle(var(--radius) at calc( var( --radius ) + var( --cx, 50% )) calc( var( --radius ) + var( --cy, 50% )));
     transition: opacity .1s;
     opacity: 0; }
     .magnifier:hover .magnifier__image {
@@ -1923,14 +1924,14 @@ svg *[stroke="#000"] {
     opacity: 0;
     transition: opacity .1s;
     cursor: pointer; }
-    .data-grid__item-percentage:hover {
+    .data-grid__item-percentage--visible {
       opacity: 1; }
 
 .horizontal-bar-chart-rounded__bar-left {
   border-radius: 100vw 0 0 100vw;
   white-space: nowrap;
   z-index: 10;
-  width: 5em; }
+  width: 6em; }
   @media (min-width: 768px) {
     .horizontal-bar-chart-rounded__bar-left {
       width: 8em; } }
@@ -1943,7 +1944,8 @@ svg *[stroke="#000"] {
   position: absolute;
   right: 0;
   top: 0;
-  height: 100%; }
+  height: 100%;
+  z-index: 20; }
 
 .vertical-bar-chart {
   height: 20em; }
@@ -2180,7 +2182,8 @@ svg *[stroke="#000"] {
     left: 50%;
     transform: translate(-50%, -50%); }
   .holding__video {
-    z-index: 5001; }
+    z-index: 5001;
+    background-color: black; }
     .holding__video video {
       object-fit: contain;
       width: 100%;
@@ -2190,7 +2193,11 @@ svg *[stroke="#000"] {
     bottom: 2em;
     left: 50%;
     z-index: 5003;
-    transform: translate(-50%); }
+    transform: translate(-50%);
+    mix-blend-mode: difference;
+    color: var(--background-color); }
+    .holding__enter a {
+      padding: 1em; }
 
 .image {
   position: relative; }
@@ -2263,6 +2270,24 @@ svg *[stroke="#000"] {
   .menu--open {
     transform: none; }
 
+.more__items {
+  transition: height 1s;
+  overflow: hidden; }
+
+@keyframes pulse {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.more__next--loading {
+  animation: pulse .75s linear infinite alternate;
+  pointer-events: none; }
+
+.more__next--disabled {
+  pointer-events: none;
+  opacity: 0; }
+
 .question-answer__answer p:first-of-type {
   display: inline;
   padding-bottom: 1em; }
@@ -2271,6 +2296,10 @@ svg *[stroke="#000"] {
     display: block;
     height: 1em;
     width: 100%; }
+
+@media (max-width: 767px) {
+  .news-filter {
+    display: none; } }
 
 .news-filter span {
   cursor: pointer; }

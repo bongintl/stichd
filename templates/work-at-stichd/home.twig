@@ -32,7 +32,9 @@
 {% endset %}
 
 {% block content %}
-    {% include 'components/splash/splash' only %}
+    {% if craft.request.urlReferrer == null %}
+        {% include 'components/splash/splash' only %}
+    {% endif %}
     {{ macros.intro({
         text: entry.introSimple,
         images: entry.introImagesSimple.all,
