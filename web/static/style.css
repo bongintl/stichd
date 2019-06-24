@@ -331,7 +331,8 @@ blockquote {
 
 :root {
   --greige: #E7E3D1;
-  --text-color: black;
+  --blue: #171B2E;
+  --text-color: var( --blue );
   --background-color: var( --greige ); }
 
 html {
@@ -348,23 +349,23 @@ svg *[stroke="#000"] {
 
 .bg-dark {
   --text-color: var( --greige );
-  --background-color: black;
+  --background-color: var( --blue );
   background-color: var(--background-color);
   color: var(--greige); }
   .bg-dark::selection, .bg-dark *::selection {
-    --text-color: black;
+    --text-color: var( --blue );
     --background-color: var( --greige );
     background-color: var(--background-color);
     color: var(--text-color); }
 
 .bg-light {
-  --text-color: black;
+  --text-color: var( --blue );
   --background-color: var( --greige );
   background-color: var(--background-color);
   color: var(--text-color); }
   .bg-light::selection, .bg-light *::selection {
     --text-color: var( --greige );
-    --background-color: black;
+    --background-color: var( --blue );
     background-color: var(--background-color);
     color: var(--greige); }
 
@@ -372,11 +373,11 @@ svg *[stroke="#000"] {
   transition: color .2s, background-color .2s; }
   .bg-invert:hover {
     --text-color: var( --greige );
-    --background-color: black;
+    --background-color: var( --blue );
     background-color: var(--background-color);
     color: var(--greige); }
     .bg-invert:hover.bg-dark, .bg-dark .bg-invert:hover {
-      --text-color: black;
+      --text-color: var( --blue );
       --background-color: var( --greige );
       background-color: var(--background-color);
       color: var(--text-color); }
