@@ -5,8 +5,8 @@
       <rect x="1" y="1" width="46" height="46" rx="23" fill="none"/>
     </g>
     <g id="Group_390" data-name="Group 390" transform="translate(114.699 838.907) rotate(-45)">
-      <rect id="Rectangle_2666" data-name="Rectangle 2666" width="2" height="28" transform="translate(1056 282) rotate(-90)"/>
-      <rect id="Rectangle_2695" data-name="Rectangle 2695" width="2" height="28" transform="translate(1071 295) rotate(180)"/>
+      <rect fill="#000" id="Rectangle_2666" data-name="Rectangle 2666" width="2" height="28" transform="translate(1056 282) rotate(-90)"/>
+      <rect fill="#000" id="Rectangle_2695" data-name="Rectangle 2695" width="2" height="28" transform="translate(1071 295) rotate(180)"/>
     </g>
   </g>
 </svg>

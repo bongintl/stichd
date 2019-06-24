@@ -6,15 +6,30 @@
     <div class="s-col-12">
         <div class="horizontal-bar-chart-rounded">
             {% for item in data %}
-                <div
-                    class="horizontal-bar-chart-rounded__bar text-m s-pad-half s-pad-1 m-pad-2 bg-dark s-gap-bottom-half m-gap-bottom-1"
-                    style="width: {{ ( item.percentage / max ) * 100 }}%"
-                >
-                    <div class="lh1">{{ item.label }}</div>
-                    <div class="horizontal-bar-chart-rounded__percentage border s-pad-1 m-pad-2 bg-light">
-                        <div class="lh1">{{ item.percentage }}%</div>
+                <div class="x text-m s-gap-bottom-half m-gap-bottom-1">
+                    <div class="horizontal-bar-chart-rounded__bar-left s-pad-1 m-pad-2 bg-dark">
+                        <div class="lh1">{{ item.label }}</div>
+                    </div>
+                    <div class="xx x xas">
+                        <div class="horizontal-bar-chart-rounded__bar bg-dark" style="width: {{ ( item.percentage / max ) * 100 }}%">
+                            <div class="horizontal-bar-chart-rounded__percentage border s-pad-1 m-pad-2 bg-light">
+                                <div class="lh1">{{ item.percentage }}%</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
+                {#<div#}
+                {#    class="horizontal-bar-chart-rounded__bar text-m s-pad-half s-pad-1 m-pad-2 bg-dark "#}
+                {#    style="width: {{ ( item.percentage / max ) * 100 }}%"#}
+                {#>#}
+                {#    <div class="lh1">#}
+                {#        {{ item.label }}#}
+                {#    </div>#}
+                {#    <div class="horizontal-bar-chart-rounded__percentage border s-pad-1 m-pad-2 bg-light">#}
+                {#        <div class="lh1">{{ item.percentage }}%</div>#}
+                {#    </div>#}
+                {#</div>#}
             {% endfor %}
         </div>
     </div>

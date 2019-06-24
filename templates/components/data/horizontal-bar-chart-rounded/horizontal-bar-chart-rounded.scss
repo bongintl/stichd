@@ -1,6 +1,15 @@
 .horizontal-bar-chart-rounded {
+    &__bar-left {
+        border-radius: 100vw 0 0 100vw;
+        white-space: nowrap;
+        z-index: 10;
+        width: 5em;
+        @include medium {
+            width: 8em;
+        }
+    }
     &__bar {
-        border-radius: 100vw;
+        border-radius: 0 100vw 100vw 0;
     }
     &__percentage {
         border-radius: 100vw;

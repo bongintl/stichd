@@ -1,6 +1,12 @@
 .video {
+    $v: &; 
     width: 100%;
     padding-bottom: 56.25%;
+    &--playing {
+        #{$v}__cover {
+            display: none;
+        }
+    }
     &__iframe {
         border: none;
         position: absolute;

@@ -2,11 +2,14 @@
 {% set coverImage = coverImage ?? null %}
 {% set embedUrl = craft.videoEmbedder.getEmbedUrl( videoUrl ) %}
 
+
+
+
 <div class="grid s-pad-bottom-1 m-pad-bottom-4">
 <div class="s-col-12">
     <div class="video">
         {% if embedUrl | length %}
-            <iframe class="video__iframe" src="{{ embedUrl }}"></iframe>
+            <iframe class="video__iframe{% if 'vimeo' in embedUrl %} vimeo__iframe{% else %} youtube__iframe{% endif %}" src="{{ embedUrl }}{% if 'vimeo' in embedUrl %}?api=1{% else %}?enablejsapi=1{% endif %}" allow="autoplay"></iframe>
         {% endif %}
         {% if coverImage %}
             <div class="video__cover">
@@ -17,3 +20,4 @@
     </div>
 </div>
 </div>
+

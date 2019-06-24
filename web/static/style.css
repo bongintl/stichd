@@ -246,9 +246,12 @@ html {
       font-size: 36px; } }
 
 .text-xl {
-  font-size: 48px;
+  font-size: 42px;
   line-height: 1.19444;
   letter-spacing: -.01em; }
+  @media (min-width: 400px) {
+    .text-xl {
+      font-size: 48px; } }
   @media (min-width: 1024px) {
     .text-xl {
       font-size: 72px; } }
@@ -1799,6 +1802,8 @@ svg *[stroke="#000"] {
 .video {
   width: 100%;
   padding-bottom: 56.25%; }
+  .video--playing .video__cover {
+    display: none; }
   .video__iframe {
     border: none;
     position: absolute;
@@ -1870,6 +1875,8 @@ svg *[stroke="#000"] {
   .contact__arrow {
     position: absolute;
     left: calc( var( --line ) * .5 - var( --gutter ) * .5); }
+  .contact p a {
+    border-bottom: 0; }
 
 .comparison__bar {
   position: absolute;
@@ -1919,8 +1926,17 @@ svg *[stroke="#000"] {
     .data-grid__item-percentage:hover {
       opacity: 1; }
 
+.horizontal-bar-chart-rounded__bar-left {
+  border-radius: 100vw 0 0 100vw;
+  white-space: nowrap;
+  z-index: 10;
+  width: 5em; }
+  @media (min-width: 768px) {
+    .horizontal-bar-chart-rounded__bar-left {
+      width: 8em; } }
+
 .horizontal-bar-chart-rounded__bar {
-  border-radius: 100vw; }
+  border-radius: 0 100vw 100vw 0; }
 
 .horizontal-bar-chart-rounded__percentage {
   border-radius: 100vw;
@@ -2035,10 +2051,12 @@ svg *[stroke="#000"] {
     cursor: pointer;
     height: 100%;
     align-items: center;
-    margin: 0 var(--gutter); }
+    margin: 0 var(--gutter);
+    width: 25px; }
     @media (min-width: 768px) {
       .header__icon {
-        margin: 0 calc( var( --gutter ) / 2); } }
+        margin: 0 calc( var( --gutter ) / 2);
+        width: 48px; } }
     .header__icon--small {
       display: flex; }
       @media (min-width: 768px) {
@@ -2054,6 +2072,17 @@ svg *[stroke="#000"] {
       transform-origin: 50% 50%; }
       .panels__header--inactive .header__icon--toggle {
         transform: rotate(180deg); }
+    .header__icon--menu svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: opacity .2s; }
+      .header--menu-open .header__icon--menu svg:first-child {
+        opacity: 0; }
+      .header__icon--menu svg:last-child {
+        opacity: 0; }
+        .header--menu-open .header__icon--menu svg:last-child {
+          opacity: 1; }
   .header__logo {
     flex-grow: 1;
     margin: 0 calc( var(--gutter) / 2);
@@ -2108,6 +2137,25 @@ svg *[stroke="#000"] {
       @media (min-width: 768px) {
         .header-compact__icon--medium {
           display: flex; } }
+    .header-compact__icon--menu svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: opacity .2s; }
+      .header--menu-open .header-compact__icon--menu svg:first-child {
+        opacity: 0; }
+      .header-compact__icon--menu svg:last-child {
+        opacity: 0; }
+        .header--menu-open .header-compact__icon--menu svg:last-child {
+          opacity: 1; }
+
+.header:before, .header-compact:before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  background: black;
+  height: 100vh; }
 
 .holding {
   position: fixed;
@@ -2116,14 +2164,16 @@ svg *[stroke="#000"] {
   top: 0;
   width: 100%;
   height: 100%; }
+  .holding--hide-intro .holding__intro {
+    display: none; }
   .holding__intro, .holding__video {
     position: fixed;
-    background-color: var(--background-color);
     width: 100%;
     height: 100%; }
   .holding__intro {
     z-index: 5002;
-    text-align: center; }
+    text-align: center;
+    background-color: var(--background-color); }
   .holding__center {
     position: absolute;
     top: 50%;
@@ -2132,7 +2182,6 @@ svg *[stroke="#000"] {
   .holding__video {
     z-index: 5001; }
     .holding__video video {
-      border: 1px solid red;
       object-fit: contain;
       width: 100%;
       height: 100%; }
@@ -2203,13 +2252,14 @@ svg *[stroke="#000"] {
   position: fixed;
   top: var(--page-pad-top);
   left: 0;
+  bottom: 0;
   width: 100%;
-  height: 100%;
   z-index: 100;
   transform: translateY(-100%);
   transition: transform .2s;
   overflow-y: scroll;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; }
   .menu--open {
     transform: none; }
 

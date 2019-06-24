@@ -18,7 +18,7 @@
                     "
                     style="width: {{ ( item.percentage / max ) * 100 }}%"
                 >
-                    <div class="lh1">{{ item.label }} – {{ item.percentage }}%</div>
+                    <div class="lh1">{{ item.label | slice( 0, 1 ) }}<span class="s-hide m-show-i">{{ item.label | slice( 1 ) }}</span> – {{ item.percentage }}%</div>
                 </div>
             {% endfor %}
         </div>

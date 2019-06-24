@@ -11,7 +11,7 @@
     
     {% for entry in pageEntries %}
     
-        <div class="s-gap-bottom-{{ loop.first ? 4 : 2 }} s-gap-top-2">
+        <div class="s-gap-bottom-{{ loop.first ? 2 : 1 }} m-gap-bottom-{{ loop.first ? 4 : 2 }} s-gap-top-2">
             
             {% include 'components/news-item-featured/news-item-featured' with {
                 title: entry.title,

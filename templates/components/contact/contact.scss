@@ -10,4 +10,7 @@
         position: absolute;
         left: calc( var( --line ) * .5 - var( --gutter ) * .5 );
     }
+    p a {
+        border-bottom: 0;
+    }
 }

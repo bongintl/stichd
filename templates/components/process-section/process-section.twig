@@ -18,10 +18,12 @@
                     </div>
                 {% endif %}
             </h2>
-            <div class="text-l s-hide m-show">
+            <div class="text-l">
                 {{ body | raw }}
                 {% if link %}
-                    {% include 'components/button/button' with { icon: 'arrow' } %}
+                    <div class="s-hide m-show">
+                        {% include 'components/button/button' with { icon: 'arrow' } %}
+                    </div>
                 {% endif %}
             </div>
         </div>

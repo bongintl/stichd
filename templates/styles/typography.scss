@@ -60,7 +60,10 @@ html {
 }
 
 .text-xl {
-    font-size: 48px;
+    font-size: 42px;
+    @media ( min-width: 400px ) {
+        font-size: 48px;
+    }
     @include large {
         font-size: 72px;
     }
