@@ -32,7 +32,8 @@
     {% switch images | length %}
         {% case 1 %}
             {% include 'components/blocks/fullWidthImage/fullWidthImage' with {
-                image: images[ 0 ]
+                image: images[ 0 ],
+                ratio: 9/16
             } only %}
         {% case 2 %}
             {% include 'components/blocks/twoImages/twoImages' with {
