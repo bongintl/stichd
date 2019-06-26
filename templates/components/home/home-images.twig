@@ -3,7 +3,7 @@
 <div class="grid s-pad-bottom-2 m-pad-bottom-4">
     {% switch images | length %}
         {% case 1 %}
-            <div class="s-col-12 m-col-10 m-off-2">
+            <div class="s-col-12">
                 {% include 'components/image-with-caption/image-with-caption' with {
                     image: images[ 0 ],
                     caption: images[ 0 ].caption,
