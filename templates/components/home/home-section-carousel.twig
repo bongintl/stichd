@@ -1,0 +1,18 @@
+{% set id = id ?? 0 %}
+{% set heading = heading ?? '' %}
+{% set body = body ?? '' %}
+{% set link = link ?? null %}
+{% set textSize = textSize ?? 'l' %}
+{% set images = images ?? [] %}
+
+<div data-panel-section-id="{{ id }}">
+    {% include 'components/home/home-section-text' with {
+        heading: heading,
+        body: body,
+        textSize: textSize,
+        link: link
+    } %}
+    {% include 'components/blocks/carousel/carousel' with {
+        images: images
+    } only %}
+</div>

@@ -1,11 +1,14 @@
 :root {
     --panel-width: 100vw;
     @include medium {
-        --panel-width: calc( 100vw - var( --gutter ) * 3 )
+        --panel-width: calc( 100vw - var( --gutter ) * 2 - 48px )
     }
-    @include large {
-        --panel-width: calc( 100vw * 11/12 )
-    }
+    // @include medium {
+    //     --panel-width: calc( 100vw - var( --gutter ) * 3 )
+    // }
+    // @include large {
+    //     --panel-width: calc( 100vw * 11/12 )
+    // }
 }
 
 .panels {
@@ -21,7 +24,7 @@
         position: fixed;
         width: 100%;
         z-index: 1000;
-        transition: transform .2s;
+        transition: transform .4s;
         .panels--two & {
             width: calc( var( --panel-width ) * 2 );
         }
@@ -42,7 +45,7 @@
         }
     }
     &__pages {
-        transition: transform .2s;
+        transition: transform .4s;
         display: flex;
         height: 100%;
         &--right {

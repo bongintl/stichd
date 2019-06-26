@@ -1,7 +1,7 @@
 {% set image = image ?? null %}
 {% set magnifiedImage = magnifiedImage ?? null %}
 
-<div class="grid s-pad-bottom-1 m-pad-bottom-4">
+<div class="grid s-pad-bottom-1 m-pad-bottom-6">
     <div class="s-col-12 magnifier">
         {% if image %}
             {% include '/components/image/image' with { asset: image } only %}

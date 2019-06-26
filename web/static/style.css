@@ -272,9 +272,14 @@ html {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--text-color); }
   a .text-stroke {
-    transition: -webkit-text-fill-color .1s; }
+    transition: -webkit-text-fill-color .1s, -webkit-text-stroke-color .1s; }
+  a .text-stroke--nohover {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--text-color); }
   a:hover .text-stroke {
-    -webkit-text-fill-color: var(--text-color); }
+    -webkit-text-fill-color: var(--text-color);
+    -webkit-text-stroke-color: transparent; }
   a:hover .text-stroke--reverse {
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
@@ -284,7 +289,8 @@ html {
   text-align: center; }
 
 p {
-  margin-bottom: calc( var( --line-height ) * 1em); }
+  letter-spacing: 0.025em;
+  margin-bottom: calc( var( --line-height ) * .5em); }
   p a {
     border-bottom: 1px solid var(--text-color); }
     p a:hover {
@@ -328,6 +334,9 @@ blockquote {
 
 .uc {
   text-transform: uppercase; }
+
+.text-adjust {
+  top: -.07em; }
 
 :root {
   --greige: #E7E3D1;
@@ -518,6 +527,9 @@ svg *[stroke="#000"] {
 [class*="-col-"] {
   flex-grow: 0;
   flex-shrink: 0; }
+
+.m-off-1-5 {
+  margin-left: 12.5%; }
 
 .s-col-1 {
   width: 8.33333%; }
@@ -1806,6 +1818,8 @@ svg *[stroke="#000"] {
   padding-bottom: 56.25%; }
   .video--playing .video__cover {
     display: none; }
+  .video:hover .video__cover svg {
+    opacity: 1; }
   .video__iframe {
     border: none;
     position: absolute;
@@ -1821,7 +1835,10 @@ svg *[stroke="#000"] {
       width: 100%;
       height: 100%; }
     .video__cover svg {
+      cursor: pointer;
       position: absolute;
+      opacity: 0;
+      transition: opacity 0.5s;
       z-index: 11;
       width: 50%;
       left: 50%;
@@ -1836,7 +1853,7 @@ svg *[stroke="#000"] {
   align-items: center;
   border-radius: 100vw;
   border: 2px solid var(--text-color);
-  padding: .4em .6em .3em .6em;
+  padding: .5em .7em .5em .7em;
   background: transparent;
   transition: background-color .1s, color .1s, border-color .1s;
   cursor: pointer; }
@@ -2070,10 +2087,10 @@ svg *[stroke="#000"] {
       @media (min-width: 768px) {
         .header__icon--medium {
           display: flex; } }
-    .header__icon--toggle {
+    .header__icon--toggle-right {
       transition: transform .2s;
       transform-origin: 50% 50%; }
-      .panels__header--inactive .header__icon--toggle {
+      .panels__header--inactive .header__icon--toggle-right {
         transform: rotate(180deg); }
     .header__icon--menu svg {
       position: absolute;
@@ -2094,7 +2111,7 @@ svg *[stroke="#000"] {
     align-items: center;
     justify-content: center;
     font-size: 66px;
-    top: .07em; }
+    top: .0em; }
     @media (min-width: 768px) {
       .header__logo {
         font-size: 77px;
@@ -2223,6 +2240,21 @@ svg *[stroke="#000"] {
     width: 100%;
     object-fit: cover; }
 
+.logo {
+  height: 55px;
+  width: auto; }
+  @media (min-width: 768px) {
+    .logo {
+      height: 66px; } }
+  .logo path {
+    fill: var(--text-color); }
+  .logo--work {
+    display: none;
+    margin-right: 20px; }
+    @media (min-width: 768px) {
+      .logo--work {
+        display: block; } }
+
 .menu-items {
   display: flex;
   flex-wrap: wrap; }
@@ -2248,7 +2280,7 @@ svg *[stroke="#000"] {
       background: transparent;
       width: .4em;
       height: .4em;
-      margin-bottom: .25em;
+      margin-bottom: 0em;
       margin-right: .25em;
       flex-shrink: 0; }
     .menu-items__item--circle:hover:before {
@@ -2380,11 +2412,7 @@ svg *[stroke="#000"] {
   --panel-width: 100vw; }
   @media (min-width: 768px) {
     :root {
-      --panel-width: calc( 100vw - var( --gutter ) * 3 )
-    ; } }
-  @media (min-width: 1024px) {
-    :root {
-      --panel-width: calc( 100vw * 11/12 )
+      --panel-width: calc( 100vw - var( --gutter ) * 2 - 48px )
     ; } }
 
 .panels {
@@ -2398,7 +2426,7 @@ svg *[stroke="#000"] {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    transition: transform .2s; }
+    transition: transform .4s; }
     .panels--two .panels__headers {
       width: calc( var( --panel-width ) * 2); }
     .panels__headers--right {
@@ -2412,7 +2440,7 @@ svg *[stroke="#000"] {
       .panels__header--inactive > * {
         pointer-events: none; }
   .panels__pages {
-    transition: transform .2s;
+    transition: transform .4s;
     display: flex;
     height: 100%; }
     .panels__pages--right {

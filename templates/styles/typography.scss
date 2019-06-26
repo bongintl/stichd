@@ -88,10 +88,16 @@ html {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var( --text-color );
     a & {
-        transition: -webkit-text-fill-color .1s;
+        transition: -webkit-text-fill-color .1s, -webkit-text-stroke-color .1s;
+    }
+    a &--nohover {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: var( --text-color );
     }
     a:hover & {
         -webkit-text-fill-color: var( --text-color );
+        -webkit-text-stroke-color: transparent;
     }
     &--reverse {
         a:hover & {
@@ -108,7 +114,8 @@ html {
 }
 
 p {
-    margin-bottom: calc( var( --line-height ) * 1em );
+    letter-spacing: 0.025em;
+    margin-bottom: calc( var( --line-height ) * .5em );
     a {
         border-bottom: 1px solid var( --text-color );
         &:hover {
@@ -145,6 +152,7 @@ blockquote {
     //     }
         
     // }
+
     &--small{
         &:before {
             width: 0.55em;
@@ -174,4 +182,8 @@ blockquote {
 
 .uc {
     text-transform: uppercase;
+}
+
+.text-adjust {
+    top: -.07em;
 }

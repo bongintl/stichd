@@ -4,7 +4,7 @@
 {% set position = position ?? 'imageLeft' %}
 
 
-<div class="grid s-pad-bottom-4 col-center {{ position == 'imageRight' ? 'col-reverse' }}}">
+<div class="grid s-pad-bottom-6 col-center {{ position == 'imageRight' ? 'col-reverse' }}">
     {% if image %}
         <div class="s-col-12 m-col-4 m-off-1">
             {% include '/components/image/image' with { asset: image } only %}

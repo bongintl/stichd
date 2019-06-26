@@ -1,10 +1,10 @@
 {% set image = image ?? null %}
 {% set position = position ?? 0 %}
-{% set ratio = ratio ?? true %}
+{% set ratio = ratio ?? null %}
 {% set caption = caption ?? null %}
 
-<div class="grid s-pad-bottom-2 m-pad-bottom-4">
-    <div class="s-col-12 m-col-8 m-off-{{ position }}">
+<div class="grid s-pad-bottom-2 m-pad-bottom-6">
+    <div class="s-col-12 m-col-9 m-off-{{ position }}">
         {% include '/components/image/image' with { asset: image, ratio: ratio } only %}
         {% if caption %}
             {% include '/components/caption/caption' with { text: caption } only %}

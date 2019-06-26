@@ -1,0 +1,23 @@
+{% set id = id ?? 0 %}
+{% set heading = heading ?? '' %}
+{% set body = body ?? '' %}
+{% set link = link ?? null %}
+{% set textSize = textSize ?? 'l' %}
+{% set image = image ?? null %}
+{% set caption = caption ?? null %}
+{% set ratio = ratio ?? true %}
+
+<div data-panel-section-id="{{ id }}">
+    {% include 'components/home/home-section-text' with {
+        heading: heading,
+        body: body,
+        textSize: textSize,
+        link: link
+    } %}
+    {% include 'components/blocks/quarterWidthImage/quarterWidthImage' with {
+        image: image,
+        caption: caption,
+        ratio: ratio,
+        position: 3
+    } only %}
+</div>

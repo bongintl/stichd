@@ -1,0 +1,63 @@
+{% set sections = sections ?? [] %}
+{% set textSize = textSize ?? null %}
+
+{% for section in sections %}
+    {% set props = {
+        id: loop.index,
+        textSize: textSize,
+        heading: section.heading,
+        body: section.body,
+        link: section.entry | length ? section.entry.one.url : null
+    } %}
+    {% switch section.type %}
+        {% case 'sectionWithOneImage' %}
+            {% include 'components/home/home-section-one-image' with props | merge({
+                image: section.image | length ? section.image.one : null,
+                caption: section.caption,
+                ratio: section.ratio.value
+            }) only %}
+        {% case 'sectionWithTwoImages' %}
+            {% include 'components/home/home-section-two-images' with props | merge ({
+                leftImage: section.images | length ? section.images[ 0 ] : null,
+                rightImage: section.images | length > 1 ? section.images[ 1 ] : null,
+                leftImageCaption: section.leftImageCaption,
+                rightImageCaption: section.rightImageCaption,
+                offset: section.offset
+            }) only %}
+        {% case 'sectionWithCarousel' %}
+            {% include 'components/home/home-section-carousel' with props | merge ({
+                images: section.images
+            }) only %}
+    {% endswitch %}
+    {#<div data-panel-section-id="{{ loop.index }}">#}
+    {#    {% set content %}#}
+    {#        {{ body | raw }}#}
+    {#        {% if section.entry | length %}#}
+    {#            {% include 'components/button/button' with { icon: 'arrow', href: link } %}#}
+    {#        {% endif %}#}
+    {#    {% endset %}#}
+    {#    {% include 'components/blocks/headingText/headingText' with {#}
+    {#        heading: section.heading,#}
+    {#        headingSize: 'xl',#}
+    {#        copy: section.body,#}
+    {#        copySize: textSize,#}
+    {#        borderTop: true#}
+    {#    } only %}#}
+    {#    {% switch section.type %}#}
+    {#        {% case 'sectionWithOneImage' %}#}
+    {#            {% include 'components/blocks/quarterWidthImage/quarterWidthImage' with {#}
+    {#                image: section.image | length ? section.image.one : null,#}
+    {#                caption: section.caption,#}
+    {#                ratio: section.ratio.value#}
+    {#            } only %}#}
+    {#        {% case 'sectionWithTwoImages' %}#}
+    {#            {% include 'components/blocks/twoImages/twoImages' with {#}
+    {#                leftImage: section.images | length ? section.images[ 0 ] : null,#}
+    {#                rightImage: section.images | length > 1 ? section.images[ 1 ] : null,#}
+    {#                leftImageCaption: section.leftImageCaption,#}
+    {#                rightImageCaption: section.rightImageCaption,#}
+    {#                offset: section.ratio.value#}
+    {#            } only %}#}
+    {#    {% endswitch %}#}
+    {#</div>#}
+{% endfor %}

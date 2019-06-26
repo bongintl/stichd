@@ -1,6 +1,7 @@
 {% set heading = heading ?? '' %}
+{% set headingSize = headingSize ?? 'l' %}
 {% set copy = copy ?? '' %}
-{% set size = size ?? 'm' %}
+{% set copySize = copySize ?? 'm' %}
 {% set borderTop = borderTop ?? false %}
 
 <div class="grid s-pad-bottom-half m-pad-bottom-2">
@@ -10,9 +11,9 @@
         </div>
     {% endif %}
     <div class="s-col-12 m-col-6 s-pad-bottom-half">
-        <h2 class="{{ size == 'm' ? 'text-l' : 'text-xl' }}">{{ heading }}</h2>
+        <h2 class="text-{{ headingSize }} text-adjust">{{ heading }}</h2>
     </div>
-    <div class="s-col-12 m-col-6 {{ size == 'l' ? 'text-l' }}">
+    <div class="s-col-12 m-col-6 text-{{ copySize }}">
         {{ copy }}
     </div>
 </div>

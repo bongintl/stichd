@@ -1,0 +1,18 @@
+{% set heading = heading ?? '' %}
+{% set body = body ?? '' %}
+{% set link = link ?? null %}
+{% set textSize = textSize ?? 'l' %}
+
+{% set content %}
+    {{ body | raw }}
+    {% if link %}
+        {% include 'components/button/button' with { icon: 'arrow', href: link } %}
+    {% endif %}
+{% endset %}
+{% include 'components/blocks/headingText/headingText' with {
+    heading: heading,
+    headingSize: 'xl',
+    copy: content,
+    copySize: textSize,
+    borderTop: true
+} only %}

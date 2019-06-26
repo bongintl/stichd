@@ -57,6 +57,10 @@
     }
 }
 
+.m-off-1-5 {
+    margin-left: 12.5%;
+}
+
 @mixin grid ( $prefix ) {
     @include columns ( $prefix );
     @include offsets ( $prefix );

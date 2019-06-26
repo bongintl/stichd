@@ -20,13 +20,13 @@
 
 {% set latestNews %}
     {% for entry in craft.entries.section( 'workAtStichd_editorials' ).limit( 1 ) %}
-        {% include 'components/home/home-section' with {
+        {% include 'components/home/home-section-one-image' with {
             id: entry.id,
             heading: "Editorials",
             body: "<p>#{ entry.title }</p>",
             textSize: 'l',
             link: entry.url,
-            images: entry.thumbnail.all
+            image: entry.thumbnail | length ? entry.thumbnail.one : null
         } only %}
     {% endfor %}
 {% endset %}
@@ -41,13 +41,17 @@
         link: siteUrl ~ 'about-us',
         textSize: 'xl'
     }) }}
-    {% for section in entry.homeSectionsSimple %}
-        {% include 'components/home/home-section' with section | merge({
-            id: loop.index,
-            textSize: 'l',
-            link: section.entry | length ? section.entry.one.url
-        }) only %}
-    {% endfor %}
+    {% include 'components/home/home-sections' with {
+        sections: entry.homeSectionsSimple,
+        textSize: 'l'
+    } only %}
+    {#{% for section in entry.homeSectionsSimple %}#}
+    {#    {% include 'components/home/home-section' with section | merge({#}
+    {#        id: loop.index,#}
+    {#        textSize: 'l',#}
+    {#        link: section.entry | length ? section.entry.one.url#}
+    {#    }) only %}#}
+    {#{% endfor %}#}
     {{ latestNews }}
 {% endblock %}
 
@@ -58,12 +62,16 @@
         link: siteUrl ~ 'about-us',
         textSize: 'l'
     }) }}
-    {% for section in entry.homeSectionsComplex %}
-        {% include 'components/home/home-section' with section | merge({
-            id: loop.index,
-            textSize: 'm',
-            link: section.entry | length ? section.entry.one.url
-        }) only %}
-    {% endfor %}
+    {% include 'components/home/home-sections' with {
+        sections: entry.homeSectionsComplex,
+        textSize: 'm'
+    } only %}
+    {#{% for section in entry.homeSectionsComplex %}#}
+    {#    {% include 'components/home/home-section' with section | merge({#}
+    {#        id: loop.index,#}
+    {#        textSize: 'm',#}
+    {#        link: section.entry | length ? section.entry.one.url#}
+    {#    }) only %}#}
+    {#{% endfor %}#}
     {{ latestNews }}
 {% endblock %}

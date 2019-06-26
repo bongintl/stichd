@@ -2,53 +2,47 @@
 
 {% set latestNews %}
     {% for entry in craft.entries.section( 'stichd_news' ).limit( 1 ) %}
-        {% include 'components/home/home-section' with {
+        {% include 'components/home/home-section-one-image' with {
             id: entry.id,
             heading: "Latest news",
             body: "<p>#{ entry.title }</p>",
             textSize: 'l',
             link: entry.url,
-            images: entry.thumbnail.all
+            image: entry.thumbnail | length ? entry.thumbnail.one : null
         } only %}
     {% endfor %}
 {% endset %}
 
 {% block content %}
-    <a href="{{ siteUrl ~ 'about-us' }}" class="db s-pad-top-1 l-pad-top-2" data-panel-section-id="intro">
+    <div class="db s-pad-top-1 l-pad-top-2" data-panel-section-id="intro">
         <div class="grid">
             <div class="s-col-12 s-gap-bottom-2 text-xl">
                 {{ entry.introSimple }}
-                {% include 'components/button/button' with { icon: 'arrow' } %}
+                {% include 'components/button/button' with { icon: 'arrow', href: siteUrl ~ 'about-us' } %}
             </div>
         </div>
         {% include 'components/home/home-images' with { images: entry.introImagesSimple.all } only %}
-    </a>
-    {% for section in entry.homeSectionsSimple %}
-        {% include 'components/home/home-section' with section | merge({
-            id: loop.index,
-            textSize: 'l',
-            link: section.entry | length ? section.entry.one.url
-        }) only %}
-    {% endfor %}
+    </div>
+    {% include 'components/home/home-sections' with {
+        sections: entry.homeSectionsSimple,
+        textSize: 'l'
+    } only %}
     {{ latestNews }}
 {% endblock %}
 
 {% block content_complex %}
-    <a href="{{ siteUrl ~ 'about-us' }}" class="db s-pad-top-1 l-pad-top-2" data-panel-section-id="intro">
+    <div class="db s-pad-top-1 l-pad-top-2" data-panel-section-id="intro">
         <div class="grid">
             <div class="s-col-12 m-col-8 s-gap-bottom-2 text-m">
                 {{ entry.introComplex }}
-                {% include 'components/button/button' with { icon: 'arrow' } %}
+                {% include 'components/button/button' with { icon: 'arrow', href: siteUrl ~ 'about-us' } %}
             </div>
         </div>
         {% include 'components/home/home-images' with { images: entry.introImagesComplex.all } only %}
-    </a>
-    {% for section in entry.homeSectionsComplex %}
-        {% include 'components/home/home-section' with section | merge({
-            id: loop.index,
-            textSize: 'm',
-            link: section.entry | length ? section.entry.one.url
-        }) only %}
-    {% endfor %}
+    </div>
+    {% include 'components/home/home-sections' with {
+        sections: entry.homeSectionsComplex,
+        textSize: 'm'
+    } only %}
     {{ latestNews }}
 {% endblock %}
