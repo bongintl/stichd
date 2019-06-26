@@ -16,16 +16,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vimeo/player": "^2.9.1",
     "debounce": "^1.2.0",
     "es6-map": "^0.1.5",
     "intersection-observer": "^0.7.0",
+    "jquery": "^3.4.1",
     "masonry-layout": "^4.2.2",
     "node-sass": "^4.12.0",
     "node-sass-glob": "^1.0.4",
     "onchange": "^6.0.0",
     "parcel-bundler": "^1.12.3",
     "ramda": "^0.26.1",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

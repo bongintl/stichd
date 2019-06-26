@@ -4,7 +4,7 @@
     {% set query = craft.entries
         .section( 'workAtStichd_jobs' )
         .limit( null )
-        .search( craft.request.getQuery( 'q' ) ) %}
+        .search( craft.app.request.getQueryParam( 'q' ) ) %}
     {% paginate query as pageInfo, pageEntries %}
     
     <div class="search-results">

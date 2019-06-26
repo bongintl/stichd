@@ -12,7 +12,7 @@
 <footer class="footer bg-{{ bg }} s-pad-top-half s-pad-bottom-1 m-pad-bottom-half">
     <div class="footer__links s-gap-bottom-1 m-gap-bottom-half l-gap-bottom-0">
         <div class="footer__item s-hide m-show">
-            © {{ now.year }} Stichd
+            © {{ now | date('Y') }} Stichd
         </div>
         {% for item in tertiary %}
             <a class="footer__item footer__item--link" href="{{ item.url }}">{{ item.name }}</a>
@@ -28,6 +28,6 @@
         Stichd is a member of the Puma SE Group.
     </div>
     <div class="footer__text m-hide">
-        © {{ now.year }} Stichd<br>
+        © {{ now | date('Y') }} Stichd<br>
     </div>
 </footer>        

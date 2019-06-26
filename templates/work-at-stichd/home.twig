@@ -63,7 +63,7 @@
         textSize: 'l'
     }) }}
     {% include 'components/home/home-sections' with {
-        sections: entry.homeSectionsComplex,
+        sections: entry.homeSectionsComplex.all,
         textSize: 'm'
     } only %}
     {#{% for section in entry.homeSectionsComplex %}#}

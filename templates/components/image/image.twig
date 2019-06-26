@@ -3,12 +3,17 @@
 {% if asset %}
     {% set ratio = ratio ?? ( asset.height / asset.width ) %}
     {% set attrs = attrs ?? {} %}
+    {% set lazy = lazy ?? true %}
+    {% set imgAttrs = {
+        ( lazy ? 'data-srcset' : 'srcset' ): m.srcset( asset, ratio ),
+        src: asset.getUrl({ width: 2 })
+    } %}
     
     {% if ratio %}
         <div style="padding-bottom: {{ ratio * 100 }}%" {{ m.attrs( attrs ) }}>
-            <img data-srcset="{{ m.srcset( asset, ratio ) }}" src="{{ asset.getUrl({ width: 2 }) }}" class="cover">
+            <img class="cover" {{ m.attrs( imgAttrs ) }}/>
         </div>
     {% else %}
-        <img srcset="{{ m.srcset( asset, ratio ) }}" src="{{ asset.getUrl({ width: 2 }) }}" {{ m.attrs( attrs ) }}>
+        <img {{ m.attrs( imgAttrs ) }} {{ m.attrs( attrs ) }}>
     {% endif %}
 {% endif %}

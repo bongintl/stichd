@@ -1,9 +1,12 @@
-<div class="grid s-pad-bottom-1 m-pad-bottom-6">
-    CAROUSEL
-    <div class="s-col-12 x">
+<div class="s-pad-bottom-1 m-pad-bottom-6">
+    <div class="carousel">
         {% for image in images %}
-            <div class="xx">
-                {% include '/components/image/image' with { asset: image, ratio: 0.56 } only %}
+            <div class="grid">
+                <div class="s-col-12">
+                    <div class="carousel__slide">
+                        {% include '/components/image/image' with { asset: image, ratio: 9/16, lazy: false } only %}
+                    </div>
+                </div>
             </div>
         {% endfor %}
     </div>

@@ -1,11 +1,11 @@
 {% import 'macros/macros' as m %}
-{% set dark = craft.request.getQuery('complex') ?? false %}
+{% set dark = craft.app.request.getQueryParam('complex') ?? false %}
 {% extends 'stichd/layout' %}
 {% block content %}
     
-    {% set complex = craft.request.getQuery('complex') ?? 0 %}
-    {% set order = complex and craft.request.getQuery('order') ? craft.request.getQuery('order') : 'date' %}
-    {% set dir = complex and craft.request.getQuery('dir') ? craft.request.getQuery('dir') : 'desc' %}
+    {% set complex = craft.app.request.getQueryParam('complex') ?? 0 %}
+    {% set order = complex and craft.app.request.getQueryParam('order') ? craft.app.request.getQueryParam('order') : 'date' %}
+    {% set dir = complex and craft.app.request.getQueryParam('dir') ? craft.app.request.getQueryParam('dir') : 'desc' %}
     {% set entries = craft.entries().section('stichd_news').limit( 10 ) %}
     {% switch order %}
         {% case 'category' %}

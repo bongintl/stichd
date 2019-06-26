@@ -13,7 +13,6 @@
 {% set intervieweeInitials = entry.intervieweeInitials %}
 {% set thumb = entry.thumbnail.one() %}
 
-
 {% extends extend %}
 {% block content %}
     
@@ -40,8 +39,7 @@
         </div>
     </div>
 
-    {% include 'components/news-blocks/news-blocks' with { blocks: entry.newsBlocks } %}
-
+    {% include 'components/news-blocks/news-blocks' with { blocks: entry.newsBlocks.all } %}
 
     <div class="rule"></div>
 
@@ -52,20 +50,17 @@
     
     {% set prevEntry = clone(query)
         .postDate('<= ' ~ entry.postDate.timestamp)
-        .order('postDate desc')
+        .orderBy('postDate desc')
         .one() %}
     
     {% set nextEntry = clone(query)
         .postDate('>= ' ~ entry.postDate.timestamp)
-        .order('postDate asc')
+        .orderBy('postDate asc')
         .one() %}
-
-
-
+    
     {% include 'components/pagination/pagination' with { 
         nextText: 'read next', nextHref: nextEntry.url ?? null, 
         prevText: 'previous', prevHref: prevEntry.url ?? null
     } %}
 
-    
 {% endblock %}

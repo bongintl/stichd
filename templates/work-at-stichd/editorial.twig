@@ -9,7 +9,6 @@
     
     {% paginate query as pageInfo, pageEntries %}
     
-    
     {% embed 'components/more/more' with { next: pageInfo.nextUrl } %}
         {% block items %}
             {% for entry in pageEntries %}

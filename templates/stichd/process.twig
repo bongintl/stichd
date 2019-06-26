@@ -1,7 +1,7 @@
 {% extends 'stichd/layout' %}
 {% block content %}
     <div class="s-pad-top-1">
-        {% include 'components/blocks/blocks' with { blocks: entry.blocks } only %}
+        {% include 'components/blocks/blocks' with { blocks: entry.blocks.all } only %}
         {% for section in entry.processSections.all %}
             {% include 'components/process-section/process-section' with {
                 title: section.sectionTitle,
