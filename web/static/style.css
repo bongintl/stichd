@@ -1797,6 +1797,11 @@ svg *[stroke="#000"] {
       pointer-events: visible; }
 
 /* Slider */
+.carousel__slide:not(:first-child) {
+  display: none; }
+  .slick-initialized .carousel__slide:not(:first-child) {
+    display: block; }
+
 .slick-slider {
   position: relative;
   display: block;
@@ -1809,10 +1814,7 @@ svg *[stroke="#000"] {
   user-select: none;
   -ms-touch-action: pan-y;
   touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
-  display: none; }
-  .slick-slider.slick-initialized {
-    display: block; }
+  -webkit-tap-highlight-color: transparent; }
 
 .slick-list {
   position: relative;

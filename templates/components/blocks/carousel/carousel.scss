@@ -1,5 +1,14 @@
 /* Slider */
 
+.carousel {
+    &__slide:not(:first-child) {
+        display: none;
+        .slick-initialized & {
+            display: block;
+        }
+    }
+}
+
 .slick-slider {
     position: relative;
     display: block;
@@ -13,10 +22,6 @@
     -ms-touch-action: pan-y;
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
-    display: none;
-    &.slick-initialized {
-        display: block;
-    }
 }
 .slick-list {
     position: relative;
