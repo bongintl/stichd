@@ -1,0 +1,29 @@
+.image {
+    position: relative;
+    &--wide {
+        height: 0;
+        padding-bottom: 56.25%;
+    }
+    &--short {
+        padding-bottom: 80%;
+    }
+    &--square {
+        padding-bottom: 100%;
+    }
+    &--tall {
+        padding-bottom: 150%;
+    }
+    &__container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+    &__file {
+        position:relative;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}

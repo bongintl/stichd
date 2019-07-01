@@ -1,0 +1,5 @@
+{
+  "buttons": ["bold", "italic", "link", "formatting","lists"],
+  "formatting" : ["blockquote",""],
+  "toolbarFixed": true
+}

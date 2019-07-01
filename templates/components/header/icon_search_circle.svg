@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Search-icon" transform="translate(-1232 -39)">
+    <g id="Rectangle_2667" data-name="Rectangle 2667" transform="translate(1232 39)" fill="none" stroke="#000" stroke-width="2">
+      <rect width="48" height="48" rx="24" stroke="none"/>
+      <rect x="1" y="1" width="46" height="46" rx="23" fill="none"/>
+    </g>
+    <g id="Group_370" data-name="Group 370" transform="translate(1053 -369)">
+      <g id="Ellipse_135" data-name="Ellipse 135" transform="translate(192 421)" fill="none" stroke="#000" stroke-width="2">
+        <circle cx="11" cy="11" r="11" stroke="none"/>
+        <circle cx="11" cy="11" r="10" fill="none"/>
+      </g>
+      <path id="Path_1047" data-name="Path 1047" d="M0,0,9,9" transform="translate(210 439)" fill="none" stroke="#000" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

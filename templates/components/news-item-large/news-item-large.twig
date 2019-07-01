@@ -1,0 +1,27 @@
+{% set category = category ?? null %}
+{% set author = author ?? null %}
+{% set timeToRead = entry.wordCount / 200 %}
+
+<a href="{{ entry.url}}" class="s-gap-bottom-2">
+    <div class="grid s-gap-top-2">
+        <div class="s-col-12 m-col-8 s-pad-bottom-half">
+            <h2 class="text-xl text-stroke--reverse">{{ entry.title }}</h2>
+        </div>
+    </div>
+    
+    <div class="grid s-gap-bottom-1">
+        <div class="s-col-12 text-l">
+            {% if category %}
+                <span class="circle s-pad-right-1">{{ category }}</span>
+            {% endif %}
+            {% if author %}
+                <span class="circle s-pad-right-1">{{ author }}</span>
+            {% endif %}
+            {% if timeToRead %}
+                <span class="circle s-pad-right-1">{{ timeToRead|round(0, 'floor') }} mins read</span>
+            {% endif %}
+        </div>
+    </div>
+</a>
+        <div class="rule"></div>
+

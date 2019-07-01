@@ -1,0 +1,26 @@
+{% set id = id ?? 0 %}
+{% set heading = heading ?? '' %}
+{% set body = body ?? '' %}
+{% set link = link ?? null %}
+{% set textSize = textSize ?? 'l' %}
+{% set leftImage = leftImage ?? null %}
+{% set rightImage = rightImage ?? null %}
+{% set leftImageCaption = leftImageCaption ?? null %}
+{% set rightImageCaption = rightImageCaption ?? null %}
+{% set offset = offset ?? false %}
+
+<div data-panel-section-id="{{ id }}">
+    {% include 'components/home/home-section-text' with {
+        heading: heading,
+        body: body,
+        textSize: textSize,
+        link: link
+    } %}
+    {% include 'components/blocks/twoImages/twoImages' with {
+        leftImage: leftImage,
+        rightImage: rightImage,
+        leftImageCaption: leftImageCaption,
+        rightImageCaption: rightImageCaption,
+        offset: offset
+    } only %}
+</div>

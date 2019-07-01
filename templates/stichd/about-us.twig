@@ -1,0 +1,6 @@
+{% extends 'stichd/layout' %}
+{% block content %}
+    <div class="s-pad-top-1">
+        {% include 'components/blocks/blocks' with {'blocks': entry.blocks.all } %}
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% set title = title ?? '' %}
+{% set subtitle = subtitle ?? '' %}
+{% set description = description ?? '' %}
+{% set mapURL = mapURL ?? '' %}
+{% set images = images ?? [] %}
+{% set index = index ?? 0 %}
+
+<div class="grid s-gap-bottom-1 l-gap-bottom-3">
+    <div class="s-col-12 s-gap-bottom-1">
+        <div class="border-top"></div>
+    </div>
+    <div class="s-col-12 l-col-6">
+        <div class="x">
+            <div class="text-xl">{{ title }}</div>
+            <div class="text-s">{{ "%02d" | format( index ) }}</div>
+        </div>
+        <div class="text-l">{{ subtitle }}</div>
+    </div>
+    <div class="s-col-12 l-col-6">
+        {{ description }}
+        {% if mapURL %}
+            {% include 'components/button/button' with {
+                label: 'map',
+                href: mapURL,
+                icon: 'arrow',
+                target: "_blank"
+            } only %}
+        {% endif %}
+    </div>
+</div>
+<div class="s-gap-bottom-2 l-gap-bottom-3">
+    {% switch images | length %}
+        {% case 1 %}
+            {% include 'components/blocks/fullWidthImage/fullWidthImage' with {
+                image: images[ 0 ],
+                ratio: 9/16
+            } only %}
+        {% case 2 %}
+            {% include 'components/blocks/twoImages/twoImages' with {
+                leftImage: images[ 0 ],
+                rightImage: images[ 1 ],
+                offset: true
+            } only %}
+    {% endswitch %}
+</div>

@@ -1,0 +1,24 @@
+{% set title = title ?? '' %}
+{% set url = url ?? '' %}
+{% set info = info ?? [] %}
+{% set infoSize = infoSize ?? 's' %}
+
+<a href="{{ url }}">
+    <div class="grid">
+        <div class="s-col-12 m-col-8 s-pad-bottom-half">
+            <h2 class="text-xl">{{ title }}</h2>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="s-col-12 m-col-8 s-pad-bottom-1 x xw">
+            {% for item in info %}
+                <span class="circle text-{{ infoSize }} s-gap-right-1">{{ item }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="grid">
+        <div class="s-col-12 m-col-2 text-l s-pad-bottom-2 m-pad-bottom-4">
+            {% include 'components/button/button' with { icon: 'arrow' } %}
+        </div>
+    </div>
+</a>

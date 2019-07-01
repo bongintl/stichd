@@ -1,0 +1,21 @@
+{% set image = image ?? null %}
+{% set caption = caption ?? null %}
+{% set copy = copy ?? null %}
+{% set position = position ?? 'imageLeft' %}
+
+
+<div class="grid s-pad-bottom-6 col-center {{ position == 'imageRight' ? 'col-reverse' }}">
+    {% if image %}
+        <div class="s-col-12 m-col-4 m-off-1">
+            {% include '/components/image/image' with { asset: image } only %}
+            {% if caption %}
+                {% include '/components/caption/caption' with { text: caption } only %}
+            {% endif %}
+        </div>
+    {% endif %}
+    {% if copy %}
+        <div class="s-col-12 m-col-5 m-off-1 text-l text-center s-pad-top-3 m-pad-top-0 redactor">
+            {{ copy }}
+        </div>
+    {% endif %}
+</div>

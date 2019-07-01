@@ -1,0 +1,29 @@
+{% set images = images ?? [] %}
+
+<div class="grid s-pad-bottom-2 m-pad-bottom-4">
+    {% switch images | length %}
+        {% case 1 %}
+            <div class="s-col-12">
+                {% include 'components/image-with-caption/image-with-caption' with {
+                    image: images[ 0 ],
+                    caption: images[ 0 ].caption,
+                    ratio: 9/16
+                } only %}
+            </div>
+        {% case 2 %}
+            <div class="s-col-6 m-col-5 m-off-1">
+                {% include 'components/image-with-caption/image-with-caption' with {
+                    image: images[ 0 ],
+                    caption: images[ 0 ].caption,
+                    ratio: 3/2
+                } only %}
+            </div>
+            <div class="s-col-6 m-col-5 s-pad-top-2 m-pad-top-3 l-pad-top-5">
+                {% include 'components/image-with-caption/image-with-caption' with {
+                    image: images[ 1 ],
+                    caption: images[ 1 ].caption,
+                    ratio: 3/2
+                } only %}
+            </div>
+    {% endswitch %}
+</div>

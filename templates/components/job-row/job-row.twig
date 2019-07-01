@@ -1,0 +1,25 @@
+{% set title = title ?? null %}
+{% set url = url ?? null %}
+{% set qualities = qualities ?? [] %}
+{% set location = location ?? null %}
+
+{% import 'macros/macros' as m %}
+
+<a class="grid job-row bg-invert" href="{{ url }}">
+    <div class="s-col-12 border-bottom s-pad-top-1 l-pad-top-2">
+        <h2 class="s-gap-bottom-1 s-text-32 l-text-72 x xjb xas">
+            <span class="xg">{{ title }}</span>
+            <div class="icon">
+                {% include 'icons/arrow.svg' only %}
+            </div>
+        </h2>
+        <div class="s-gap-bottom-1 l-gap-bottom-2 x xw">
+            {% for quality in qualities %}
+                <span class="circle s-pad-right-1 s-text-18 l-text-36 db">{{ quality }}</span>
+            {% endfor %}
+        </div>
+        <div class="s-pad-bottom-1 l-pad-bottom-2">
+            <span class="circle text-s">{{ location }}</span>
+        </div>
+    </div>
+</a>

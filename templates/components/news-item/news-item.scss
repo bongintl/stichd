@@ -1,0 +1,32 @@
+.news-item {
+    display: block;
+    color: black;
+    &__complex {
+        color: var( --greige );
+        display: none;    
+    }
+    .news--complex & {
+        .news-item__complex {
+            display: flex;
+        }
+        .news-item__simple {
+            display: none;
+        }
+    }
+    &__text {
+        width: calc(100% - 1em);
+        @include medium {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &__date {
+        display: block;
+        @include medium {
+            display: flex;
+        }
+    }
+    &__arrow {
+        width: 0.5em;
+    }
+}

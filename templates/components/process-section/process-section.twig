@@ -1,0 +1,40 @@
+{% set title = title ?? null %}
+{% set body = body ?? null %}
+{% set link = link ?? null %}
+{% set image = image ?? null %}
+{% set borderTop = borderTop ?? true %}
+
+{% set content %}
+    <div class="grid s-pad-bottom-1">
+        <div class="s-col-12 m-col-6">
+            {% if borderTop %}
+                <div class="border-top"></div>
+            {% endif %}
+            <h2 class="s-pad-top-1 s-pad-bottom-1 x xjb xac text-xxl">
+                <div>{{ title }}</div>
+                {% if link %}
+                    <div class="icon m-hide">
+                        {% include 'icons/arrow.svg' only %}
+                    </div>
+                {% endif %}
+            </h2>
+            <div class="text-l">
+                {{ body | raw }}
+                {% if link %}
+                    <div class="s-hide m-show">
+                        {% include 'components/button/button' with { icon: 'arrow' } %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="s-col-12 m-col-6">
+            {% include 'components/image/image' with { asset: image, ratio: 4/3 } %}
+        </div>
+    </div>
+{% endset %}
+
+{% if link %}
+    <a href="{{ link }}">{{ content }}</a>
+{% else %}
+    {{ content }}
+{% endif %}

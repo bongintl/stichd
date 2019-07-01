@@ -1,0 +1,8 @@
+{% set backUrl = siteUrl ~ 'products' %}
+{% extends 'stichd/layout' %}
+{% block content %}
+    <div class="s-pad-top-2">
+        {% include 'components/blocks/blocks' with { blocks: entry.blocks } %}
+        {% include 'components/product-footer/product-footer' with {'id': entry.id} %}
+    </div>
+{% endblock %}

@@ -1,0 +1,226 @@
+:root {
+    --line-height: 1.333;
+    --line: calc( var( --line-height ) * 1rem );
+}
+
+html {
+    font-family: "Graebenbach", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    line-height: var( --line-height );
+    -webkit-font-smoothing: antialiased;
+}
+
+@mixin text-sizes ( $prefix ) {
+    @each $size in 12 16 18 26 32 36 48 72 144 {
+        .#{ $prefix }-text-#{ $size } {
+            font-size: $size * 1px;
+        }
+    }
+}
+
+@include text-sizes('s');
+@include medium {
+    @include text-sizes('m');
+}
+@include large {
+    @include text-sizes('l');
+}
+@include xlarge {
+    @include text-sizes('xl');
+}
+@include xxlarge {
+    @include text-sizes('xxl');
+}
+
+.text-s {
+    font-size: 12px;
+    @include large {
+        font-size: 16px;
+    }
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    // line-height: 0.63333;
+}
+
+.text-m {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -.01em;
+}
+
+.text-l {
+    font-size: 26px;
+    @include large {
+        font-size: 36px;
+    }
+    line-height: 1.19444;
+    letter-spacing: 0;
+    p {
+        letter-spacing: 0;
+    }
+}
+
+.text-xl {
+    font-size: 42px;
+    @media ( min-width: 400px ) {
+        font-size: 48px;
+    }
+    @include large {
+        font-size: 72px;
+    }
+    line-height: 1.19444;
+    letter-spacing: -.01em;
+    p {
+        letter-spacing: -.01em;
+    }
+}
+
+.text-xxl {
+    font-size: 48px;
+    @include large {
+        font-size: 96px;
+    }
+    @include xlarge {
+        font-size: 128px;
+    }
+    @include xxlarge {
+        font-size: 144px;
+    }
+    line-height: 1;
+    letter-spacing: -.03em;
+    p {
+        letter-spacing: -.03em;
+    }
+}
+
+.text-stroke {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var( --text-color );
+    a & {
+        transition: -webkit-text-fill-color .1s, -webkit-text-stroke-color .1s;
+    }
+    a &--nohover {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: var( --text-color );
+    }
+    a:hover & {
+        -webkit-text-fill-color: var( --text-color );
+        -webkit-text-stroke-color: transparent;
+    }
+    &--reverse {
+        a:hover & {
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: var( --text-color );
+        }
+    }
+}
+
+
+.text-center {
+    text-align: center
+}
+
+p {
+    letter-spacing: 0.025em;
+    margin-bottom: calc( var( --line-height ) * .5em );
+    a {
+        border-bottom: 1px solid var( --text-color );
+        &:hover {
+            border-bottom: 0;
+        }
+    }
+}
+
+blockquote {
+    @extend .text-l;
+    padding-bottom: 1em;
+}
+
+.redactor {
+    ul, ol {
+        padding-left: 2em;
+        @include medium {
+            padding-left: 1.75em;
+        }
+    }
+    
+    ul {
+        margin-bottom: 1em;
+        list-style: none;
+        
+        li:before{ 
+            position: absolute;
+            left: -1.5em;
+            top: 0.15em;
+            content:''; 
+            height: 0.65em;
+            width: 0.65em;
+            border-radius: 0.65em;
+            background-color: var( --text-color );
+        }
+    }
+}
+
+.circle {
+    &:before {
+        content: '';
+        display: inline-block;
+        border: 1px solid var( --text-color );
+        align-self: center;
+        border-radius: 50%;
+        transition: background .1s, border-color .2s;
+        background: transparent;
+        width: 0.8em;
+        height: 0.8em;
+        margin-bottom: -.1em;
+        margin-right: .5em;
+    }
+    // &--reverse {
+    //     &:before {
+    //         border: 1px solid var( --text-color );
+    //         &:hover {
+    //             background-color: var( --background-color );
+    //         }
+    //     }
+        
+    // }
+
+    &--small{
+        &:before {
+            width: 0.55em;
+            height: 0.6em;
+            margin-bottom: -.05em;
+            margin-right: .5em;
+            
+        }
+        &:hover:before {
+            background-color: var( --text-color );
+        }
+    }
+    &--filled:before {
+        background-color: var( --text-color );
+    }
+}
+
+.rule {
+    width: 100%;
+    border-bottom: 1px solid var( --text-color );
+}
+
+.lh1 {
+    line-height: 1;
+    top: .05em;
+}
+
+.uc {
+    text-transform: uppercase;
+}
+
+.text-adjust {
+    top: -.07em;
+}

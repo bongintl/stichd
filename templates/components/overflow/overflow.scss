@@ -1,0 +1,31 @@
+.overflow {
+    $this: &;
+    display: flex;
+    flex-wrap: nowrap;
+    @include small {
+        flex-direction: column;
+    }
+    &--reverse {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        @include small {
+            flex-direction: column-reverse;
+        }
+    }
+    &__item {
+        padding: 0 calc( var( --gutter ) / 2 );
+        flex: 0 0 auto;
+        transition: transform 0.5s;
+    }
+    &--focus-right {
+        #{$this}__item {
+            transform: translateX(-33vw);
+            @include small {
+                transform: translateX(0)
+            }
+        }
+    }
+}
+
+
+

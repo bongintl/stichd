@@ -1,0 +1,77 @@
+{% extends 'work-at-stichd/layout' %}
+
+{% macro intro ( props ) %}
+    <div class="grid s-pad-top-1 l-pad-top-2" data-panel-section-id="intro">
+        <div class="s-col-12 s-gap-bottom-2 text-{{ props.textSize }}">
+            {{ props.text }}
+            <a data-toggle-search>
+                {% set buttonLabel %}
+                    <div class="m-hide">Search jobs</div>
+                    <div class="s-hide m-show">Search jobs by keyword</div>
+                {% endset %}
+                {% include 'components/button/button' with { label: buttonLabel, icon: 'search' } %}
+            </a>
+        </div>
+    </div>
+    {% include 'components/home/home-images' with { images: props.images } only %}
+{% endmacro %}
+
+{% import _self as macros %}
+
+{% set latestNews %}
+    {% for entry in craft.entries.section( 'workAtStichd_editorials' ).limit( 1 ) %}
+        {% include 'components/home/home-section-one-image' with {
+            id: entry.id,
+            heading: "Editorials",
+            body: "<p>#{ entry.title }</p>",
+            textSize: 'l',
+            link: entry.url,
+            image: entry.thumbnail | length ? entry.thumbnail.one : null
+        } only %}
+    {% endfor %}
+{% endset %}
+
+{% block content %}
+    {% if craft.request.urlReferrer == null %}
+        {% include 'components/splash/splash' only %}
+    {% endif %}
+    {{ macros.intro({
+        text: entry.introSimple,
+        images: entry.introImagesSimple.all,
+        link: siteUrl ~ 'about-us',
+        textSize: 'xl'
+    }) }}
+    {% include 'components/home/home-sections' with {
+        sections: entry.homeSectionsSimple,
+        textSize: 'l'
+    } only %}
+    {#{% for section in entry.homeSectionsSimple %}#}
+    {#    {% include 'components/home/home-section' with section | merge({#}
+    {#        id: loop.index,#}
+    {#        textSize: 'l',#}
+    {#        link: section.entry | length ? section.entry.one.url#}
+    {#    }) only %}#}
+    {#{% endfor %}#}
+    {{ latestNews }}
+{% endblock %}
+
+{% block content_complex %}
+    {{ macros.intro({
+        text: entry.introComplex,
+        images: entry.introImagesComplex.all,
+        link: siteUrl ~ 'about-us',
+        textSize: 'l'
+    }) }}
+    {% include 'components/home/home-sections' with {
+        sections: entry.homeSectionsComplex.all,
+        textSize: 'm'
+    } only %}
+    {#{% for section in entry.homeSectionsComplex %}#}
+    {#    {% include 'components/home/home-section' with section | merge({#}
+    {#        id: loop.index,#}
+    {#        textSize: 'm',#}
+    {#        link: section.entry | length ? section.entry.one.url#}
+    {#    }) only %}#}
+    {#{% endfor %}#}
+    {{ latestNews }}
+{% endblock %}

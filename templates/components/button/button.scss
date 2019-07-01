@@ -1,0 +1,43 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 100vw;
+    border: 2px solid var( --text-color );
+    padding: .5em .7em .5em .7em;
+    background: transparent;
+    transition: background-color .1s, color .1s, border-color .1s;
+    cursor: pointer;
+    svg {
+        width: .75em;
+        @include large {
+            width: auto;
+        }
+    }
+    &__label + .icon {
+        margin-left: .25em;
+        @include large {
+            margin-left: .5em;
+        }
+        @include large {
+            margin-left: .4em;
+        }
+    }
+    svg *[fill="#000"] {
+        transition: fill .1s;
+        fill: var( --text-color );
+    }
+    svg *[stroke="#000"] {
+        transition: stroke .1s;
+        stroke: var( --text-color );
+    }
+    &:hover, a:hover &, &--pressed {
+        background: var( --text-color );
+        color: var( --background-color );
+        svg *[fill="#000"] {
+            fill: var( --background-color );
+        }
+        svg *[stroke="#000"] {
+            stroke: var( --background-color );
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{% set data = data ?? [] %}
+
+{% set max = max( data | map( _ => _.percentage ) | merge([ 1 ]) ) %}
+
+<div class="grid s-pad-bottom-3 l-pad-bottom-5">
+    <div class="s-col-12">
+        <div class="vertical-bar-chart x xafe">
+            {% for item in data %}
+                <div
+                    class="xx x xac xja text-s {{ item.percentage == max ? 'bg-dark' : 'border' }}"
+                    style="height: {{ ( item.percentage / max ) * 100 }}%"
+                >
+                    {{ item.label }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

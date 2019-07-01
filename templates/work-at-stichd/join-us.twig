@@ -1,0 +1,76 @@
+{% extends 'work-at-stichd/layout' %}
+{% block content %}
+    <div class="s-pad-top-1 l-pad-top-2">
+        {% include 'components/blocks/blocks' with { blocks: entry.blocks } only %}
+        
+        
+        
+        {% include 'components/overflow/overflowText/overflowText' with 
+            { 
+                leftCopy: 'How to Apply',
+                leftSize: 'text-xxl',
+                rightCopy: entry.howToApplyText,
+                buttonLink: entry.howToApplyLink
+            } 
+        %}   
+
+        <div class="grid s-pad-bottom-1">
+            <div class="rule"></div>
+        </div>
+        
+        {% include 'components/overflow/overflowText/overflowText' with 
+            { 
+                leftCopy: 'Onboarding Process',
+                leftSize: 'text-xxl',
+                rightCopy: entry.onboardProcessText,
+            } 
+        %}
+    </div>
+        
+    <div class="rule s-gap-bottom-1"></div>
+
+    <div class="grid s-gap-bottom-4">
+        <div class="s-col-12 m-col-6 text-xl s-gap-bottom-half">
+            Contact
+        </div>
+        <div class="contact s-col-12 m-col-6">
+            {% for location in entry.joinLocations %}
+               
+                    <div class="text-l">
+                        {{ location.address }}
+                    </div>
+                    <div class="x xw s-gap-bottom-1">
+                        {% for link in location.links %}
+                            <div class="s-gap-right-half s-gap-bottom-half">
+                                {% include 'components/button/button' with {
+                                    label: link.text,
+                                    href: link.url,
+                                    icon: 'arrow'
+                                } only %}
+                            </div>
+                            {% if loop.index is even %}
+                                <div class="break"></div>
+                            {% endif %}
+                        {% endfor %}
+                        {% if location.extraLinks | length %}
+                            <div class="s-gap-right-half s-gap-bottom-half contact__toggle">
+                                {% include 'components/button/button' with { label: '...' } only %}
+                            </div>
+                        {% endif %}
+                        {% for link in location.extraLinks %}
+                            <div class="s-gap-right-half s-gap-bottom-half contact__extra">
+                                {% include 'components/button/button' with {
+                                    label: link.text,
+                                    href: link.url,
+                                    icon: 'arrow'
+                                } only %}
+                            </div>
+                        {% endfor %}
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,13 @@
+<div class="grid">
+    <div class="s-col-12 m-col-6 s-pad-bottom-1">
+        {% for asset in block.file.all %}
+            {% include '/components/image/image' with { asset: asset } only %}
+            {% if loop.first %}
+                {% include '/components/caption/caption' with { text: block.caption } only %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="s-col-12 m-col-6 redactor">
+        {{ block.copy }}
+    </div>
+</div>

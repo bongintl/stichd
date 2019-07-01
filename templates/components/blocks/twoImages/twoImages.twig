@@ -1,0 +1,20 @@
+{% set leftImage = leftImage ?? null %}
+{% set leftImageCaption = leftImageCaption ?? null %}
+{% set rightImage = rightImage ?? null %}
+{% set rightImageCaption = rightImageCaption ?? null %}
+{% set offset = offset ?? false %}
+
+<div class="grid s-pad-bottom-2 m-pad-bottom-6">
+    <div class="s-col-6 m-col-5 m-off-1">
+        {% include '/components/image/image' with { asset: leftImage, ratio: 1.5 } only %}
+        {% if leftImageCaption %}
+            {% include '/components/caption/caption' with { 'text': leftImageCaption } only %}
+        {% endif %}
+    </div>
+    <div class="s-col-6 m-col-5 {{ offset ? 's-pad-top-3 l-pad-top-5' }}">
+        {% include '/components/image/image' with { asset: rightImage, ratio: 1.5 } only %}
+        {% if rightImageCaption %}
+            {% include '/components/caption/caption' with { text: rightImageCaption } only %}
+        {% endif %}
+    </div>
+</div>
