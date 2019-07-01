@@ -28,6 +28,22 @@
         left: 50%;
         transform: translate(-50%,-50%);
     }
+    &__logo {
+        svg {
+            display: block;
+            margin-bottom: 1em;
+            height: 48px;
+            @include large {
+                height: 88px;
+            }
+            @include xlarge {
+                height: 111px;
+            }
+            @include xxlarge {
+                height: 133px;
+            }
+        }
+    }
     &__video {
         z-index: 5001;
         background-color: black;

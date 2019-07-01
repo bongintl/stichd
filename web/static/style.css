@@ -2361,6 +2361,19 @@ svg *[stroke="#000"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
+  .holding__logo svg {
+    display: block;
+    margin-bottom: 1em;
+    height: 48px; }
+    @media (min-width: 1024px) {
+      .holding__logo svg {
+        height: 88px; } }
+    @media (min-width: 1200px) {
+      .holding__logo svg {
+        height: 111px; } }
+    @media (min-width: 1600px) {
+      .holding__logo svg {
+        height: 133px; } }
   .holding__video {
     z-index: 5001;
     background-color: black; }
