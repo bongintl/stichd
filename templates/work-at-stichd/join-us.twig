@@ -48,6 +48,9 @@
                                     icon: 'arrow'
                                 } only %}
                             </div>
+                            {% if loop.index is even %}
+                                <div class="break"></div>
+                            {% endif %}
                         {% endfor %}
                         {% if location.extraLinks | length %}
                             <div class="s-gap-right-half s-gap-bottom-half contact__toggle">

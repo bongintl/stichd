@@ -1,8 +1,15 @@
 {% set backUrl = backUrl ?? null %}
 {% set applyUrl = applyUrl ?? null %}
+{% set logo %}
+    <div class="s-hide m-show">
+        {% include 'components/logo/logo-work.svg' %}
+    </div>
+    {% include 'components/logo/logo.svg' %}
+{% endset %}
 {% include 'components/layout/layout' with {
     header: {
-        logo: "<span class='text-stroke--nohover s-hide m-show'>work at&nbsp;</span>stichd",
+        logo: logo,
+        homeUrl: siteUrl,
         backUrl: backUrl,
         apply: applyUrl,
         search: true
@@ -34,7 +41,7 @@
             globals.privacyPolicy | length ? { name: "Privacy", url: globals.privacyPolicy.one.url },
             globals.termsAndConditions | length ? { name: "T&Cs", url: globals.termsAndConditions.one.url },
             globals.cookiePolicy | length ? { name: "Cookies", url: globals.cookiePolicy.one.url },
-            { name: 'Join Us', url: "" },
+            { name: 'Join Us', url: siteUrl ~ 'join-us' },
             { name: 'Contact', url: "#{ siteUrl }contact" },
         ] | filter( _ => _ )
     }

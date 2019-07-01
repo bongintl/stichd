@@ -1,9 +1,13 @@
 {% set backUrl = backUrl ?? null %}
 {% set dark = dark ?? false %}
+{% set logo %}
+    {% include 'components/logo/logo.svg' %}
+{% endset %}
 {% include 'components/layout/layout' with {
     dark: dark,
     header: {
-        logo: "stichd",
+        logo: logo,
+        homeUrl: siteUrl ~ 'home',
         backUrl: backUrl,
         search: false
     },
@@ -31,7 +35,7 @@
             globals.privacyPolicy | length ? { name: "Privacy", url: globals.privacyPolicy.one.url },
             globals.termsAndConditions | length ? { name: "T&Cs", url: globals.termsAndConditions.one.url },
             globals.cookiePolicy | length ? { name: "Cookies", url: globals.cookiePolicy.one.url },
-            { name: 'Join Us', url: "" },
+            { name: 'Join Us', url: craft.app.sites.getSiteByHandle('workAtStichd').getBaseUrl() ~ 'join-us' },
             { name: 'Contact', url: "#{ siteUrl }contact" },
         ] | filter( _ => _ )
     }

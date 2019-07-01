@@ -1,6 +1,7 @@
 {% import 'macros/macros' as m %}
 
 {% set logo = logo ?? '' %}
+{% set homeUrl = homeUrl ?? '' %}
 {% set backUrl = backUrl ?? null %}
 {% set apply = apply ?? null %}
 {% set toggleTo = toggleTo ?? null %}
@@ -48,22 +49,14 @@
 
     <div class="{{ m.bem('header', { 'toggle': toggleTo, 'toggle-left': toggleTo == 'left', 'toggle-right': toggleTo == 'right' }) }} border-bottom">
         
-        <a class="header__logo" href="{{ siteUrl }}{% if currentSite.handle == 'stichd' %}home{% endif %}">
-            {% if logo == 'stichd' %}
-                {% include 'components/logo/logo.svg' %}
-            {% else %}
-                {% include 'components/logo/logo-work.svg' %}
-                {% include 'components/logo/logo.svg' %}
-            {% endif %}
+        <a class="header__logo" href="{{ homeUrl }}">
+            {{ logo }}
         </a>
         
         {% if toggleTo == 'left' %}
             <a class="header__icon header__icon--toggle-left header__icon--small" data-toggle-panels>
                 {% include 'components/header/icon_arrow_left.svg' %}
             </a>
-            {#<a class="header__icon header__icon--toggle-left header__icon--medium" data-toggle-panels>#}
-            {#    {% include 'components/header/icon_arrow_left_circle.svg' %}#}
-            {#</a>#}
         {% endif %}
         
         <a class="header__icon header__icon--menu header__icon--small" data-toggle-menu>

@@ -7,13 +7,4 @@ import debounce from 'lodash/debounce'
         setTimeout( () => el.parentNode.removeChild( el ), 500 );
     }, 20 )
     el.addEventListener('scroll', onScroll )
-    // // document.body.style.overflow = 'hidden';
-    // var onScroll = () => {
-    //     
-    //     window.removeEventListener( 'scroll', onScroll );
-    //     setTimeout(() => {
-            
-    //     }, 500 )
-    // }
-    // window.addEventListener( 'scroll', onScroll )
 })

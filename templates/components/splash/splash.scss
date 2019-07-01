@@ -19,6 +19,11 @@
         font-size: 66px;
         line-height: 1;
         text-align: center;
+        width: 100%;
+        svg {
+            height: 60px;
+            width: auto;
+        }
     }
     &__label {
         position: absolute;
