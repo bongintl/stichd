@@ -18,7 +18,9 @@
     <div class="holding__video">
         <video id="video">
             {% set video = entry.video.one() %}
+            {% if video | length %}
             <source src="{{video.url}}" type="video/mp4" controls="controls">
+            {% endif %}
         </video>
     </div>
 </div>

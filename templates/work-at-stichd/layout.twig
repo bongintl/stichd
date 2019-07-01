@@ -31,16 +31,16 @@
     content_complex: block('content_complex') ?? null,
     footer: {
         primary: [
-            { name: 'email', url: "mailto:#{ globals.email }" },
-            { name: 'call', url: "tel:#{ globals.phone }" },
-            { name: 'apply', url: "mailto:#{ globals.email }?#{ { subject: globals.applyEmailSubject, body: globals.applyEmailBody } | url_encode }"  },
+            { name: 'email', url: "mailto:#{ globals.workAtStichdEmail }" },
+            { name: 'call', url: "tel:#{ globals.workAtStichdPhone }" },
+            { name: 'apply', url: "mailto:#{ globals.workAtStichdEmail }?#{ { subject: globals.applyEmailSubject, body: globals.applyEmailBody } | url_encode }"  },
             { name: 'stichd.com', url: craft.app.sites.getSiteByHandle('stichd').getBaseUrl() }
         ],
         secondary: globals.social,
         tertiary: [
-            globals.privacyPolicy | length ? { name: "Privacy", url: globals.privacyPolicy.one.url },
-            globals.termsAndConditions | length ? { name: "T&Cs", url: globals.termsAndConditions.one.url },
-            globals.cookiePolicy | length ? { name: "Cookies", url: globals.cookiePolicy.one.url },
+            globals.workAtStichdPrivacyPolicy | length ? { name: "Privacy", url: globals.workAtStichdPrivacyPolicy.one.url },
+            globals.workAtStichdTermsAndConditions | length ? { name: "T&Cs", url: globals.workAtStichdTermsAndConditions.one.url },
+            globals.workAtStichdCookiePolicy | length ? { name: "Cookies", url: globals.workAtStichdCookiePolicy.one.url },
             { name: 'Join Us', url: siteUrl ~ 'join-us' },
             { name: 'Contact', url: "#{ siteUrl }contact" },
         ] | filter( _ => _ )

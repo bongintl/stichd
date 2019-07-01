@@ -22,6 +22,8 @@
                 rightImage: section.images | length > 1 ? section.images[ 1 ] : null,
                 leftImageCaption: section.leftImageCaption,
                 rightImageCaption: section.rightImageCaption,
+                leftMagnifiedImage: section.magnifiedImages | length ? section.magnifiedImages[ 0 ] : null,
+                rightMagnifiedImage: section.magnifiedImages | length > 1 ? section.magnifiedImages[ 1 ] : null,
                 offset: section.offset
             }) only %}
         {% case 'sectionWithCarousel' %}

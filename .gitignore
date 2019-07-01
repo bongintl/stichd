@@ -5,6 +5,8 @@
 
 public_html/assets/
 public_html/cpresources/
+public_html/.htaccess
+public_html/work
 
 .c9
 .cache

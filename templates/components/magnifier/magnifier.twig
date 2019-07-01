@@ -1,0 +1,14 @@
+{% set image = image ?? null %}
+{% set ratio = ratio ?? true %}
+{% set magnifiedImage = magnifiedImage ?? null %}
+
+<div class="magnifier">
+    {% if image %}
+        {% include '/components/image/image' with { asset: image, ratio: ratio } only %}
+    {% endif %}
+    {% if magnifiedImage %}
+        <div class="magnifier__image">
+            {% include '/components/image/image' with { asset: magnifiedImage, ratio: ratio } only %}
+        </div>
+    {% endif %}
+</div>

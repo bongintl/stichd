@@ -43,8 +43,10 @@
             {% include template with {
                 leftImage: block.leftImage | length ? block.leftImage.one : null,
                 leftImageCaption: block.leftImageCaption,
+                leftMagnifiedImage: block.leftMagnifiedImage | length ? block.leftMagnifiedImage.one : null,
                 rightImage: block.rightImage | length ? block.rightImage.one : null,
                 rightImageCaption: block.rightImageCaption,
+                rightMagnifiedImage: block.rightMagnifiedImage | length ? block.rightMagnifiedImage.one : null,
                 offset: block.offset
             } only %}
         {% case 'magnifier' %}

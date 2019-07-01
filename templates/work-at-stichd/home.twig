@@ -13,7 +13,7 @@
             </a>
         </div>
     </div>
-    {% include 'components/home/home-images' with { images: props.images } only %}
+    {% include 'components/home/home-images' with { images: props.images, magnifiedImages: props.magnifiedImages } only %}
 {% endmacro %}
 
 {% import _self as macros %}
@@ -38,6 +38,7 @@
     {{ macros.intro({
         text: entry.introSimple,
         images: entry.introImagesSimple.all,
+        magnifiedImages: entry.introMagnifiedImagesSimple.all,
         link: siteUrl ~ 'about-us',
         textSize: 'xl'
     }) }}
@@ -59,6 +60,7 @@
     {{ macros.intro({
         text: entry.introComplex,
         images: entry.introImagesComplex.all,
+        magnifiedImages: entry.introMagnifiedImagesComplex.all,
         link: siteUrl ~ 'about-us',
         textSize: 'l'
     }) }}

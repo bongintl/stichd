@@ -1,9 +1,23 @@
 {% set image = image ?? null %}
+{% set magnifiedImage = magnifiedImage ?? null %}
 {% set caption = caption ?? null %}
 {% set ratio = ratio ?? true %}
 {% set attrs = attrs ?? {} %}
 
-{% include 'components/image/image' with { asset: image, ratio: ratio, attrs: attrs } only %}
+{% if magnifiedImage %}
+    {% include 'components/magnifier/magnifier' with {
+        image: image,
+        ratio: ratio,
+        magnifiedImage: magnifiedImage
+    } only %}
+{% else %}
+    {% include 'components/image/image' with {
+        asset: image,
+        ratio: ratio,
+        attrs: attrs
+    } only %}
+{% endif %}
+
 {% if caption %}
     {% include 'components/caption/caption' with { text: caption } only %}
 {% endif %}

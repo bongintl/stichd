@@ -7,6 +7,8 @@
 {% set rightImage = rightImage ?? null %}
 {% set leftImageCaption = leftImageCaption ?? null %}
 {% set rightImageCaption = rightImageCaption ?? null %}
+{% set leftMagnifiedImage = leftMagnifiedImage ?? null %}
+{% set rightMagnifiedImage = rightMagnifiedImage ?? null %}
 {% set offset = offset ?? false %}
 
 <div data-panel-section-id="{{ id }}">
@@ -21,6 +23,8 @@
         rightImage: rightImage,
         leftImageCaption: leftImageCaption,
         rightImageCaption: rightImageCaption,
+        leftMagnifiedImage: leftMagnifiedImage,
+        rightMagnifiedImage: rightMagnifiedImage,
         offset: offset
     } only %}
 </div>

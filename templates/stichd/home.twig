@@ -21,7 +21,10 @@
                 {% include 'components/button/button' with { icon: 'arrow', href: siteUrl ~ 'about-us' } %}
             </div>
         </div>
-        {% include 'components/home/home-images' with { images: entry.introImagesSimple.all } only %}
+        {% include 'components/home/home-images' with {
+            images: entry.introImagesSimple.all,
+            magnifiedImages: entry.introMagnifiedImagesSimple.all
+        } only %}
     </div>
     {% include 'components/home/home-sections' with {
         sections: entry.homeSectionsSimple.all,
@@ -38,7 +41,10 @@
                 {% include 'components/button/button' with { icon: 'arrow', href: siteUrl ~ 'about-us' } %}
             </div>
         </div>
-        {% include 'components/home/home-images' with { images: entry.introImagesComplex.all } only %}
+        {% include 'components/home/home-images' with {
+            images: entry.introImagesComplex.all,
+            magnifiedImages: entry.introMagnifiedImagesComplex.all
+        } only %}
     </div>
     {% include 'components/home/home-sections' with {
         sections: entry.homeSectionsComplex.all,
