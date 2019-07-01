@@ -1,8 +1,8 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
-    RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=302,L]
+    # RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+    # RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=302,L]
 
     # Send would-be 404 requests to Craft
     RewriteCond %{REQUEST_FILENAME} !-f
