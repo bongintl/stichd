@@ -42,7 +42,7 @@
             globals.workAtStichdTermsAndConditions | length ? { name: "T&Cs", url: globals.workAtStichdTermsAndConditions.one.url },
             globals.workAtStichdCookiePolicy | length ? { name: "Cookies", url: globals.workAtStichdCookiePolicy.one.url },
             { name: 'Join Us', url: siteUrl ~ 'join-us' },
-            { name: 'Contact', url: "#{ siteUrl }contact" },
+            { name: 'Contact', url: siteUrl ~ 'join-us' },
         ] | filter( _ => _ )
     }
 } only %}
