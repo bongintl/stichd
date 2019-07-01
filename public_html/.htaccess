@@ -16,9 +16,9 @@ AllowOverride All
     # RewriteCond %{HTTP_HOST} ^(www\.)?stichd\.com
     # RewriteRule ^(.*)$ https://www.stichd.com/$1 [R,L]
     
-    Rewrite Engine ON
-    RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP-HOST}%{Request-URI} [L,R=301]
+    # Rewrite Engine ON
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP-HOST}%{Request-URI} [L,R=301]
         
 
     # Send would-be 404 requests to Craft
