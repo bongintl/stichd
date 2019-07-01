@@ -308,16 +308,16 @@ p {
 blockquote {
   padding-bottom: 1em; }
 
-ul, ol {
+.redactor ul, .redactor ol {
   padding-left: 2em; }
   @media (min-width: 768px) {
-    ul, ol {
+    .redactor ul, .redactor ol {
       padding-left: 1.75em; } }
 
-ul {
+.redactor ul {
   margin-bottom: 1em;
   list-style: none; }
-  ul li:before {
+  .redactor ul li:before {
     position: absolute;
     left: -1.5em;
     top: 0.15em;

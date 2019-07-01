@@ -1,11 +1,10 @@
 {% set position = block.imagePosition.value %}
 
-
 <div class="overflow grid {{ position }} s-pad-bottom-1 m-pad-bottom-6 s-gap-bottom-half">
-    <div class="overflow__item m-col-8 s-col-12 {{ block.textSize.value }} {% if position == 'overflow--reverse' %}overflow__item--right{% endif %}">
+    <div class="overflow__item m-col-8 s-col-12 redactor {{ block.textSize.value }} {% if position == 'overflow--reverse' %}overflow__item--right{% endif %}">
        {{ block.copy }}
     </div>
-    <div class="overflow__item m-col-8 s-col-12 s-gap-bottom-1  {% if position == '' %} overflow__item--right{% endif %}">
+    <div class="overflow__item m-col-8 s-col-12 s-gap-bottom-1 {% if position == '' %} overflow__item--right{% endif %}">
         {% include '/components/image/image' with { asset: block.file.one() } only %}
     </div>
 </div>
