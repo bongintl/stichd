@@ -1,6 +1,6 @@
 {% extends 'work-at-stichd/layout' %}
 {% set backUrl = craft.entries.section('workAtStichd_vacanciesIndex').one.url %}
-{% set applyUrl = "mailto:#{ globals.email }?#{ { subject: globals.applyEmailSubject, body: globals.applyEmailBody } | url_encode }" %}
+{% set applyUrl = "mailto:#{ globals.workAtStichdEmail }?#{ { subject: globals.applyEmailSubject, body: globals.applyEmailBody } | url_encode }" %}
 {% block content %}
     <div class="grid s-pad-top-2 s-pad-bottom-2 l-pad-bottom-4">
         <div class="s-col-12 l-col-6">
