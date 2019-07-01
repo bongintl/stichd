@@ -1948,23 +1948,6 @@ svg *[stroke="#000"] {
     .slick-dots li button {
       display: none; }
 
-.magnifier {
-  --radius: 10vw; }
-  .magnifier__image {
-    position: absolute;
-    top: calc( var( --radius ) * -1);
-    left: calc( var( --radius ) * -1);
-    width: calc( 100% + var( --radius ) * 2);
-    height: calc( 100% + var( --radius ) * 2);
-    object-fit: cover;
-    pointer-events: none;
-    clip-path: circle(var(--radius) at calc( var( --radius ) + var( --cx, 50% )) calc( var( --radius ) + var( --cy, 50% )));
-    -webkit-clip-path: circle(var(--radius) at calc( var( --radius ) + var( --cx, 50% )) calc( var( --radius ) + var( --cy, 50% )));
-    transition: opacity .1s;
-    opacity: 0; }
-    .magnifier:hover .magnifier__image {
-      opacity: 1; }
-
 .video {
   width: 100%;
   padding-bottom: 56.25%; }
@@ -2417,6 +2400,23 @@ svg *[stroke="#000"] {
 
 .job-row .icon {
   margin-top: 0.1em; }
+
+.magnifier {
+  --radius: 10vw; }
+  .magnifier__image {
+    position: absolute;
+    top: calc( var( --radius ) * -1);
+    left: calc( var( --radius ) * -1);
+    width: calc( 100% + var( --radius ) * 2);
+    height: calc( 100% + var( --radius ) * 2);
+    object-fit: cover;
+    pointer-events: none;
+    clip-path: circle(var(--radius) at calc( var( --radius ) + var( --cx, 50% )) calc( var( --radius ) + var( --cy, 50% )));
+    -webkit-clip-path: circle(var(--radius) at calc( var( --radius ) + var( --cx, 50% )) calc( var( --radius ) + var( --cy, 50% )));
+    transition: opacity .1s;
+    opacity: 0; }
+    .magnifier:hover .magnifier__image {
+      opacity: 1; }
 
 .menu-items {
   display: flex;

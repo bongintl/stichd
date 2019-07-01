@@ -7,7 +7,7 @@
             <div class="s-col-12">
                 {% include 'components/image-with-caption/image-with-caption' with {
                     image: images[ 0 ],
-                    magnifiedImage: magnifiedImages[ 0 ],
+                    magnifiedImage: magnifiedImages | length ? magnifiedImages[ 0 ] : null,
                     caption: images[ 0 ].caption,
                     ratio: 9/16
                 } only %}
@@ -16,7 +16,7 @@
             <div class="s-col-6 m-col-5 m-off-1">
                 {% include 'components/image-with-caption/image-with-caption' with {
                     image: images[ 0 ],
-                    magnifiedImage: magnifiedImages[ 0 ] ?? null,
+                    magnifiedImage: magnifiedImages | length ? magnifiedImages[ 0 ] : null,
                     caption: images[ 0 ].caption,
                     ratio: 3/2
                 } only %}
@@ -24,7 +24,7 @@
             <div class="s-col-6 m-col-5 s-pad-top-2 m-pad-top-3 l-pad-top-5">
                 {% include 'components/image-with-caption/image-with-caption' with {
                     image: images[ 1 ],
-                    magnifiedImage: magnifiedImages[ 1 ] ?? null,
+                    magnifiedImage: magnifiedImages | length > 0 ? magnifiedImages[ 1 ] : null,
                     caption: images[ 1 ].caption,
                     ratio: 3/2
                 } only %}

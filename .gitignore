@@ -8,6 +8,8 @@ public_html/cpresources/
 public_html/.htaccess
 public_html/work
 
+*.sql
+
 .c9
 .cache
 dist/*
