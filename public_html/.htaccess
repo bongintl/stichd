@@ -9,7 +9,7 @@
     #Remove WWW
     RewriteEngine on
     RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-    RewriteRule ^(.*)$ http://%1%{REQUEST_URI} [R=301,QSA,NC,L]
+    RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [R=301,QSA,NC,L]
     
     # ensure https
     RewriteCond %{HTTP:X-Forwarded-Proto} !https
