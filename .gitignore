@@ -71,3 +71,32 @@ typings/
 
 # next.js build output
 .next
+
+#Godaddy files
+.bash_logout
+.bash_profile
+.bash_profile.rpmnew
+.bashrc
+.cagefs/
+.cl.selector/
+.composer/
+.contactemail
+.cpanel/
+.cphorde/
+.ftpquota
+.gemrc
+.lastlogin
+.md5sum
+.spamassassin/
+.spamassassinenable
+.ssh/
+.subaccounts/
+.trash/
+.zshrc
+access-logs
+etc/
+mail/
+public_html/
+ssl/
+tmp/
+www
