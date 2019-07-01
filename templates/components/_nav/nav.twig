@@ -1,8 +1,0 @@
-<nav class="{{ bem('nav', { complex: toggleComplex } ) }}">
-    <div class="nav__header">
-        {% include 'components/header/header' with { logo: logo, backUrl: backUrl, toggleComplex: toggleComplex } only %}
-    </div>
-    <div class="nav__menu bg-dark s-pad-top-1 m-pad-top-2 s-pad-bottom-2">
-        {% include 'components/menu/menu' with menu only %}
-    </div>
-</nav>
