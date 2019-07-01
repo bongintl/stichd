@@ -96,7 +96,6 @@ typings/
 access-logs
 etc/
 mail/
-public_html/
 ssl/
 tmp/
 www
