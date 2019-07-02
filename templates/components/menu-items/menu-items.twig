@@ -5,15 +5,14 @@
 {% set circles = circles ?? false %}
 
 <div class="menu-items">
-    <div>
     {% for item in primary %}
         <a class="{{ m.bem( 'menu-items__item', { circle: circles }) }} circle--lowercase text-xl m-gap-right-half" href="{{ item.url }}">
             <span class="text-xl">{{ item.name | raw }}</span>
             <span class="menu-items__index text-s">{{ "%02d" | format( loop.index ) }}</span>
         </a>
     {% endfor %}
-    </div>
-    <div>
+</div>
+<div class="menu-items">
     {% for item in secondary %}
         <a class="menu-items__item m-gap-right-half text-xl" href="{{ item.url }}" target="_blank">
             <span class="text-stroke">{{ ( item.name | raw ) ~ ( loop.last ? '.' : ',' ) }}</span>
@@ -22,5 +21,4 @@
             {% endif %}
         </a>
     {% endfor %}
-    </div>
 </div>
