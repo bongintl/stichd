@@ -1,7 +1,8 @@
 {% import 'macros/macros' as m %}
 
 {% if asset %}
-    {% set ratio = ratio ?? ( asset.height / asset.width ) %}
+    {% set ratio = ratio is defined ? ratio : true %}
+    {% set ratio = ratio is same as( true ) ? ( asset.height / asset.width ) : ratio %}
     {% set attrs = attrs ?? {} %}
     {% set lazy = lazy ?? true %}
     {% set imgAttrs = {

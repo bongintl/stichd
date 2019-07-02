@@ -52,7 +52,8 @@
         {% case 'magnifier' %}
             {% include template with {
                 image: block.image | length ? block.image.one : null,
-                magnifiedImage: block.magnifiedImage | length ? block.magnifiedImage.one : null
+                magnifiedImage: block.magnifiedImage | length ? block.magnifiedImage.one : null,
+                ratio: block.ratio.value
             } only %}
         {% case 'video' %}
             {% include template with {
