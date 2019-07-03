@@ -19,6 +19,12 @@
     &--two {
         width: calc( var( --panel-width ) * 2 );
     }
+    &--with-full-header {
+        --page-pad-top: var( --header-height );
+    }
+    &--with-compact-header {
+        --page-pad-top: var( --header-height-compact );
+    }
     &__headers {
         display: flex;
         position: fixed;

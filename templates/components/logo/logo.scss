@@ -1,0 +1,13 @@
+svg.logo {
+    &--large {
+        display: none;
+        @include large {
+            display: block;
+        }
+    }
+    &--small {
+        @include large {
+            display: none;
+        }
+    }
+}

@@ -2401,6 +2401,16 @@ svg *[stroke="#000"] {
 .job-row .icon {
   margin-top: 0.1em; }
 
+svg.logo--large {
+  display: none; }
+  @media (min-width: 1024px) {
+    svg.logo--large {
+      display: block; } }
+
+@media (min-width: 1024px) {
+  svg.logo--small {
+    display: none; } }
+
 .magnifier {
   --radius: 10vw; }
   .magnifier__image {
@@ -2584,6 +2594,10 @@ svg *[stroke="#000"] {
     width: 100vw; }
   .panels--two {
     width: calc( var( --panel-width ) * 2); }
+  .panels--with-full-header {
+    --page-pad-top: var( --header-height ); }
+  .panels--with-compact-header {
+    --page-pad-top: var( --header-height-compact ); }
   .panels__headers {
     display: flex;
     position: fixed;

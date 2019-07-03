@@ -26,6 +26,9 @@
     "node-sass-glob": "^1.0.4",
     "onchange": "^6.0.0",
     "parcel-bundler": "^1.12.3",
+    "postcss": "^7.0.17",
+    "postcss-cli": "^6.1.2",
+    "postcss-css-variables": "^0.13.0",
     "ramda": "^0.26.1",
     "resize-observer-polyfill": "^1.5.1",
     "slick-carousel": "^1.8.1"
