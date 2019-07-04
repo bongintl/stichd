@@ -111,7 +111,7 @@ img {
 
 @font-face {
   font-family: "Graebenbach";
-  src: url("fonts/Graebenbach-Regular.otf");
+  src: url("fonts/Graebenbach-Regular.otf"), url("fonts/Graebenbach-Regular.eot?#iefix") format("embedded-opentype"), url("fonts/Graebenbach-Regular.woff") format("woff"), url("fonts/Graebenbach-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal; }
 
