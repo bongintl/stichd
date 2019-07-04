@@ -140,7 +140,8 @@
     list-style: none;
     z-index: 30;
     li {
-        border: 1px solid var( --background-color );
+        // border: 1px solid var( --background-color );
+        @include border;
         width: 12px;
         height: 12px;
         margin: 0 4px;
@@ -148,7 +149,8 @@
         border-radius: 50%;
         transition: background .2s;
         &.slick-active {
-            background: var( --background-color );
+            // background: var( --background-color );
+            @include background-color-property('background');
         }
         button {
             display: none;

@@ -18,7 +18,7 @@
             &:before {
                 content: '';
                 display: block;
-                border: 1px solid var( --text-color );
+                @include border;
                 align-self: center;
                 border-radius: 50%;
                 transition: background .1s;
@@ -30,7 +30,8 @@
                 flex-shrink: 0;
             }
             &:hover:before {
-                background: var( --text-color );
+                // background: var( --text-color );
+                @include text-color-property('background');
             }
         }
     }

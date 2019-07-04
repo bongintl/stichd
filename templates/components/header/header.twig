@@ -19,7 +19,6 @@
             <span class="text-s">Back</span>
         </a>
         
-        </a>
         {% if apply %}
             <div class="header-compact__center">
                 <a href="{{ apply }}">
@@ -49,9 +48,10 @@
 
     <div class="{{ m.bem('header', { 'toggle': toggleTo, 'toggle-left': toggleTo == 'left', 'toggle-right': toggleTo == 'right' }) }} border-bottom">
         
-        <a class="header__logo" href="{{ homeUrl }}">
-            {{ logo }}
-        </a>
+        {{ logo }}
+        {#<a class="header__logo" href="{{ homeUrl }}">#}
+        {#    {{ logo }}#}
+        {#</a>#}
         
         {% if toggleTo == 'left' %}
             <a class="header__icon header__icon--toggle-left header__icon--small" data-toggle-panels>

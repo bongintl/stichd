@@ -17,6 +17,7 @@
         flex: 0 0 auto;
         transition: transform 0.5s;
     }
+    transform: translateX(0);
     &--focus-right {
         #{$this}__item {
             transform: translateX(-33vw);

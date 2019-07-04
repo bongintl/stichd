@@ -9,7 +9,8 @@
         left: 0;
         *[fill="#000"]{
             transition: fill .2s;
-            fill: var( --text-color );
+            // fill: var( --text-color );
+            @include text-color-property('fill');
         }
     }
 }

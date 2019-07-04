@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-  <g id="Arrow-icon-left" data-name="Group 374" transform="translate(1094 305) rotate(180)">
+  <g id="Arrow-icon-left" data-name="Group 374" transform="translate(1094 305) rotate(180)" preserveAspectRatio="xMinYMin meet">
     <g id="Rectangle_2663" data-name="Rectangle 2663" transform="translate(1046 257)" fill="none" stroke="#000" stroke-width="2">
       <rect width="48" height="48" rx="24" stroke="none"/>
       <rect x="1" y="1" width="46" height="46" rx="23" fill="none"/>

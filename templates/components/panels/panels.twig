@@ -23,11 +23,11 @@
 >
     <div class="panels__headers">
         {% if not isTwo %}
-            <div class="panels__header">
+            <div class="panels__header bg-light">
                 {% include 'components/header/header' with header only %}
             </div>
         {% else %}
-            <div class="panels__header">
+            <div class="panels__header bg-light">
                 {% include 'components/header/header' with header | merge({ toggleTo: 'right' }) only %}
             </div>
             <div class="panels__header panels__header--inactive bg-dark">

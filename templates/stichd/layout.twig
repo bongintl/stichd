@@ -1,7 +1,9 @@
 {% set backUrl = backUrl ?? null %}
 {% set dark = dark ?? false %}
 {% set logo %}
-    {% include 'components/logo/logo' %}
+    <a class="header__logo" href="{{ siteUrl }}">
+        {% include 'components/logo/logo' %}
+    </a>
 {% endset %}
 {% include 'components/layout/layout' with {
     dark: dark,

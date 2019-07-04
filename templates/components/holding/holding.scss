@@ -1,7 +1,7 @@
 .holding {
     $ho: &;
     position: fixed;
-    background-color: var(--background-color);
+    background-color: var(--greige);
     z-index: 5000;
     top: 0;
     width: 100%;
@@ -20,7 +20,7 @@
     &__intro {
         z-index: 5002;
         text-align: center;
-        background-color:  var(--background-color);
+        background-color: var(--greige);
     }
     &__center {
         position: absolute;
@@ -59,7 +59,6 @@
         left: 50%;
         z-index: 5003;
         transform: translate(-50%);
-        color:var(--text-color);
         @supports ( mix-blend-mode: difference ) {
             mix-blend-mode: difference;
             color: white;

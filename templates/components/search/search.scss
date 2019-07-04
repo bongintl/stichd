@@ -8,7 +8,8 @@
     z-index: 2000;
     pointer-events: none;
     height: var(--header-height );
-    border-bottom: 1px solid var( --text-color );
+    // border-bottom: 1px solid var( --text-color );
+    @include border('border-bottom');
     padding: 0 var( --gutter );
     @include medium {
         padding: 0 calc( var( --gutter ) / 2 );
@@ -46,9 +47,12 @@
         height: 100%;
         top: .1em;
         &::placeholder {
-            -webkit-text-fill-color: transparent;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: var( --text-color );
+            @supports ( -webkit-text-fill-color: transparent ) {
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke-width: 1px;
+                // -webkit-text-stroke-color: var( --text-color );
+                @include text-color-property('-webkit-text-stroke-color');
+            }
         }
     }
 }

@@ -98,24 +98,28 @@ html {
 .text-stroke {
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var( --text-color );
+    @include text-color-property('-webkit-text-stroke-color');
+    // -webkit-text-stroke-color: var( --text-color );
     a & {
         transition: -webkit-text-fill-color .1s, -webkit-text-stroke-color .1s;
     }
     a &--nohover {
         -webkit-text-fill-color: transparent;
         -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: var( --text-color );
+        // -webkit-text-stroke-color: var( --text-color );
+        @include text-color-property('-webkit-text-stroke-color');
     }
     a:hover & {
-        -webkit-text-fill-color: var( --text-color );
+        // -webkit-text-fill-color: var( --text-color );
+        @include text-color-property('-webkit-text-fill-color');
         -webkit-text-stroke-color: transparent;
     }
     &--reverse {
         a:hover & {
             -webkit-text-fill-color: transparent;
             -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: var( --text-color );
+            // -webkit-text-stroke-color: var( --text-color );
+            @include text-color-property('-webkit-text-stroke-color');
         }
     }
 }
@@ -129,7 +133,8 @@ p {
     letter-spacing: 0.025em;
     margin-bottom: calc( var( --line-height ) * .5em );
     a {
-        border-bottom: 1px solid var( --text-color );
+        // border-bottom: 1px solid var( --text-color );
+        @include border('border-bottom');
         &:hover {
             border-bottom: 0;
         }
@@ -161,7 +166,8 @@ blockquote {
             height: 0.65em;
             width: 0.65em;
             border-radius: 0.65em;
-            background-color: var( --text-color );
+            // background-color: var( --text-color );
+            @include text-color-property('background-color');
         }
     }
 }
@@ -170,7 +176,8 @@ blockquote {
     &:before {
         content: '';
         display: inline-block;
-        border: 1px solid var( --text-color );
+        // border: 1px solid var( --text-color );
+        @include border;
         align-self: center;
         border-radius: 50%;
         transition: background .1s, border-color .2s;
@@ -199,17 +206,20 @@ blockquote {
             
         }
         &:hover:before {
-            background-color: var( --text-color );
+            // background-color: var( --text-color );
+            @include text-color-property('background-color');
         }
     }
     &--filled:before {
-        background-color: var( --text-color );
+        // background-color: var( --text-color );
+        @include text-color-property('background-color');
     }
 }
 
 .rule {
     width: 100%;
-    border-bottom: 1px solid var( --text-color );
+    // border-bottom: 1px solid var( --text-color );
+    @include border('border-bottom');
 }
 
 .lh1 {

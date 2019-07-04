@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="24" viewBox="0 0 21 24"><defs><clipPath id="a"><rect width="21" height="24" fill="none"/></clipPath></defs><g clip-path="url(#a)"><path fill="#000" d="M69.549,541.95c6.512,0,16.971.37,16.971.37v-.082a23.9,23.9,0,0,1-6.552-8.548l3.092-2.013a34.39,34.39,0,0,0,7.488,11.178V544.5a34.394,34.394,0,0,0-7.488,11.179l-3.092-2.014a23.9,23.9,0,0,1,6.552-8.548v-.082s-10.46.37-16.971.37Z" transform="translate(-69.549 -531.676)"/></g></svg>
+<!--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="24" viewBox="0 0 21 24"><defs><clipPath id="a"><rect width="21" height="24" fill="none"/></clipPath></defs><g clip-path="url(#a)"><path fill="#000" d="M69.549,541.95c6.512,0,16.971.37,16.971.37v-.082a23.9,23.9,0,0,1-6.552-8.548l3.092-2.013a34.39,34.39,0,0,0,7.488,11.178V544.5a34.394,34.394,0,0,0-7.488,11.179l-3.092-2.014a23.9,23.9,0,0,1,6.552-8.548v-.082s-10.46.37-16.971.37Z" transform="translate(-69.549 -531.676)"/></g></svg>-->
+
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 21 24" style="enable-background:new 0 0 21 24;" xml:space="preserve">
+<path fill="#000" d="M0,0h21v24H0V0z M0,10.3c6.5,0,17,0.4,17,0.4v-0.1c-2.8-2.3-5-5.2-6.6-8.5l3.1-2c1.7,4.2,4.3,8,7.5,11.2v1.6
+	c-3.2,3.2-5.8,7-7.5,11.2l-3.1-2c1.5-3.3,3.7-6.2,6.6-8.5v-0.1c0,0-10.5,0.4-17,0.4V10.3z"/>
+</svg>

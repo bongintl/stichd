@@ -3,22 +3,23 @@
 <div class="grid s-pad-bottom-3 l-pad-bottom-5">
     <div class="s-col-12">
         {% for item in data %}
-            <div class="s-gap-bottom-half s-pad-half m-pad-1 x xjb s-text-32 l-text-72">
-                <div class="lh1">
-                    {{ item.leftLabel }}
-                </div>
-                <div class="lh1">
-                    {{ item.rightLabel }}
-                </div>
-                <div class="fill border"></div>
-                {% set clipPath = "inset( 0 #{ 100 - item.percentage }% 0 0 )" %}
-                <div class="fill bg-dark x xjb s-pad-half m-pad-1" style="clip-path: {{ clipPath }}; -webkit-clip-path: {{ clipPath }}">
-                    <div class="lh1">
+            <div class="s-gap-bottom-half s-pad-half m-pad-1 s-text-32 l-text-72">
+                <div class="x xjb">
+                    <div class="lh1 xs">
                         {{ item.leftLabel }}
                     </div>
-                    <div class="lh1">
+                    <div class="lh1 xs">
                         {{ item.rightLabel }}
                     </div>
+                </div>
+                <div class="fill border"></div>
+                <div class="fill bg-dark x xjb s-pad-half m-pad-1" style="width: {{ item.percentage }}%">
+                    <div class="lh1 xs">
+                        {{ item.leftLabel }}
+                    </div>
+                    {#<div class="lh1">#}
+                    {#    {{ item.rightLabel }}#}
+                    {#</div>#}
                 </div>
             </div>
         {% endfor %}

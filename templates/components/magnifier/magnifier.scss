@@ -12,18 +12,22 @@
         height: calc( 100% + var( --magnifier-radius ) * 2 );
         object-fit: cover;
         pointer-events: none;
-        clip-path: circle(
-            var( --magnifier-radius ) at
-            calc( var( --magnifier-radius ) + var( --cx, 50% ) )
-            calc( var( --magnifier-radius ) + var( --cy, 50% ) )
-        );
-        -webkit-clip-path: circle(
-            var( --magnifier-radius ) at
-            calc( var( --magnifier-radius ) + var( --cx, 50% ) )
-            calc( var( --magnifier-radius ) + var( --cy, 50% ) )
-        );
+        // clip-path: circle(
+        //     var( --magnifier-radius ) at
+        //     calc( var( --magnifier-radius ) + var( --cx, 50% ) )
+        //     calc( var( --magnifier-radius ) + var( --cy, 50% ) )
+        // );
+        // -webkit-clip-path: circle(
+        //     var( --magnifier-radius ) at
+        //     calc( var( --magnifier-radius ) + var( --cx, 50% ) )
+        //     calc( var( --magnifier-radius ) + var( --cy, 50% ) )
+        // 
         transition: opacity .1s;
         opacity: 0;
+        display: none;
+        @supports ( -webkit-clip-path: circle( 1px at 1px 1px ) ) {
+            display: block;
+        }
         .magnifier:hover & {
             opacity: 1;
         }

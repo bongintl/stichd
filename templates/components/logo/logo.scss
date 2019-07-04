@@ -1,12 +1,13 @@
 svg.logo {
     &--large {
         display: none;
-        @include large {
+        @include medium {
             display: block;
         }
     }
     &--small {
-        @include large {
+        margin: 0 auto;
+        @include medium {
             display: none;
         }
     }

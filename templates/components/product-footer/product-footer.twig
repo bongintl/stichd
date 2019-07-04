@@ -4,8 +4,10 @@
     
         <a class="grid col-justify s-pad-top-1 product-footer__item" href="{{ product.url }}">
             <span class="product-footer__link s-pad-bottom-half">{{ product.title }}</span>
-            <img class="product-footer__arrow" src="/components/button/arrow.svg" />
-            
+            <div class="product-footer__arrow">
+                {% include 'icons/arrow.svg' %}
+            </div>
+
             {% if not loop.last %}<div class="rule"></div>{% endif %}
         </a>
         

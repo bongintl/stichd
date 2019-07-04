@@ -15,12 +15,18 @@
                     </a>
                 </div>
                 {% if loop.index == floor( data | length * 1/4 ) %}
-                    <div class="data-grid__item data-grid__item--height-2">
-                        <img src="{{ baseUrl }}static/img/illustration_chameleon.png" class="contain"></img>
+                    <div
+                        class="data-grid__item data-grid__item--height-2"
+                        style="background-image: url({{ baseUrl }}static/img/illustration_chameleon.png)"
+                    >
+                        {#<img src="{{ baseUrl }}static/img/illustration_chameleon.png" class="contain"></img>#}
                     </div>
                 {% elseif loop.index == floor( data | length * 1/2 ) %}
-                    <div class="data-grid__item data-grid__item--height-3">
-                        <img src="{{ baseUrl }}static/img/illustration_hands.png" class="contain"></img>
+                    <div
+                        class="data-grid__item data-grid__item--height-3"
+                        style="background-image: url({{ baseUrl }}static/img/illustration_hands.png)"
+                    >
+                        {#<img src="{{ baseUrl }}static/img/illustration_hands.png" class="contain"></img>#}
                     </div>
                 {% endif %}
             {% endfor %}

@@ -9,14 +9,16 @@
         display: none;
     }
     &__toggle-less {
-        border-bottom: 1px solid var( --text-color );
+        // border-bottom: 1px solid var( --text-color );
+        @include border('border-bottom');
     }
     .news--complex & {
         &__toggle-less {
             border-bottom: none;
         }
         &__toggle-more {
-            border-bottom: 1px solid var( --text-color );
+            // border-bottom: 1px solid var( --text-color );
+            @include border('border-bottom');
         }
         .news-filter__item {
             display: block;

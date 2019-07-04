@@ -1,8 +1,10 @@
 .product-footer {
-    border-top: 1px solid var( --text-color );
+    // border-top: 1px solid var( --text-color );
+    @include border('border-top');
     &__item:hover {
         .product-footer__link:before {
-            background-color: var( --text-color );
+            // background-color: var( --text-color );
+            @include background-color-property('fill');
         }
         .product-footer__arrow {
             display: block;
@@ -11,7 +13,8 @@
     &__link:before {
         content: '';
         display: inline-block;
-        border: 1px solid var( --text-color );
+        // border: 1px solid var( --text-color );
+        @include border;
         align-self: center;
         border-radius: 50%;
         transition: background .1s;
@@ -24,7 +27,7 @@
     &__arrow {
         width: 0.5em;
         display: inline;
-        margin-bottom: .3em;
         display: none;
+        margin-top: -.1em;
     }
 }

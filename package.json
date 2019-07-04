@@ -8,7 +8,7 @@
     "watch:js": "parcel watch templates/main.js -d public_html/static",
     "build:js": "parcel build templates/main.js --no-minify -d public_html/static",
     "watch:sass": "npm run build:sass && onchange 'templates/**/*.scss' -- npm run build:sass",
-    "build:sass": "node-sass templates/style.scss --importer node_modules/node-sass-glob/index.js | postcss -u postcss-css-variables -u postcss-calc > public_html/static/style.css",
+    "build:sass": "node-sass templates/style.scss --importer node_modules/node-sass-glob/index.js | postcss > public_html/static/style.css",
     "dev": "npm run watch:js & npm run watch:sass",
     "build": "npm run build:js && npm run build:sass"
   },
@@ -32,13 +32,18 @@
     "postcss-calc": "^7.0.1",
     "postcss-cli": "^6.1.2",
     "postcss-css-variables": "^0.13.0",
+    "postcss-preset-env": "^6.6.0",
     "ramda": "^0.26.1",
     "resize-observer-polyfill": "^1.5.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "sass": "^1.20.1"
-  }
+  },
+  "browserslist": [
+    "ie 11"
+  ]
 }

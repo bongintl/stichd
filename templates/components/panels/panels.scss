@@ -1,17 +1,32 @@
 :root {
-    --panel-width: 100vw;
+    --panel-peek: 0;
+    --panel-width: calc( 100vw - var( --panel-peek ) );
     @include medium {
-        --panel-width: calc( 100vw - var( --gutter ) * 2 - 48px )
+        --panel-peek: calc( var( --gutter ) * 2 + 48px );
+        --panel-width: calc( 100vw - var( --panel-peek ) );
+    }
+    @include large {
+        --panel-peek: calc( var( --gutter ) * 2 + 48px );
+        --panel-width: calc( 100vw - var( --panel-peek ) );
+    }
+    @include xlarge {
+        --panel-peek: calc( var( --gutter ) * 2 + 48px );
+        --panel-width: calc( 100vw - var( --panel-peek ) );
+    }
+    @include xxlarge {
+        --panel-peek: calc( var( --gutter ) * 2 + 48px );
+        --panel-width: calc( 100vw - var( --panel-peek ) );
     }
 }
 
 .panels {
     min-height: 100vh;
     &--one {
-        width: 100vw;
+        width: 100%;
     }
     &--two {
         width: calc( var( --panel-width ) * 2 );
+        max-width: calc( var( --panel-width ) * 2 );
     }
     &__headers {
         display: flex;
@@ -23,13 +38,20 @@
             width: calc( var( --panel-width ) * 2 );
         }
         &--right {
-            transform: translateX( calc( var( --panel-width ) * -2 + 100vw ) );
+            // seperate transforms for IE (no mixed-unit calc)
+            transform:
+                translateX( calc( var( --panel-peek ) * 2 ) )
+                translateX( -100vw );
         }
     }
     &__header {
         width: 100%;
         .panels--two & {
             width: var( --panel-width );
+        }
+        transition: background-color .2s;
+        body.bg-dark & {
+            @include bg-dark;
         }
         &--inactive {
             cursor: pointer;
@@ -43,7 +65,10 @@
         display: flex;
         height: 100%;
         &--right {
-            transform: translateX( calc( var( --panel-width ) * -2 + 100vw ) );
+            // seperate transforms for IE (no mixed-unit calc)
+            transform:
+                translateX( calc( var( --panel-peek ) * 2 ) )
+                translateX( -100vw );
         }
     }
     &__page {

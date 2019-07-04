@@ -38,7 +38,8 @@
                 right: calc( var( --gutter ) / 2 );
                 left: calc( var( --gutter ) / 2 );
                 bottom: 0;
-                border-bottom: 1px solid var( --text-color );
+                // border-bottom: 1px solid var( --text-color );
+                @include border('border-bottom');
                 @include medium {
                     display: none;
                 }

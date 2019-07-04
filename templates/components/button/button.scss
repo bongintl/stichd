@@ -2,7 +2,9 @@
     display: inline-flex;
     align-items: center;
     border-radius: 100vw;
-    border: 2px solid var( --text-color );
+    border-width: 2px;
+    border-style: solid;
+    @include text-color-property( 'border-color' );
     padding: .5em .7em .5em .7em;
     background: transparent;
     transition: background-color .1s, color .1s, border-color .1s;
@@ -24,20 +26,24 @@
     }
     svg *[fill="#000"] {
         transition: fill .1s;
-        fill: var( --text-color );
+        // fill: var( --text-color );
     }
     svg *[stroke="#000"] {
         transition: stroke .1s;
-        stroke: var( --text-color );
+        // stroke: var( --text-color );
     }
     &:hover, a:hover &, &--pressed {
-        background: var( --text-color );
-        color: var( --background-color );
+        @include bg-dark;
+        // background: var( --text-color );
+        // color: var( --background-color );
         svg *[fill="#000"] {
-            fill: var( --background-color );
+            @include background-color-property('fill');
         }
         svg *[stroke="#000"] {
-            stroke: var( --background-color );
+            @include background-color-property('stroke');
+        }
+        .bg-dark & {
+            @include bg-light;
         }
     }
 }

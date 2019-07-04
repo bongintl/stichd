@@ -4,8 +4,10 @@
         white-space: nowrap;
         z-index: 10;
         width: 6em;
+        flex-basis: 6em;
         @include medium {
             width: 8em;
+            flex-basis: 8em;
         }
     }
     &__bar {
@@ -18,5 +20,6 @@
         top: 0;
         height: 100%;
         z-index: 20;
+        border-color: var( --blue ) !important;
     }
 }

@@ -1,10 +1,12 @@
 {% set backUrl = backUrl ?? null %}
 {% set applyUrl = applyUrl ?? null %}
 {% set logo %}
-    <div class="s-hide m-show">
-        {% include 'components/logo/logo-work.svg' %}
-    </div>
-    {% include 'components/logo/logo' %}
+    <a class="header__logo s-show-f m-hide" href="{{ siteUrl }}">
+        {% include 'components/logo/logo' %}
+    </a>
+    <a class="header__logo s-hide m-show-f" href="{{ siteUrl }}">
+        {% include 'components/logo/logo-both' %}
+    </a>
 {% endset %}
 {% include 'components/layout/layout' with {
     header: {

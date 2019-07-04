@@ -1,58 +1,76 @@
 :root {
     --greige: #E7E3D1;
     --blue: #171B2E;
-    --text-color: var( --blue );
-    --background-color: var( --greige );
+    // --text-color: var( --blue );
+    // --background-color: var( --greige );
+}
+
+@mixin bg-light {
+    background-color: var( --greige );
+    color: var( --blue );
+}
+
+@mixin bg-dark {
+    background-color: var( --blue );
+    color: var( --greige );
 }
 
 html {
-    color: var( --text-color );
-    background-color: var( --background-color );
+    @include bg-light;
 }
 
-@mixin light {
-    background-color: var( --background-color );
-    color: var( --text-color );
+@mixin text-color-property ( $property ) {
+    &, &.bg-light, .bg-light & {
+        #{ $property }: var( --blue );
+    }
+    &.bg-dark, .bg-dark & {
+        #{ $property }: var( --greige );
+    }
 }
 
-@mixin dark {
-    background-color: var( --background-color );
-    color: var( --greige );
+@mixin background-color-property ( $property ) {
+    &, &.bg-light, .bg-light & {
+        #{ $property }: var( --greige );
+    }
+    &.bg-dark, .bg-dark & {
+        #{ $property }: var( --blue );
+    }
 }
 
 svg *[fill="#000"] {
     transition: fill .2s;
-    fill: var( --text-color );
+    @include text-color-property( 'fill' )
 }
+
 svg *[stroke="#000"] {
     transition: stroke .2s;
-    stroke: var( --text-color );
+    @include text-color-property( 'stroke' )
 }
 
 .bg-dark {
-    @include dark;
+    @include bg-dark;
     &::selection, *::selection {
-        @include light;
+        @include bg-light;
     }
 }
 
 .bg-light {
-    @include light;
-    &::selection, *::selection {
-        @include dark;
+    @include bg-light;
+    &::selection, & *::selection {
+        @include bg-dark;
     }
 }
 
-.bg-invert {
-    transition: color .2s, background-color .2s;
-    &:hover {
-        @include dark;
-        &.bg-dark, .bg-dark & {
-            @include light;
-        }
-    }
-}
+// .bg-invert {
+//     transition: color .2s, background-color .2s;
+//     &:hover {
+//         @include dark;
+//         &.bg-dark, .bg-dark & {
+//             @include light;
+//         }
+//     }
+// }
 
-.text-light {
+// .text-light {
     
-}
+// }

@@ -1,11 +1,15 @@
 html, body {
     min-height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+}
+
+html {
+    // overflow: hidden;
 }
 
 body {
     transition: background-color .2s, color .2s;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 a {

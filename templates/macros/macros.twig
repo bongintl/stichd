@@ -29,7 +29,8 @@
 {%- macro srcset( asset, ratio ) -%}
     {%- set srcset = [] -%}
     {%- for width in [ min( asset.width, 400 ), 600, 800, 1000, 1600 ] if width <= asset.width -%}
-        {%- set url = asset.getUrl({ width: width }) -%}
+        {%- set tf = { width: width } | merge( ratio ? { height: width * ratio } : {} ) -%}
+        {%- set url = asset.getUrl( tf ) -%}
         {%- set srcset = srcset | merge([ "#{ url } #{ width }w" ]) -%}
     {%- endfor -%}
     {{ srcset | join(', ') | raw }}
