@@ -1,6 +1,5 @@
 .menu {
     position: fixed;
-    top: var( --page-pad-top );
     left: 0;
     bottom: 0;
     width: 100%;
@@ -10,6 +9,12 @@
     overflow-y: scroll;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    .panels--with-full-header & {
+        top: var( --header-height );
+    }
+    .panels--with-compact-header & {
+        top: var( --header-height-compact );
+    }
     &--open {
         transform: none;
     }

@@ -1,3 +1,10 @@
+:root {
+    --data-grid-item-height: 4em;
+    @include large {
+        --data-grid-item-height: 6em;
+    }
+}
+
 .data-grid {
     display: flex;
     flex-wrap: wrap;
@@ -6,16 +13,16 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        --height: 4em;
+        --data-grid-item-height: 4em;
         @include large {
-            --height: 6em;
+            --data-grid-item-height: 6em;
         }
-        height: var( --height );
-        &--height-2 {
-            height: calc( var( --height ) * 2 );
+        height: var( --data-grid-item-height );
+        &--data-grid-item-height-2 {
+            height: calc( var( --data-grid-item-height ) * 2 );
         }
-        &--height-3 {
-            height: calc( var( --height ) * 3 );
+        &--data-grid-item-height-3 {
+            height: calc( var( --data-grid-item-height ) * 3 );
         }
         @include medium {
             width: 25%;

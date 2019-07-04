@@ -59,8 +59,11 @@
         left: 50%;
         z-index: 5003;
         transform: translate(-50%);
-        mix-blend-mode: difference;
-        color:var(--background-color);
+        color:var(--text-color);
+        @supports ( mix-blend-mode: difference ) {
+            mix-blend-mode: difference;
+            color: white;
+        }
         a {
             padding: 1em;
         }

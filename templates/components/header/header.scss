@@ -65,6 +65,7 @@
         margin: 0 var( --gutter );
         width: 25px;
         flex-shrink: 0;
+
         @include medium {
             margin: 0 calc( var( --gutter ) / 2 );
             width: 48px;

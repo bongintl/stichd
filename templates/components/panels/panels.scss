@@ -3,12 +3,6 @@
     @include medium {
         --panel-width: calc( 100vw - var( --gutter ) * 2 - 48px )
     }
-    // @include medium {
-    //     --panel-width: calc( 100vw - var( --gutter ) * 3 )
-    // }
-    // @include large {
-    //     --panel-width: calc( 100vw * 11/12 )
-    // }
 }
 
 .panels {
@@ -18,12 +12,6 @@
     }
     &--two {
         width: calc( var( --panel-width ) * 2 );
-    }
-    &--with-full-header {
-        --page-pad-top: var( --header-height );
-    }
-    &--with-compact-header {
-        --page-pad-top: var( --header-height-compact );
     }
     &__headers {
         display: flex;
@@ -64,7 +52,12 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        padding-top: var( --page-pad-top );
+        .panels--with-full-header & {
+            padding-top: var( --header-height )
+        }
+        .panels--with-compact-header & {
+            padding-top: var( --header-height-compact )
+        }
         .panels--two & {
             width: var( --panel-width );
         }

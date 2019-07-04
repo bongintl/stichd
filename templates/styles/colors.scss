@@ -11,15 +11,11 @@ html {
 }
 
 @mixin light {
-    --text-color: var( --blue );
-    --background-color: var( --greige );
     background-color: var( --background-color );
     color: var( --text-color );
 }
 
 @mixin dark {
-    --text-color: var( --greige );
-    --background-color: var( --blue );
     background-color: var( --background-color );
     color: var( --greige );
 }
