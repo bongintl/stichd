@@ -2,9 +2,8 @@
 
 <div class="{{ m.bem( 'search', { visible: craft.app.request.segments | first == 'search' } ) }} bg-light grid">
     <form class="xx" action="{{ siteUrl }}search" method="get">
-        <input class="text-xl search__input" type="text" name="q" placeholder="Search" value="{{ craft.app.request.getQueryParam('q') }}"></input>
+        <input class="search__input" type="text" name="q" placeholder="Search" value="{{ craft.app.request.getQueryParam('q') }}"></input>
     </form>
-    
     <div class="search__close search__close--small" data-toggle-search>
         {% include 'components/header/icon_x.svg' %}
     </div>

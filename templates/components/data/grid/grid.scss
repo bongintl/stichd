@@ -21,10 +21,10 @@
             --data-grid-item-height: 6em;
         }
         height: var( --data-grid-item-height );
-        &--data-grid-item-height-2 {
+        &--height-2 {
             height: calc( var( --data-grid-item-height ) * 2 );
         }
-        &--data-grid-item-height-3 {
+        &--height-3 {
             height: calc( var( --data-grid-item-height ) * 3 );
         }
         @include medium {

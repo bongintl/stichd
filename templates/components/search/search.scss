@@ -20,7 +20,7 @@
     }
     &__close {
         cursor: pointer;
-        padding: 0 var( --gutter );
+        padding: 0 calc( var( --gutter ) / 2 );
         align-items: center;
         &--small {
             display: flex;
@@ -46,6 +46,13 @@
         width: 100%;
         height: 100%;
         top: .1em;
+        font-size: 42px;
+        @include medium {
+            font-size: 60px;
+        }
+        // @include large {
+        //     font-size: 60px;
+        // }
         &::placeholder {
             @supports ( -webkit-text-fill-color: transparent ) {
                 -webkit-text-fill-color: transparent;

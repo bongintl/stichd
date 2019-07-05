@@ -14,7 +14,7 @@
                         {{ item.percentage }}%
                     </a>
                 </div>
-                {% if loop.index == floor( data | length * 1/4 ) %}
+                {% if loop.index == floor( data | length * 1/6 ) %}
                     <div
                         class="data-grid__item data-grid__item--height-2"
                         style="background-image: url({{ baseUrl }}static/img/illustration_chameleon.png)"

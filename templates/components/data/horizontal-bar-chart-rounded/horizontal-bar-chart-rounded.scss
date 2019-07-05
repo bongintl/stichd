@@ -5,6 +5,7 @@
         z-index: 10;
         width: 6em;
         flex-basis: 6em;
+        flex-shrink: 0;
         @include medium {
             width: 8em;
             flex-basis: 8em;
@@ -12,6 +13,7 @@
     }
     &__bar {
         border-radius: 0 100vw 100vw 0;
+        min-width: 4em;
     }
     &__percentage {
         border-radius: 100vw;
