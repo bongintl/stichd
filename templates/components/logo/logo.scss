@@ -1,14 +1,14 @@
-svg.logo {
-    &--large {
-        display: none;
-        @include medium {
-            display: block;
-        }
-    }
-    &--small {
-        margin: 0 auto;
-        @include medium {
-            display: none;
-        }
-    }
-}
+// svg.logo {
+//     &--large {
+//         display: none;
+//         @include large {
+//             display: block;
+//         }
+//     }
+//     &--small {
+//         margin: 0 auto;
+//         @include large {
+//             display: none;
+//         }
+//     }
+// }
