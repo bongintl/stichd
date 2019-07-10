@@ -2,6 +2,7 @@
 {% set href = href ?? null %}
 {% set target = target ?? null %}
 {% set icon = icon ?? null %}
+{% set class = class ?? null %}
 
 {% set content %}
     {% if label %}
@@ -18,7 +19,7 @@
 
 {% if href %}
     <a
-        class="button text-l"
+        class="button text-l {{ class }}"
         href="{{ href }}"
         {% if target %}
             target="{{ target }}"

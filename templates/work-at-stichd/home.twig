@@ -11,6 +11,12 @@
                 {% endset %}
                 {% include 'components/button/button' with { label: buttonLabel, icon: 'search' } %}
             </a>
+            {% include 'components/button/button' with {
+                label: 'All jobs',
+                href: siteUrl ~ 'vacancies',
+                icon: 'arrow',
+                class: 's-gap-top-half'
+            } only %}
         </div>
     </div>
     {% include 'components/home/home-images' with { images: props.images, magnifiedImages: props.magnifiedImages } only %}
