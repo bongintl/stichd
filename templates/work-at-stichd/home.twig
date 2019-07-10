@@ -7,10 +7,11 @@
             <a data-toggle-search>
                 {% set buttonLabel %}
                     <div class="m-hide">Search jobs</div>
-                    <div class="s-hide m-show">Search jobs by keyword</div>
+                    <div class="s-hide m-show">Search jobs</div>
                 {% endset %}
                 {% include 'components/button/button' with { label: buttonLabel, icon: 'search' } %}
             </a>
+            <div class="m-hide"></div>
             {% include 'components/button/button' with {
                 label: 'All jobs',
                 href: siteUrl ~ 'vacancies',
