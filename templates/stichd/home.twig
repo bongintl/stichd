@@ -14,6 +14,18 @@
 {% endset %}
 
 {% block content %}
+
+    <h1 class="hidden">{{ entry.title }}</h1>
+    
+    {% if craft.app.request.referrer == '' %}
+        {% set holdingEntry = craft.entries.section('holding').one %}
+        {% if holdingEntry and holdingEntry.video | length %}
+            {% include 'components/holding/holding' with {
+                video: holdingEntry.video.one
+            } only %}
+        {% endif %}
+    {% endif %}
+
     <div class="db s-pad-top-1 l-pad-top-2" data-panel-section-id="intro">
         <div class="grid">
             <div class="s-col-12 s-gap-bottom-2 text-xl">

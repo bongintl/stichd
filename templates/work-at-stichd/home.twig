@@ -39,6 +39,9 @@
 {% endset %}
 
 {% block content %}
+
+    <h1 class="hidden">{{ entry.title }}</h1>
+
     {% if craft.request.urlReferrer == null %}
         {% include 'components/splash/splash' only %}
     {% endif %}

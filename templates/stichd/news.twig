@@ -3,6 +3,8 @@
 {% extends 'stichd/layout' %}
 {% block content %}
     
+    <h1 class="hidden">News</h1>
+
     {% set complex = craft.app.request.getQueryParam('complex') ?? 0 %}
     {% set order = complex and craft.app.request.getQueryParam('order') ? craft.app.request.getQueryParam('order') : 'date' %}
     {% set dir = complex and craft.app.request.getQueryParam('dir') ? craft.app.request.getQueryParam('dir') : 'desc' %}

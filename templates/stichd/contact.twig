@@ -1,5 +1,8 @@
 {% extends 'stichd/layout' %}
 {% block content %}
+
+    <h1 class="hidden">{{ entry.title }}</h1>
+
     {% for location in entry.contactLocations.all %}
         {% set props = location | merge({ borderBottom: not loop.last }) %}
         {% include 'components/contact/contact' with props only %}

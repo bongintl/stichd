@@ -1,10 +1,16 @@
 {% extends 'work-at-stichd/layout' %}
+
+{% set test =  entry.title %}
 {% set backUrl = craft.entries.section('workAtStichd_vacanciesIndex').one.url %}
 {% set applyUrl = "mailto:#{ globals.workAtStichdEmail }?#{ { subject: globals.applyEmailSubject, body: globals.applyEmailBody } | url_encode }" %}
+
+
 {% block content %}
+
+
     <div class="grid s-pad-top-2 s-pad-bottom-2 l-pad-bottom-4">
         <div class="s-col-12 l-col-6">
-            <h2 class="text-xl s-gap-bottom-half">{{ entry.title }}</h2>
+            <h1 class="text-xl s-gap-bottom-half">{{ entry.title }}</h1>
             <div class="s-pad-bottom-1">
                 {% for item in [ entry.jobDepartment, entry.jobLocation, entry.jobContract ] | filter( _ => _ ) %}
                     <span class="text-s circle db">{{ item }}</span>

@@ -586,6 +586,38 @@ blockquote {
 .text-adjust {
   top: -.07em; }
 
+table {
+  width: 100%; }
+  table th, table td {
+    border-width: 1px;
+    border-style: solid;
+    padding: 0.5em; }
+    table th {
+      border-color: #171B2E; }
+    table th.bg-light {
+      border-color: #171B2E; }
+    .bg-light table th {
+      border-color: #171B2E; }
+    table td {
+      border-color: #171B2E; }
+    table td.bg-light {
+      border-color: #171B2E; }
+    .bg-light table td {
+      border-color: #171B2E; }
+    table th.bg-dark {
+      border-color: #E7E3D1; }
+    .bg-dark table th {
+      border-color: #E7E3D1; }
+    table td.bg-dark {
+      border-color: #E7E3D1; }
+    .bg-dark table td {
+      border-color: #E7E3D1; }
+
+h1.hidden {
+  pointer-events: none;
+  position: absolute;
+  left: 9999px; }
+
 .x {
   display: flex; }
 

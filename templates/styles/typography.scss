@@ -236,3 +236,16 @@ blockquote {
 }
 
 
+table {
+    width: 100%;
+    th, td {
+        @include border;
+        padding: 0.5em;
+    }
+}
+
+h1.hidden {
+    pointer-events: none;
+    position: absolute;
+    left: 9999px;
+}

@@ -1,6 +1,9 @@
 {% extends 'work-at-stichd/layout' %}
 {% block content %}
 
+<h1 class="hidden">Editorial</h1>
+
+
 <div class="s-pad-bottom-2 l-pad-bottom-4">
     {% set query = craft.entries()
         .section( 'workAtStichd_editorials' )
