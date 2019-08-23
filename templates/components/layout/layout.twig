@@ -30,7 +30,7 @@
 
     	{% if globals.favicon16 | length %}<link rel="icon" href="{{ globals.favicon16.first.url }}" sizes="16x16">{% endif %}
         {% if globals.favicon32 | length %}<link rel="icon" href="{{ globals.favicon32.first.url }}" sizes="32x32">{% endif %}
-        <link rel="stylesheet" href="{{ m.baseUrl() }}static/style.css" type="text/css" />
+        <link rel="stylesheet" href="{{ m.baseUrl() }}static/style.css?1" type="text/css" />
     </head>
     <body class="{{ dark ? 'bg-dark' }}">
 
@@ -49,6 +49,6 @@
         } only %}
         {% include 'components/search/search' only %}
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-        <script type="text/javascript" src="{{ m.baseUrl() }}static/main.js"></script>
+        <script type="text/javascript" src="{{ m.baseUrl() }}static/main.js?1"></script>
     </body>
 </html>
