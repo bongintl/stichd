@@ -28,7 +28,7 @@
     "onchange": "^6.0.0",
     "parcel-bundler": "^1.12.3",
     "picturefill": "^3.0.3",
-    "postcss": "^7.0.17",
+    "postcss": "^8.2.10",
     "postcss-calc": "^7.0.1",
     "postcss-cli": "^6.1.2",
     "postcss-css-variables": "^0.13.0",
